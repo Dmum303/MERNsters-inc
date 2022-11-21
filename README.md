@@ -73,6 +73,14 @@ https://github.com/Dmum303/MERNsters-inc.git
 
 ```
 
+Run the frontend:
+
+```
+cd frontend
+npm install
+npm run dev
+```
+
 # Project setup
 
 1. Fork this repository
