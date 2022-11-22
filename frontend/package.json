@@ -10,14 +10,19 @@
     "test": "vitest --coverage"
   },
   "dependencies": {
+    "express": "^4.18.2",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "react-router": "^6.3.0",
+    "react-router-dom": "^6.4.3",
+    "react-scripts": "5.0.1"
   },
   "devDependencies": {
     "@types/react": "^18.0.24",
     "@types/react-dom": "^18.0.8",
     "@vitejs/plugin-react": "^2.2.0",
     "@vitest/coverage-c8": "^0.25.2",
+    "nodemon": "^2.0.20",
     "vite": "^3.2.3",
     "vitest": "^0.25.2"
   }
