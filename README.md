@@ -121,3 +121,30 @@ npm run dev
 You should now be able to open your browser and go to `http://localhost:3000/` which directs you to the hompeage, where you can sign-up or log in.
 
 (Add heroku link here)
+
+## Running mongoDB
+
+```shell
+   # Start the mongo terminal/REPL
+   mongosh
+```
+
+## Mongosh commands
+
+```shell
+   # Show all databases
+   show dbs
+
+   # Switch to a database
+   use <database name>
+
+   # Show all collections in the current database
+   show collections
+
+   # Show all documents in a collection
+   db.<collection name>.find()
+
+   # Show all documents in a collection, formatted
+   db.<collection name>.find().pretty()
+```
+
