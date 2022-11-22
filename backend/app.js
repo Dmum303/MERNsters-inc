@@ -1,6 +1,3 @@
-// npm install --save-dev nodemon which auto runs server with command npm run devStart, then whenever save it reloads - should be a
-// "devStart": "nodemon server.js" script in package.json
-
 const createError = require('http-errors');
 //installed npm install http-errors, Create HTTP errors for Express, Koa, Connect, etc. with ease.
 const express = require('express');
