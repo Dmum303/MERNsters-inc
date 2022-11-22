@@ -1,0 +1,62 @@
+@import url('https://fonts.googleapis.com/css2?family=Readex+Pro&display=swap');
+
+
+#homepage-body {
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+
+* {
+    font-family: 'Readex Pro', sans-serif;
+}
+
+.logo {
+    height: 25px;
+    width: auto;
+}
+
+
+body {
+    width: 100vw;
+    height: 100vh; 
+    position: relative;
+    background-image: linear-gradient(
+        to bottom,
+        rgba(0,0,0,0.65) 0%,
+        rgba(0,0,0,0)100%
+    )
+}
+
+h1 {
+    /* position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin: 0; */
+}
+
+.signup-title {
+    font-size: 30px;
+    color: rgb(255, 255, 255);
+    /* bottom: 50%; */
+}
+
+.signup-button {
+    color: rgb(255,255,255);
+    text-transform: uppercase;
+    font-size: 15px;
+    background: linear-gradient(45deg, rgb(254, 48, 114), rgb(255, 89, 64));
+    padding: 12px 30px;
+    border-radius: 30px;
+    border: none;
+    text-align: center;
+    /* height: 90px; 
+    width: 120px; */
+}
+
+.signup-button:hover {
+    background: linear-gradient(260deg, rgb(254, 48, 114), rgb(255, 89, 64));
+}
+
