@@ -44,7 +44,7 @@ const tokenChecker = (req, res, next) => {
 app.get('/', (req, res) => {
   console.log('sever is working');
   //   res.sendStatus(500);
-  res.send("I'm from the server");
+  res.send("I'm from the server whoo");
 });
 
 app.listen(3000);
