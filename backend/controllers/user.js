@@ -1,9 +1,9 @@
-const Message = require('../models/message');
+const User = require('../models/user');
 
 const addUser = async (req, res) => { 
   try {
-    // const message = new Message(req.body);
-    // await message.save();
+    const user = new User(req.body);
+    await user.save();
     res.status(201).send('Make user');
   } catch (error) {
     console.log(error);
