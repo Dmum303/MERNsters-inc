@@ -7,14 +7,29 @@
 var app = require('../app');
 var debug = require('debug')('backend:server');
 var http = require('http');
-
+var mongoose = require("mongoose");
 /**
  * Get port from environment and store in Express.
  */
 
-var port = normalizePort(process.env.PORT || '3000');
+var port = normalizePort(process.env.PORT || '8080');
 app.set('port', port);
 
+
+/**
+ * Connect to MongoDB
+ **/
+
+ var mongoDbUrl = process.env.MONGODB_URL || "mongodb://0.0.0.0/mernsters";
+ mongoose.connect(mongoDbUrl, {
+   useNewUrlParser: true,
+   useUnifiedTopology: true,
+ });
+ 
+ var db = mongoose.connection;
+ db.on("error", console.error.bind(console, "MongoDB connection error:"));
+
+ 
 /**
  * Create HTTP server.
  */
