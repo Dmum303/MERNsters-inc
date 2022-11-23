@@ -7,7 +7,7 @@ import { BrowserRouter } from 'react-router-dom';
 const PersonalInfo = () => {
     return (
     <>
-    <div></div>
+    <div>Personal</div>
     </>
     )
 } 

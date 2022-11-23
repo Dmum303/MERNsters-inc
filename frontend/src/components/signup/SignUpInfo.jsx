@@ -7,9 +7,9 @@ import { BrowserRouter } from 'react-router-dom';
 const SignUpInfo = () => {
     return (
     <>
-    <div>Other</div>
+    <div>SignUp</div>
     </>
     )
 } 
 
-export default SignUpInfo;
+export default PersonalInfo;

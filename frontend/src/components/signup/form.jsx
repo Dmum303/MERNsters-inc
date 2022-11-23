@@ -9,9 +9,13 @@ const Form = () => {
     const [page, setPage] = useState(0);
 
     const FormTitles = ["Sign Up", "Personal Info", "Other"];
+    const PageDisplay = () => {
+        return <h1> Hello world </h1>
+    }
+
+
     return(
         <>
-        <h1>Signup</h1>
         <div className='form'></div>
         <div className='progressbar'></div>
         <div className='form-container'></div>
@@ -23,12 +27,20 @@ const Form = () => {
 
         <div className='form-body'></div>
         <div className='form-footer'></div>
-        <button className='prev-btn'>Previous</button>
+        <button className='prev-btn'
+            disabled={page == 0 }
+            onClick={() => {
+                setPage((currPage) => currPage - 1)
+            }}
 
-        <button className='next-btn' onClick={() => {
+        >Previous</button>
+
+        <button className='next-btn' 
+        disabled={page == FormTitles.length - 1 }
+        onClick={() => {
             setPage((currPage) => currPage + 1)
         }}>Next</button>
-        
+
         </>
     )
 }
