@@ -1,15 +1,15 @@
 const mongoose = require('mongoose');
 
-// require('../mongodb_helper');
-require('simple-mongodb-helper');
+require('../spec/mongodb_helper');
+// require('simple-mongodb-helper');
 const User = require('../models/user');
 
 describe('User model', () => {
-  // beforeEach((done) => {
-  //   mongoose.connection.collections.users.drop(() => {
-  //     done();
-  //   });
-  // });
+  beforeEach((done) => {
+    mongoose.connection.collections.users.drop(() => {
+      done();
+    });
+  });
 
   it('has an email address', () => {
     const user = new User({
@@ -31,13 +31,13 @@ describe('User model', () => {
     expect(user.password).toEqual('password');
   });
 
-  // it('can list all users', (done) => {
-  //   User.find((err, users) => {
-  //     expect(err).toBeNull();
-  //     expect(users).toEqual([]);
-  //     done();
-  //   });
-  // });
+  it('can list all users', (done) => {
+    User.find((err, users) => {
+      expect(err).toBeNull();
+      expect(users).toEqual([]);
+      done();
+    });
+  });
 
   it('can save a user', (done) => {
     const user = new User({
@@ -46,24 +46,23 @@ describe('User model', () => {
       firstName: 'some',
       lastName: 'one',
     });
+
+    user.save((err) => {
+      expect(err).toBeNull();
+
+      User.find((err, users) => {
+        expect(err).toBeNull();
+
+        expect(users[0]).toMatchObject({
+          email: 'someone@example.com',
+          password: 'password',
+          firstName: 'some',
+          lastName: 'one',
+        });
+        done();
+      });
+    });
   });
-
-  //     user.save((err) => {
-  //       expect(err).toBeNull();
-
-  //       User.find((err, users) => {
-  //         expect(err).toBeNull();
-
-  //         expect(users[0]).toMatchObject({
-  //           email: 'someone@example.com',
-  //           password: 'password',
-  //           firstName: 'some',
-  //           lastName: 'one',
-  //         });
-  //         done();
-  //       });
-  //     });
-  //   });
 
   //   // TODO: Finish this test. Testing the friendslist.
   //   it('can add friends', (done) => {
