@@ -108,7 +108,7 @@ npm run dev
 1. Start the server
    ```
    ; cd api
-   ; xxxxxx npm start
+   ; xxxxxx npm run devStart
    ```
 2. Start the front end
 
