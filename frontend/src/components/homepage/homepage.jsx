@@ -24,7 +24,7 @@ const Homepage = () => {
         </div>
         
 
-        <div className='nav-bar'>       <img className='logo' src="https://static.dezeen.com/uploads/2017/08/tinder-redesign-graphics_dezeen_sq-1.jpg"/></div>
+        <div className='nav-bar'>       <img src="https://static.dezeen.com/uploads/2017/08/tinder-redesign-graphics_dezeen_sq-1.jpg"/></div>
         <div className='signup-form'></div>
         <div className='signup-button'><p>Sign up form</p></div>
         <div className='homepage-body'></div>
