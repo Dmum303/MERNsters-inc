@@ -4,6 +4,7 @@ import ReactDOM from 'react-dom/client';
 import './homepage.css'
 import App from '../../App.jsx';
 import { BrowserRouter } from 'react-router-dom';
+import NavBar from './navbar';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -16,20 +17,20 @@ root.render(
 
 const Homepage = () => {
     return(
-        <div className='overlay'>
-
+      <>
+      <NavBar />
+      <div className='homepage-form'>
+        
         <div className='signup-title'>
-        <h1>friendzone</h1>
+        <h1>Swipe Right®</h1>
         </div>
-    
-        <div className='signup-form'></div>
-        <div className='signup-button'><p>Sign up form</p></div>
-        <div className='homepage-body'></div>
+  
+        <div className='signup-button'><p>Create an account</p></div>
         <div className='footer'></div>
 
-        </div>
 
-    
+    </div> 
+    </>
     )
 }
 
