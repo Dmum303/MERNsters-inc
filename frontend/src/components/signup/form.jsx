@@ -1,5 +1,8 @@
 import React, { useState } from 'react'
 import ReactDOM from 'react-dom/client';
+import SignUpInfo from "./SignUpInfo";
+import PersonalInfo from "./PersonalInfo";
+import OtherInfo from "./OtherInfo";
 // import './signup.css'
 import App from '../../App.jsx';
 import { BrowserRouter } from 'react-router-dom';
@@ -10,7 +13,12 @@ const Form = () => {
 
     const FormTitles = ["Sign Up", "Personal Info", "Other"];
     const PageDisplay = () => {
-        return <h1> Hello world </h1>
+        if (page === 0) {
+            return <SignUpInfo />
+        } else if (page == 1) {
+            return <PersonalInfo />
+        } else 
+            return <OtherInfo />
     }
 
 
@@ -25,7 +33,7 @@ const Form = () => {
             <h1>{FormTitles[page]}</h1>
         </div>
 
-        <div className='form-body'></div>
+        <div className='form-body'>{PageDisplay()}</div>
         <div className='form-footer'></div>
         <button className='prev-btn'
             disabled={page == 0 }
