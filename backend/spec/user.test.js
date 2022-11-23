@@ -40,11 +40,17 @@ describe('User model', () => {
   });
 
   it('can save a user', (done) => {
+    date = new Date('2022-01-01')
     const user = new User({
-      email: 'someone@example.com',
-      password: 'password',
       firstName: 'some',
       lastName: 'one',
+      email: 'someone@example.com',
+      password: 'password',
+      profilePic: 'https://i.imgur.com/1Q9ZQ9u.png',
+      interests: ['Sports'],
+      birthday: date,
+      gender: 'Male'
+      
     });
 
     user.save((err) => {
@@ -54,10 +60,14 @@ describe('User model', () => {
         expect(err).toBeNull();
 
         expect(users[0]).toMatchObject({
-          email: 'someone@example.com',
-          password: 'password',
           firstName: 'some',
           lastName: 'one',
+          email: 'someone@example.com',
+          password: 'password',
+          profilePic: 'https://i.imgur.com/1Q9ZQ9u.png',
+          birthday: date,
+          interests: ['Sports'],
+          gender: 'Male'
         });
         done();
       });
