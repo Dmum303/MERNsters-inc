@@ -5,7 +5,7 @@ import App from '../../App.jsx';
 import { BrowserRouter } from 'react-router-dom';
 import { useState } from 'react';
 
-const OtherInfo = () => {
+const OtherInfo = ({formData, setFormData}) => {
     const [gender, setGender] = useState("Female");
 
     function onChangeValue(event) {
