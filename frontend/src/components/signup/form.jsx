@@ -87,7 +87,6 @@ const Form = () => {
             {page === FormTitles.length - 1 ? "Submit" : "Next"}
           </button>
         </div>
-
         </>
     )
 }

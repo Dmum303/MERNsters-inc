@@ -9,7 +9,6 @@ const userSchema = new mongoose.Schema({
   password: { type: String, required: true },
   profilePic: {
     type: String,
-    required: true,
     default: 'https://i.imgur.com/1Q9ZQ9u.png',
   },
   interests: { type: Array, required: true },

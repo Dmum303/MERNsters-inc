@@ -13,7 +13,7 @@ const {
 
  // checks for any missing fields
  if (!firstName || !lastName || !email || !password
-  || !profilePic || !interests || !birthday || !gender) {
+   || !interests || !birthday || !gender) {
     res.status(400).json({message: 'Please fill out all fields'});
     throw new Error('Please fill out all fields');
   }
@@ -26,9 +26,11 @@ const {
   }
 
   const user = await User.create({
-    firstName, lastName, email, password, profilePic,
+    firstName, lastName, email, password,
     interests, birthday, gender
   })
+
+  profilePic && (user.profilePic = profilePic);
 
   user.save();
 
