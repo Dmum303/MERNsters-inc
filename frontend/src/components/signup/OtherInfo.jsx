@@ -13,6 +13,8 @@ const OtherInfo = () => {
       console.log(event.target.value);
     }
 
+    const current = new Date().toISOString().split("T")[0]
+
     return (
     <>
     <div className='other-info-container'>
@@ -21,6 +23,10 @@ const OtherInfo = () => {
             <input type="radio" value="Male" name="gender" checked={gender === "Male"} /> Male
             <input type="radio" value="Other" name="gender" checked={gender === "Other"} /> Other
         </div>
+        <input type={'text'} placeholder={'Age'} />
+        <input type={'text'} placeholder={'Height'} />
+        <input type={'text'} placeholder={'Dietary Restrictions'} />
+        <input type= {'date'} placeholder={'Date of Birth'} max={current} />
     </div>
     </>
     )
