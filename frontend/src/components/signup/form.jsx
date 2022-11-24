@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import ReactDOM from 'react-dom/client';
 
 import SignUpInfo from "./SignUpInfo";
 import PersonalInfo from "./PersonalInfo";
