@@ -16,10 +16,16 @@ const PersonalInfo = ({formData, setFormData}) => {
     <>
 
     <div className='personal-info-containter'>
+    <label> Profile pic: <br/>
         <input type={'file'} placeholder={'Profile picture'} value={formData.profilePic}
         onChange={(event) =>
           setFormData({ ...formData, profilePic: event.target.value })}
           />
+          </label>
+          <br/>
+          <br/>
+          <br/>
+          <label> Interest:
         <div onChange={onChangeValue}>
             <input type="radio" value={formData.interest}
                 onChange={(event) =>
@@ -30,6 +36,7 @@ const PersonalInfo = ({formData, setFormData}) => {
             <input type="radio" value="Ker-Plucking" name="interest" checked={interest === "Ker-Plucking"} /> Ker-Plucking
             <input type="radio" value="News-raising" name="interest" checked={interest=== "News-raising"} /> News-raising
         </div>
+        </label>
     </div>
 
 
