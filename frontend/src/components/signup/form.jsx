@@ -15,7 +15,7 @@ const Form = () => {
       password: "",
       confirmPassword: "",
       profilePic: "",
-      interest: "Heli-skiing",
+      interests: "Heli-skiing",
       birthday: "",
       gender: ""
     });

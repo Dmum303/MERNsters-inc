@@ -3,7 +3,7 @@ import { useState } from "react";
 
 const PersonalInfo = ({ formData, setFormData }) => {
   function onChangeValue(event) {
-    setFormData({ ...formData, interest: event.target.value });
+    setFormData({ ...formData, interests: event.target.value });
     console.log(event.target.value);
   }
 
