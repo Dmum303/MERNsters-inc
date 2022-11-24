@@ -18,10 +18,14 @@ const OtherInfo = ({formData, setFormData}) => {
     return (
     <>
     <div className='other-info-container'>
+    <label> Date of birth: 
     <input type= {'date'} placeholder={'Birthday'} max={current} value={formData.birthday}
         onChange={(e) => {
           setFormData({ ...formData, birthday: e.target.value });
         }} />
+        </label>
+        <label>Gender: 
+        <br/>
         <div onChange={onChangeValue}>
             <input type="radio"  name="gender" checked={gender === "Female"}
                 value={formData.female}
@@ -34,6 +38,7 @@ const OtherInfo = ({formData, setFormData}) => {
             <input type="radio" name="gender" checked={gender === "Other"} value={formData.other} onChange={(e) => {
                     setFormData({ ...formData, gender: e.target.value });}}/> Other
         </div>
+        </label>
     </div>
 
 
