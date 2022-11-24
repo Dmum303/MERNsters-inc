@@ -81,7 +81,7 @@ const Form = () => {
         <button className='next-btn' 
          onClick={() => {
               if (page === FormTitles.length - 1) {
-                alert("FORM SUBMITTED");
+                submitForm();
                 console.log(formData);
               } else {
                 setPage((currPage) => currPage + 1);
