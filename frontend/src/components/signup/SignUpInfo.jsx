@@ -7,7 +7,15 @@ import { BrowserRouter } from 'react-router-dom';
 const SignUpInfo = () => {
     return (
     <>
-    <div>Sign up placeholder</div>
+    <div className='sign-up-container'>
+        <input type={'text'} placeholder={'First Name'} />
+        <input type={'text'} placeholder={'Last Name'} />
+        <input type={'text'} placeholder={'Email'} />
+        <input type={'text'} placeholder={'Password'} />
+        <input type={'text'} placeholder={'Confirm Password'} />
+    
+
+    </div>
     </>
     )
 } 
