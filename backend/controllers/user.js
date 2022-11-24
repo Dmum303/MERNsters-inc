@@ -1,7 +1,7 @@
 const jwt = require('jsonwebtoken');
 const asyncHandler = require('express-async-handler');
 const User = require('../models/user');
-
+const bcrypt = require('bcrypt');
 
 const addUser = asyncHandler(async (req, res) => { 
 const { 
@@ -53,7 +53,7 @@ const loginUser = asyncHandler(async (req, res) => {
 
   const user = await User.findOne({ email });
 
-  if (user && password === user.password) {
+  if (user && bcrypt.compare(password, user.password)) {
 
     res.json({
       _id: user._id,
@@ -63,7 +63,7 @@ const loginUser = asyncHandler(async (req, res) => {
       profilePic: user.profilePic,
       interests: user.interests,
       birthday: user.birthday,
-      token: 'add-token-here',
+      token: generateToken(user._id),
     })
   }
   else {
