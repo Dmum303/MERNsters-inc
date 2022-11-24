@@ -6,6 +6,9 @@ import { BrowserRouter } from 'react-router-dom';
 import SignUpInfo from "./SignUpInfo";
 import PersonalInfo from "./PersonalInfo";
 import OtherInfo from "./OtherInfo";
+// import './signup.css'
+
+import App from '../../App.jsx';
 
 const Form = () => {
     const [page, setPage] = useState(0);
