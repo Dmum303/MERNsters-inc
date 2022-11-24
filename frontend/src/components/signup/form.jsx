@@ -4,9 +4,6 @@ import ReactDOM from 'react-dom/client';
 import SignUpInfo from "./SignUpInfo";
 import PersonalInfo from "./PersonalInfo";
 import OtherInfo from "./OtherInfo";
-// import './signup.css'
-
-import App from '../../App.jsx';
 
 const Form = () => {
     const [page, setPage] = useState(0);
@@ -26,7 +23,7 @@ const Form = () => {
     
     // function that sends post signup request to backend
     const submitForm = () => {
-      fetch('/users/', {
+      fetch('/api/users/', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
