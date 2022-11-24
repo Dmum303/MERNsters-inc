@@ -4,14 +4,8 @@ const User = require('../models/user');
 
 const addUser = asyncHandler(async (req, res) => { 
 const { 
-  firstName,
-  lastName,
-  email,
-  password,
-  profilePic,
-  interests,
-  birthday,
-  gender,
+  firstName, lastName, email, password, profilePic,
+  interests, birthday, gender,
  } = req.body;
 
  if (!firstName || !lastName || !email || !password
@@ -43,6 +37,7 @@ res.status(201).json({
   message: 'Make user',
   firstName: user.firstName,
   email: user.email,
+  token: 'add-token-here',
 });
 });
 
@@ -51,11 +46,43 @@ const getMe = asyncHandler(async (req, res) => {
 })
 
 const loginUser = asyncHandler(async (req, res) => {
-  try {
-    res.send('login user');
-  } catch (error) {
-    res.status(400).send('Unable to login');
+  const { email, password } = req.body;
+
+  if (!email || !password) {
+    res.status(400).json({message: 'Please fill out all fields'});
+    throw new Error('Please fill out all fields');
+  }
+
+  const user = await User.findOne({
+    email
+  });
+
+
+
+  if (user && password === user.password) {
+    // let token = generateToken(user._id);
+    // console.log(token);
+
+    res.json({
+      _id: user._id,
+      firstName: user.firstName,
+      lastName: user.lastName,
+      email: user.email,
+      profilePic: user.profilePic,
+      interests: user.interests,
+      birthday: user.birthday,
+      token: 'add-token-here',
+    })
+  }
+  else {
+    res.status(401).json({message: 'Invalid email or password'});
+    throw new Error('Invalid email or password');
   }
 })
+
+// Generate JWT token
+const generateToken = (id) => {
+  return jwt.sign({ id }, process.env.JWT_SECRET);
+}
 
 module.exports = { addUser, getMe, loginUser };
