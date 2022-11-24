@@ -4,12 +4,12 @@ import ReactDOM from 'react-dom/client';
 import App from '../../App.jsx';
 import { BrowserRouter } from 'react-router-dom';
 
-const OtherInfo = () => {
+const SignUpInfo = () => {
     return (
     <>
-    <div>Other info placeholder</div>
+    <div>Sign up placeholder</div>
     </>
     )
 } 
 
-export default OtherInfo;
+export default SignUpInfo;
