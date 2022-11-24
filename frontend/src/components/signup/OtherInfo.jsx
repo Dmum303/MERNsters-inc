@@ -15,6 +15,7 @@ const OtherInfo = ({formData, setFormData}) => {
 
     const current = new Date().toISOString().split("T")[0]
 
+
     return (
     <>
     <div className='other-info-container'>
@@ -25,6 +26,9 @@ const OtherInfo = ({formData, setFormData}) => {
             <input type="radio" value="Other" name="gender" checked={gender === "Other"} /> Other
         </div>
     </div>
+
+
+
     </>
     )
 } 

@@ -1,8 +1,13 @@
+
 import React, { useState } from 'react'
+
+
+
 import ReactDOM from 'react-dom/client';
 // import './signup.css'
 import App from '../../App.jsx';
 import { BrowserRouter } from 'react-router-dom';
+
 
 const SignUpInfo = ({formData, setFormData}) => {
     // const [firstName, setFirstName] = useState("");
@@ -40,6 +45,10 @@ const SignUpInfo = ({formData, setFormData}) => {
           setFormData({ ...formData, confirmPassword: event.target.value })
         }/>
     </div>
+
+
+
+
     </>
     )
 } 

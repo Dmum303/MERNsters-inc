@@ -15,6 +15,7 @@ const PersonalInfo = ({formData, setFormData}) => {
 
     return (
     <>
+
     <div className='personal-info-containter'>
         <input type={'file'} placeholder={'Profile picture'} value={formData.profilePic}
         onChange={(event) =>
@@ -31,6 +32,9 @@ const PersonalInfo = ({formData, setFormData}) => {
             <input type="radio" value="News-raising" name="interest" checked={interest=== "News-raising"} /> News-raising
         </div>
     </div>
+
+
+
     </>
     )
 } 

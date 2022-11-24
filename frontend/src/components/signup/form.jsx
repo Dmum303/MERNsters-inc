@@ -1,6 +1,11 @@
 import React, { useState } from 'react'
 import ReactDOM from 'react-dom/client';
-// import 'signup.css'
+
+import SignUpInfo from "./SignUpInfo";
+import PersonalInfo from "./PersonalInfo";
+import OtherInfo from "./OtherInfo";
+// import './signup.css'
+
 import App from '../../App.jsx';
 import { BrowserRouter } from 'react-router-dom';
 import PersonalInfo from './personalInfo.jsx';
@@ -27,6 +32,7 @@ const Form = () => {
 
     const FormTitles = ["Sign Up", "Personal Info", "Other"];
 
+
     const PageDisplay = () => {
         if (page === 0) {
           return <SignUpInfo formData={formData} setFormData={setFormData} />;
@@ -36,6 +42,7 @@ const Form = () => {
           return <OtherInfo formData={formData} setFormData={setFormData} />;
         }
       };
+
 
     return(
         <>
@@ -55,6 +62,7 @@ const Form = () => {
         <div className='form-body'>{PageDisplay()}</div>
         <div className='form-footer'></div>
         <button className='prev-btn'
+
             disabled={page == 0}
             onClick={() => {
               setPage((currPage) => currPage - 1);
@@ -73,6 +81,7 @@ const Form = () => {
             {page === FormTitles.length - 1 ? "Submit" : "Next"}
           </button>
         </div>
+
         </>
     )
 }
