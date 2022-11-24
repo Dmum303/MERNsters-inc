@@ -7,11 +7,6 @@ import OtherInfo from "./OtherInfo";
 // import './signup.css'
 
 import App from '../../App.jsx';
-import { BrowserRouter } from 'react-router-dom';
-import PersonalInfo from './personalInfo.jsx';
-import SignUpInfo from './SignUpInfo.jsx';
-import OtherInfo from './otherInfo.jsx';
-
 
 const Form = () => {
     const [page, setPage] = useState(0);
