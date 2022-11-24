@@ -15,7 +15,6 @@ const Form = () => {
       userName: "",
       firstName: "",
       lastName: "",
-      firstName: "",
       email: "",
       password: "",
       confirmPassword: "",
@@ -23,7 +22,6 @@ const Form = () => {
       interest: "",
       birthday: "",
       gender: ""
-
     });
   
 
