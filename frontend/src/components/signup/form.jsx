@@ -23,7 +23,23 @@ const Form = () => {
       birthday: "",
       gender: ""
     });
-  
+    
+    // function that sends post signup request to backend
+    const submitForm = () => {
+      fetch('/users/', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(formData)
+      })
+      .then(res => res.json())
+      .then(data => {
+        console.log(data);
+      })
+      .catch(err => console.log(err));
+    }
+    
 
     const FormTitles = ["Sign Up", "Personal Info", "Other"];
 
@@ -37,7 +53,6 @@ const Form = () => {
           return <OtherInfo formData={formData} setFormData={setFormData} />;
         }
       };
-
 
     return(
         <>
