@@ -37,7 +37,29 @@ const Form = () => {
         }
       };
 
-
+      const handleSubmit = async (event) => {
+        event.preventDefault();
+    
+        fetch("/users/", {
+          method: "post",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            username,
+            firstName,
+            lastName,
+            email,
+            password,
+            profilePic,
+            interest,
+            birthday,
+            gender
+          }),
+        }).then((response) => {
+          // The thing afterwards
+        });
+      };
     return(
         <>
         <div className='form'></div>
@@ -68,6 +90,7 @@ const Form = () => {
          onClick={() => {
               if (page === FormTitles.length - 1) {
                 alert("FORM SUBMITTED");
+                handleSubmit()
                 console.log(formData);
               } else {
                 setPage((currPage) => currPage + 1);
