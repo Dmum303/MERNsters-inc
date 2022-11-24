@@ -2,6 +2,7 @@ const jwt = require('jsonwebtoken');
 const asyncHandler = require('express-async-handler');
 const User = require('../models/user');
 
+
 const addUser = asyncHandler(async (req, res) => { 
 const { 
   firstName, lastName, email, password, profilePic,
@@ -22,15 +23,10 @@ const {
   }
 
   const user = await User.create({
-    firstName,
-    lastName,
-    email,
-    password,
-    profilePic,
-    interests,
-    birthday,
-    gender,
+    firstName, lastName, email, password, profilePic,
+    interests, birthday, gender
   })
+
   user.save();
 
 res.status(201).json({
@@ -41,8 +37,9 @@ res.status(201).json({
 });
 });
 
+
 const getMe = asyncHandler(async (req, res) => {
-  res.send(req.user);
+  res.send('user data');
 })
 
 const loginUser = asyncHandler(async (req, res) => {
@@ -53,15 +50,9 @@ const loginUser = asyncHandler(async (req, res) => {
     throw new Error('Please fill out all fields');
   }
 
-  const user = await User.findOne({
-    email
-  });
-
-
+  const user = await User.findOne({ email });
 
   if (user && password === user.password) {
-    // let token = generateToken(user._id);
-    // console.log(token);
 
     res.json({
       _id: user._id,
@@ -80,9 +71,10 @@ const loginUser = asyncHandler(async (req, res) => {
   }
 })
 
-// Generate JWT token
+
 const generateToken = (id) => {
   return jwt.sign({ id }, process.env.JWT_SECRET);
 }
+
 
 module.exports = { addUser, getMe, loginUser };
