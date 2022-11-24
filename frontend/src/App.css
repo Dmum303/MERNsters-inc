@@ -105,16 +105,17 @@
 
 /* PROGRESS BAR */
 .progressbar {
-  width: 400px;
+  width: 600px;
   height: 10px;
   background-color: white;
   margin-bottom: 50px;
 }
 
 .progressbar div {
-  width: 33.3%;
+  width: 600px;
   height: 100%;
-  background-color: rgb(98, 0, 255);
+  background-color: rgb(255, 0, 140);
+  /* background-color: rgb(98, 0, 255); */
 }
 
 .other-info-container {
