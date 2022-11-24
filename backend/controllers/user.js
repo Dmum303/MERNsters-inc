@@ -2,6 +2,8 @@ const jwt = require('jsonwebtoken');
 const asyncHandler = require('express-async-handler');
 const User = require('../models/user');
 const bcrypt = require('bcrypt');
+const dotenv = require('dotenv');
+dotenv.config();
 
 const addUser = asyncHandler(async (req, res) => { 
 const { 
@@ -75,7 +77,7 @@ const loginUser = asyncHandler(async (req, res) => {
 
 const generateToken = (id) => {
   console.log(process.env.JWT_SECRET);
-  return jwt.sign({ id }, 'secret');
+  return jwt.sign({ id }, process.env.JWT_SECRET);
 }
 
 
