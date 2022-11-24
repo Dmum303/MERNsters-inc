@@ -4,12 +4,17 @@ const OtherInfo = ({ formData, setFormData }) => {
   function onChangeValue(event) {
     setFormData({ ...formData, gender: event.target.value });
   }
+
+  function changeBirthday(event) {
+    setFormData({ ...formData, birthday: event.target.value });
+  }
+  
   const current = new Date().toISOString().split("T")[0];
   console.log(formData.gender);
   return (
     <>
       <div className="other-info-container">
-        <input type={"date"} placeholder={"Birthday"} max={current} />
+        <input onChange={changeBirthday} type="date" placeholder="Birthday" max={current} />
         <div onChange={onChangeValue}>
           <input
             type="radio"
