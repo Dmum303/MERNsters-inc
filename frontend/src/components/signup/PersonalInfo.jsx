@@ -7,7 +7,9 @@ import { BrowserRouter } from 'react-router-dom';
 const PersonalInfo = () => {
     return (
     <>
-    <div>Personal info placeholder</div>
+    <div className='personal-info-containter'>
+        <input type={'file'} placeholder={'Profile picture'} />
+    </div>
     </>
     )
 } 

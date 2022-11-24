@@ -18,15 +18,12 @@ const OtherInfo = () => {
     return (
     <>
     <div className='other-info-container'>
+    <input type= {'date'} placeholder={'Birthday'} max={current} />
         <div onChange={onChangeValue}>
             <input type="radio" value="Female" name="gender" checked={gender === "Female"}/> Female
             <input type="radio" value="Male" name="gender" checked={gender === "Male"} /> Male
             <input type="radio" value="Other" name="gender" checked={gender === "Other"} /> Other
         </div>
-        <input type={'text'} placeholder={'Age'} />
-        <input type={'text'} placeholder={'Height'} />
-        <input type={'text'} placeholder={'Dietary Restrictions'} />
-        <input type= {'date'} placeholder={'Date of Birth'} max={current} />
     </div>
     </>
     )
