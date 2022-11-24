@@ -1,4 +1,3 @@
-const { ObjectId } = require('mongodb');
 const bcrypt = require("bcrypt");
 const mongoose = require('mongoose');
 
@@ -36,22 +35,20 @@ userSchema.pre("save", function (next) {
   });
 });
 
-// //compares a password with the hashed password
-
-// userSchema.methods.comparePassword = function (candidatePassword) {
-//   const user = this;
-//   return new Promise((resolve, reject) => {
-//     bcrypt.compare(candidatePassword, user.password, (err, isMatch) => {
-//       if (err) {
-//         return reject(err);
-//       }
-//       if (!isMatch) {
-//         return reject(false);
-//       }
-//       resolve(true);
-//     });
-//   });
-// };
+userSchema.methods.comparePassword = function (candidatePassword) {
+  const user = this;
+  return new Promise((resolve, reject) => {
+    bcrypt.compare(candidatePassword, user.password, (err, isMatch) => {
+      if (err) {
+        return reject(err);
+      }
+      if (!isMatch) {
+        return reject(false);
+      }
+      resolve(true);
+    });
+  });
+};
 
 const User = mongoose.model('User', userSchema);
 
