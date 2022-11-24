@@ -63,7 +63,7 @@ describe('User model', () => {
           firstName: 'some',
           lastName: 'one',
           email: 'someone@example.com',
-          password: 'password',
+          password: expect.anything(),
           profilePic: 'https://i.imgur.com/1Q9ZQ9u.png',
           birthday: date,
           interests: ['Sports'],
