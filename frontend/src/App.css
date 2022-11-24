@@ -71,7 +71,8 @@
 
 .sign-up-container {
   height: 100%;
-  width: 100%;
+  /* width: 100%; */
+  width: 568.35px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -97,7 +98,7 @@
 
 .personal-info-container input {
   margin: 5px;
-  width: 200px;
+  width: 130px;
   height: 40px;
   padding-left: 5px;
   font-size: 20px;
@@ -128,7 +129,7 @@
 
 .other-info-container input {
   margin: 5px;
-  width: 200px;
+  width: 130px;
   height: 40px;
   padding-left: 5px;
   font-size: 20px;
