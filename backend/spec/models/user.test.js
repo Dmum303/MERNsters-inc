@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-require('backend/spec/mongodb_helper');
+require('../mongodb_helper');
 // require('simple-mongodb-helper');
 const User = require('../../models/user');
 
@@ -73,62 +73,37 @@ describe('User model', () => {
     });
   });
 
-  // // TODO: Finish this test. Testing the friendslist.
-  // it('can add friends', (done) => {
-  //   const user = new User({
-  //     email: 'someone@example.com',
-  //     password: 'password',
-  //     firstName: 'some',
-  //     lastName: 'one',
-  //   });
-
-  //   user.save((err) => {
-  //     expect(err).toBeNull();
-
-  //     User.find((err, users) => {
-  //       expect(err).toBeNull();
-  //       expect(users.length).toEqual(1);
-  //       expect(users[0]).toMatchObject({
-  //         email: 'someone@example.com',
-  //         password: 'password',
-  //         firstName: 'some',
-  //         lastName: 'one',
-  //       });
-  //       done();
-  //     });
-  //   });
-  //   //   // Create 3 users
-  //   //   const user1 = new User({
-  //   //     email: 'some1@example.com',
-  //   //     password: 'password',
-  //   //     firstName: 'Spongebob',
-  //   //     lastName: 'Squarepants',
-  //   //   });
-  //   //   const user2 = new User({
-  //   //     email: 'some2@example.com',
-  //   //     password: 'password',
-  //   //     firstName: 'Sandy',
-  //   //     lastName: 'Cheeks',
-  //   //   });
-  //   //   const user3 = new User({
-  //   //     email: 'some3@example.com',
-  //   //     password: 'password',
-  //   //     firstName: 'Eugene',
-  //   //     lastName: 'Krabs',
-  //   //   });
-
-  //   //   // Save all 3 users on the database.
-  //   //   user1.save();
-  //   //   user2.save();
-  //   //   user3.save();
-  //   //   // let spongebob = User.findOne({ name: 'spongebob' });
-  //   //   User.find((err, users) => {
-  //   //     // expect(err).toBeNull();
-
-  //   //     expect(users.length).toEqual(3);
-  //   //     done();
-  //   //   });
-  //   //   console.log(users);
-  //   //   done();
-  // });
+  it('can add multiple friends', (done) => {
+    const user = new User({
+      firstName: 'some',
+      lastName: 'one',
+      email: 'someone@example.com',
+      password: 'password',
+      profilePic: 'https://i.imgur.com/1Q9ZQ9u.png',
+      birthday: date,
+      interests: ['Sports'],
+      gender: 'Male',
+    });
+    const user1 = new User({
+      firstName: 'some',
+      lastName: 'one',
+      email: 'someone@example.com',
+      password: 'password',
+      profilePic: 'https://i.imgur.com/1Q9ZQ9u.png',
+      birthday: date,
+      interests: ['Sports'],
+      gender: 'Male',
+    });
+    user.save((err) => {
+      expect(err).toBeNull();
+      user1.save((err) => {
+        expect(err).toBeNull();
+        User.find((err, users) => {
+          expect(err).toBeNull();
+          expect(users.length).toEqual(2);
+          done();
+        });
+      });
+    });
+  });
 });
