@@ -1,6 +1,6 @@
 import React from 'react';
 import Homepage from '../homepage/homepage'
-import SignUpForm from '../signup/signup'
+import Form from '../signup/Form'
 import {Route, Routes} from "react-router-dom";
 import Footer from '../footer/footer';
 
@@ -9,7 +9,7 @@ const App = () => {
       <>
       <Routes>
         <Route path='/' element={<Homepage/>}/>
-        <Route path='/signup' element={<SignUpForm/>}/>
+        <Route path='/signup' element={<Form/>}/>
       </Routes>
       <Footer />
       </>

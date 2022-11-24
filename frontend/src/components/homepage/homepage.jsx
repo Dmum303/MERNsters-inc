@@ -1,4 +1,3 @@
-// From index.js file 
 import React from 'react'
 import ReactDOM from 'react-dom/client';
 import './homepage.css'
@@ -25,7 +24,7 @@ const Homepage = () => {
         <h1>Swipe Right®</h1>
         </div>
   
-        <div className='signup-button'><p>Create an account</p></div>
+        <div className='signup-button'><p>Create account</p></div>
         <div className='footer'></div>
 
 
