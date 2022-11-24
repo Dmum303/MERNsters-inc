@@ -9,6 +9,7 @@ const {
   interests, birthday, gender,
  } = req.body;
 
+ // checks for any missing fields
  if (!firstName || !lastName || !email || !password
   || !profilePic || !interests || !birthday || !gender) {
     res.status(400).json({message: 'Please fill out all fields'});
@@ -33,7 +34,7 @@ res.status(201).json({
   message: 'Make user',
   firstName: user.firstName,
   email: user.email,
-  token: 'add-token-here',
+  token: generateToken(user._id),
 });
 });
 
@@ -73,7 +74,8 @@ const loginUser = asyncHandler(async (req, res) => {
 
 
 const generateToken = (id) => {
-  return jwt.sign({ id }, process.env.JWT_SECRET);
+  console.log(process.env.JWT_SECRET);
+  return jwt.sign({ id }, 'secret');
 }
 
 
