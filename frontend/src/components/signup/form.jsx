@@ -27,7 +27,9 @@ const Form = () => {
               setPage((currPage) => currPage - 1);
             }}>Previous</button>
 
-        <button className='next-btn' onClick={() => {
+        <button className='next-btn' 
+        disabled={page == FormTitles.length - 1} 
+        onClick={() => {    
             setPage((currPage) => currPage + 1)
         }}>Next</button>
         
