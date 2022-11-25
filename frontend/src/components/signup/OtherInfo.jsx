@@ -1,36 +1,51 @@
-import React from 'react'
-import ReactDOM from 'react-dom/client';
-// import './signup.css'
-import App from '../../App.jsx';
-import { BrowserRouter } from 'react-router-dom';
-import { useState } from 'react';
+import React from "react";
 
-const OtherInfo = ({formData, setFormData}) => {
-    const [gender, setGender] = useState("Female");
+const OtherInfo = ({ formData, setFormData }) => {
+  function onChangeValue(event) {
+    setFormData({ ...formData, gender: event.target.value });
+  }
 
-    function onChangeValue(event) {
-      setGender(event.target.value);
-      console.log(event.target.value);
-    }
+  function changeBirthday(event) {
+    setFormData({ ...formData, birthday: event.target.value });
+  }
 
-    const current = new Date().toISOString().split("T")[0]
-
-
-    return (
+  const current = new Date().toISOString().split("T")[0];
+  console.log(formData.gender);
+  return (
     <>
-    <div className='other-info-container'>
-    <input type= {'date'} placeholder={'Birthday'} max={current} />
+      <div className="other-info-container">
+        <input
+          onChange={changeBirthday}
+          type="date"
+          placeholder="Birthday"
+          max={current}
+        />
         <div onChange={onChangeValue}>
-            <input type="radio" value="Female" name="gender" checked={gender === "Female"}/> Female
-            <input type="radio" value="Male" name="gender" checked={gender === "Male"} /> Male
-            <input type="radio" value="Other" name="gender" checked={gender === "Other"} /> Other
+          <input
+            type="radio"
+            value="Female"
+            name="gender"
+            checked={formData.gender === "Female"}
+          />{" "}
+          Female
+          <input
+            type="radio"
+            value="Male"
+            name="gender"
+            checked={formData.gender === "Male"}
+          />{" "}
+          Male
+          <input
+            type="radio"
+            value="Other"
+            name="gender"
+            checked={formData.gender === "Other"}
+          />{" "}
+          Other
         </div>
-    </div>
-
-
-
+      </div>
     </>
-    )
-} 
+  );
+};
 
 export default OtherInfo;

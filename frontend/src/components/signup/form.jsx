@@ -1,12 +1,8 @@
 import React, { useState } from 'react'
-import ReactDOM from 'react-dom/client';
 
 import SignUpInfo from "./SignUpInfo";
 import PersonalInfo from "./PersonalInfo";
 import OtherInfo from "./OtherInfo";
-// import './signup.css'
-
-import App from '../../App.jsx';
 
 const Form = () => {
     const [page, setPage] = useState(0);
@@ -19,11 +15,27 @@ const Form = () => {
       password: "",
       confirmPassword: "",
       profilePic: "",
-      interest: "",
+      interests: "Heli-skiing",
       birthday: "",
       gender: ""
     });
-  
+    
+    // function that sends post signup request to backend
+    const submitForm = () => {
+      fetch('/api/users/', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(formData)
+      })
+      .then(res => res.json())
+      .then(data => {
+        console.log(data);
+      })
+      .catch(err => console.log(err));
+    }
+    
 
     const FormTitles = ["Sign Up", "Personal Info", "Other"];
 
@@ -37,7 +49,6 @@ const Form = () => {
           return <OtherInfo formData={formData} setFormData={setFormData} />;
         }
       };
-
 
     return(
         <>
@@ -66,7 +77,7 @@ const Form = () => {
         <button className='next-btn' 
          onClick={() => {
               if (page === FormTitles.length - 1) {
-                alert("FORM SUBMITTED");
+                submitForm();
                 console.log(formData);
               } else {
                 setPage((currPage) => currPage + 1);
@@ -76,7 +87,6 @@ const Form = () => {
             {page === FormTitles.length - 1 ? "Submit" : "Next"}
           </button>
         </div>
-
         </>
     )
 }

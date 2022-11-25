@@ -3,6 +3,7 @@ import Homepage from '../homepage/homepage'
 import Form from '../signup/Form'
 import {Route, Routes} from "react-router-dom";
 import Footer from '../footer/footer';
+import '../../App.css';
 
 const App = () => {
     return (

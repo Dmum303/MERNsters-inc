@@ -1,22 +1,6 @@
-
-import React, { useState } from 'react'
-
-
-
-import ReactDOM from 'react-dom/client';
-// import './signup.css'
-import App from '../../App.jsx';
-import { BrowserRouter } from 'react-router-dom';
-
-
+import React from 'react'
 const SignUpInfo = ({formData, setFormData}) => {
-    // const [firstName, setFirstName] = useState("");
-    // const [lastName, setLastName] = useState("");
-    // const [userName, setUserName] = useState("");
-    // const [email, setEmail] = useState("");
-    // const [password, setPassword] = useState("");
-    // const [confirmPassword, setConfirmPassword] = useState("");
-      
+  
     return (
     <>
     <div className='sign-up-container'>

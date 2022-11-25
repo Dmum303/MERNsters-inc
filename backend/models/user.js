@@ -9,7 +9,6 @@ const userSchema = new mongoose.Schema({
   password: { type: String, required: true },
   profilePic: {
     type: String,
-    required: true,
     default: 'https://i.imgur.com/1Q9ZQ9u.png',
   },
   interests: { type: Array, required: true },
@@ -35,20 +34,6 @@ userSchema.pre("save", function (next) {
   });
 });
 
-userSchema.methods.comparePassword = function (candidatePassword) {
-  const user = this;
-  return new Promise((resolve, reject) => {
-    bcrypt.compare(candidatePassword, user.password, (err, isMatch) => {
-      if (err) {
-        return reject(err);
-      }
-      if (!isMatch) {
-        return reject(false);
-      }
-      resolve(true);
-    });
-  });
-};
 
 const User = mongoose.model('User', userSchema);
 

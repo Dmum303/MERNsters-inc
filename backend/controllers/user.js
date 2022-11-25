@@ -2,6 +2,8 @@ const jwt = require('jsonwebtoken');
 const asyncHandler = require('express-async-handler');
 const User = require('../models/user');
 const bcrypt = require('bcrypt');
+const dotenv = require('dotenv');
+dotenv.config();
 
 const addUser = asyncHandler(async (req, res) => { 
 const { 
@@ -11,7 +13,7 @@ const {
 
  // checks for any missing fields
  if (!firstName || !lastName || !email || !password
-  || !profilePic || !interests || !birthday || !gender) {
+   || !interests || !birthday || !gender) {
     res.status(400).json({message: 'Please fill out all fields'});
     throw new Error('Please fill out all fields');
   }
@@ -24,9 +26,11 @@ const {
   }
 
   const user = await User.create({
-    firstName, lastName, email, password, profilePic,
+    firstName, lastName, email, password,
     interests, birthday, gender
   })
+
+  profilePic && (user.profilePic = profilePic);
 
   user.save();
 
@@ -75,7 +79,7 @@ const loginUser = asyncHandler(async (req, res) => {
 
 const generateToken = (id) => {
   console.log(process.env.JWT_SECRET);
-  return jwt.sign({ id }, 'secret');
+  return jwt.sign({ id }, process.env.JWT_SECRET);
 }
 
 

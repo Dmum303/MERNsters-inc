@@ -1,38 +1,26 @@
-import React from 'react'
-import ReactDOM from 'react-dom/client';
-import './homepage.css'
-import App from '../../App.jsx';
-import { BrowserRouter } from 'react-router-dom';
-import NavBar from './navbar';
-
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
-    <BrowserRouter>
-      <React.StrictMode>
-        <App />
-      </React.StrictMode>
-    </BrowserRouter>
-  );
+import React from "react";
+import { Link } from "react-router-dom";
+import "./homepage.css";
+import NavBar from "./navbar";
 
 const Homepage = () => {
-    return(
-      <>
+  return (
+    <>
       <NavBar />
-      <div className='homepage-form'>
-        
-        <div className='signup-title'>
-        <h1>Swipe Right®</h1>
+      <div className="homepage-form">
+        <div className="signup-title">
+          <h1>Swipe Right®</h1>
         </div>
-  
-        <div className='signup-button'><p>Create account</p></div>
-        <div className='footer'></div>
 
-
-    </div> 
+        <Link to="/signup">
+        <div className="signup-button">
+          <p>Create account</p>
+        </div>
+        </Link>
+        <div className="footer"></div>
+      </div>
     </>
-    )
-}
-
-
+  );
+};
 
 export default Homepage;
