@@ -59,7 +59,11 @@ I would like to be matched with likeminded people based on location, interest, n
 
 ## Diagram
 
-#### UML Class Diagram
+### Backend Diagram
+<img src='images/backend.png'/>
+
+### Frontend Diagram
+<img src='images/frontend.png'/>
 
 
 ## Tech Stack
