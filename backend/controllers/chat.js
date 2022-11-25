@@ -7,20 +7,43 @@ const dotenv = require('dotenv');
 dotenv.config();
 
 const getChat = asyncHandler(async (req, res) => {
-  Chat.findByid(req.body.objectId, (err, chat) => {
+  Chat.findById(req.body.objectId, (err, chat) => {
     if (err) {
       res.status(400).json({ message: 'Chat not found' });
-      throw new Error('Chat not found');
     }
-  })
-    .exec()
-    .then(async (chat) => {
-      console.log(chat);
-      res.status(200).json({ chat: chat });
-
-      //   res.send('You have reached the find chat');
-    });
+    res.send(chat);
+  });
 });
+
+// const createChat = asyncHandler(async (req, res) => {});
+// const getChat = asyncHandler(async (req, res) => {
+//   console.log(req.body.objectId);
+//   Chat.findById(req.body.objectId, (err, chat) => {
+//     if (err) {
+//       res.status(400).json({ message: 'Chat not found' });
+//       throw new Error('Chat not found');
+//     }
+//     // console.log(chat);
+//     // res.send(chat);
+//   })
+//     .exec()
+//     .then(async () => {
+//       console.log(chat);
+//       res.status(200).json({ chat: chat });
+//     });
+//   Chat.findById(req.body.objectId, function (err, chat) {
+//     if (err) {
+//       res.status(400).json({ message: 'Chat not found' });
+//       throw new Error('Chat not found');
+//     }
+//   })
+//     .exec()
+//     .then(async (chat) => {
+//       console.log(chat);
+//       res.status(200).json({ chat: chat });
+
+//       //   res.send('You have reached the find chat');
+//     });
 
 //   Index: (req, res) => {
 //     Post.find(async (err, posts) => {
