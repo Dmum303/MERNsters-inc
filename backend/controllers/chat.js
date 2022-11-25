@@ -15,35 +15,31 @@ const getChat = asyncHandler(async (req, res) => {
   });
 });
 
-// const createChat = asyncHandler(async (req, res) => {});
-// const getChat = asyncHandler(async (req, res) => {
-//   console.log(req.body.objectId);
-//   Chat.findById(req.body.objectId, (err, chat) => {
-//     if (err) {
-//       res.status(400).json({ message: 'Chat not found' });
-//       throw new Error('Chat not found');
-//     }
-//     // console.log(chat);
-//     // res.send(chat);
-//   })
-//     .exec()
-//     .then(async () => {
-//       console.log(chat);
-//       res.status(200).json({ chat: chat });
-//     });
-//   Chat.findById(req.body.objectId, function (err, chat) {
-//     if (err) {
-//       res.status(400).json({ message: 'Chat not found' });
-//       throw new Error('Chat not found');
-//     }
-//   })
-//     .exec()
-//     .then(async (chat) => {
-//       console.log(chat);
-//       res.status(200).json({ chat: chat });
-
-//       //   res.send('You have reached the find chat');
-//     });
+const createChat = asyncHandler(async (req, res) => {
+  res.send('createChat');
+  console.log(req.body.userId);
+  const chat = new Chat({
+    users: [
+      {
+        user: {
+          user_id: '6380b30f83141a9fd30a7662',
+          firstName: 'New',
+          lastName: 'User',
+        },
+      },
+    ],
+    messages: [
+      {
+        message: {
+          sender: '6380b30f83141a9fd30a7662',
+          recipient: '6380b30f83141a9fd30a7662',
+          text: "Here's some text",
+        },
+      },
+    ],
+  });
+  chat.save();
+});
 
 //   Index: (req, res) => {
 //     Post.find(async (err, posts) => {
@@ -60,9 +56,9 @@ const getChat = asyncHandler(async (req, res) => {
 //       });
 //   },
 
-const createChat = asyncHandler(async (req, res) => {
-  res.send('You have reached the create chat');
-});
+// const createChat = asyncHandler(async (req, res) => {
+//   res.send('You have reached the create chat');
+// });
 
 const addMessage = asyncHandler(async (req, res) => {
   res.send('You have reached the add msg chat');
