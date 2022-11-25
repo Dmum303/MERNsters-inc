@@ -45,6 +45,7 @@ const createChat = asyncHandler(async (req, res) => {
   });
 });
 
+// this will crash the server if bad info
 const addMessage = asyncHandler(async (req, res) => {
   console.log(req.body.text);
   Chat.findByIdAndUpdate(
@@ -67,10 +68,9 @@ const addMessage = asyncHandler(async (req, res) => {
         throw err;
       } else {
         // console.log is working but res not showing in postman
-        console.log('New msg added : ', docs);
-        res.status(201);
+        console.log('New msg added : ');
       }
-      //   res.status(201).json({ message: 'ok' });
+      res.status(201).json({ message: 'ok' });
     }
   );
 });
