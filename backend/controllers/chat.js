@@ -16,29 +16,33 @@ const getChat = asyncHandler(async (req, res) => {
 });
 
 const createChat = asyncHandler(async (req, res) => {
-  res.send('createChat');
-  console.log(req.body.userId);
   const chat = new Chat({
     users: [
       {
         user: {
-          user_id: '6380b30f83141a9fd30a7662',
-          firstName: 'New',
-          lastName: 'User',
+          user_id: req.body.userId,
+          firstName: req.body.firstName,
+          lastName: req.body.lastName,
         },
       },
     ],
     messages: [
       {
         message: {
-          sender: '6380b30f83141a9fd30a7662',
-          recipient: '6380b30f83141a9fd30a7662',
-          text: "Here's some text",
+          sender: req.body.senderId,
+          recipient: req.body.recipientId,
+          text: req.body.text,
         },
       },
     ],
   });
-  chat.save();
+  chat.save(async (err) => {
+    if (err) {
+      res.status(400).json({ message: 'Chat not created' });
+      throw err;
+    }
+    res.status(201).json({ message: 'ok' });
+  });
 });
 
 //   Index: (req, res) => {
