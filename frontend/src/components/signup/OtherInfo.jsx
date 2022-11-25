@@ -14,12 +14,15 @@ const OtherInfo = ({ formData, setFormData }) => {
   return (
     <>
       <div className="other-info-container">
+      <label> Date of birth:
         <input
           onChange={changeBirthday}
           type="date"
           placeholder="Birthday"
           max={current}
         />
+        </label>
+        <label>Gender:
         <div onChange={onChangeValue}>
           <input
             type="radio"
@@ -43,6 +46,7 @@ const OtherInfo = ({ formData, setFormData }) => {
           />{" "}
           Other
         </div>
+        </label>
       </div>
     </>
   );
