@@ -11,7 +11,7 @@ const PersonalInfo = ({ formData, setFormData }) => {
       <div className="personal-info-container">
         <label>
           {" "}
-          Profile pic: <br />
+          Profile pic: 
           <input
             type={"file"}
             placeholder={"Profile picture"}
@@ -21,9 +21,6 @@ const PersonalInfo = ({ formData, setFormData }) => {
             }
           />
         </label>
-        <br />
-        <br />
-        <br />
         <label>
           {" "}
           Interest:
@@ -34,8 +31,9 @@ const PersonalInfo = ({ formData, setFormData }) => {
               value="Heli-skiing"
               name="interest"
               checked={formData.interests === "Heli-skiing"}
-            />{" "}
-            Heli-skiing
+            /> {" "}
+            Heli-skiing 
+            <br/>
             <input
               onChange={onChangeValue}
               type="radio"
@@ -43,7 +41,8 @@ const PersonalInfo = ({ formData, setFormData }) => {
               name="interest"
               checked={formData.interests === "Quidditch"}
             />{" "}
-            Quidditch
+            Quidditch 
+            <br/>
             <input
               onChange={onChangeValue}
               type="radio"
@@ -51,7 +50,8 @@ const PersonalInfo = ({ formData, setFormData }) => {
               name="interest"
               checked={formData.interests === "Geocaching"}
             />{" "}
-            Geocaching
+            Geocaching 
+            <br/>
             <input
               onChange={onChangeValue}
               type="radio"
@@ -59,7 +59,8 @@ const PersonalInfo = ({ formData, setFormData }) => {
               name="interest"
               checked={formData.interests === "Ker-Plucking"}
             />{" "}
-            Ker-Plucking
+            Ker-Plucking 
+            <br/>
             <input
               onChange={onChangeValue}
               type="radio"
@@ -67,7 +68,7 @@ const PersonalInfo = ({ formData, setFormData }) => {
               name="interest"
               checked={formData.interests === "News-raising"}
             />{" "}
-            News-raising
+            News-raising 
           </div>
         </label>
       </div>
