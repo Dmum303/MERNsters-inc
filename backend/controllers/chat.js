@@ -45,27 +45,35 @@ const createChat = asyncHandler(async (req, res) => {
   });
 });
 
-//   Index: (req, res) => {
-//     Post.find(async (err, posts) => {
-//       if (err) {
-//         throw err;
-//       }
-//     })
-//       .populate('poster')
-//       .exec()
-//       .then(async (posts) => {
-//         console.log(posts);
-//         const token = await TokenGenerator.jsonwebtoken(req.user_id);
-//         res.status(200).json({ posts: posts, token: token });
-//       });
-//   },
-
-// const createChat = asyncHandler(async (req, res) => {
-//   res.send('You have reached the create chat');
-// });
-
 const addMessage = asyncHandler(async (req, res) => {
-  res.send('You have reached the add msg chat');
+  //   res.send('You have reached the add msg chat');
+  console.log(req.body.text);
+  Chat.findByIdAndUpdate(
+    req.body.objectId,
+    {
+      $push: {
+        messages: {
+          message: {
+            sender: req.body.senderId,
+            recipient: req.body.recipientId,
+            text: req.body.text,
+          },
+        },
+      },
+    },
+    { new: true },
+    async function (err, docs) {
+      if (err) {
+        res.status(400).json({ message: 'Chat not created' });
+        throw err;
+      } else {
+        // console.log is working but res not showing in postman
+        console.log('New msg added : ', docs);
+        res.status(201);
+      }
+      //   res.status(201).json({ message: 'ok' });
+    }
+  );
 });
 
 module.exports = { getChat, createChat, addMessage };
