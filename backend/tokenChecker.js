@@ -1,5 +1,3 @@
-
-
 const JWT = require("jsonwebtoken");
 const tokenChecker = (req, res, next) => {
 
