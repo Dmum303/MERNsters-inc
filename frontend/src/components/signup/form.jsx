@@ -66,7 +66,7 @@ const Form = () => {
         </div>
 
         <div className='form-body'>{PageDisplay()}</div>
-        <div className='form-footer'></div>
+        <div className='form-footer'>
         <button className='prev-btn'
 
             disabled={page == 0}
@@ -86,6 +86,7 @@ const Form = () => {
           >
             {page === FormTitles.length - 1 ? "Submit" : "Next"}
           </button>
+          </div>
         </div>
         </>
     )
