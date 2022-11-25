@@ -65,7 +65,11 @@ I would like to be matched with likeminded people based on hobbies and activitie
 
 ## Diagram
 
-#### UML Class Diagram
+### Backend Diagram
+<img src='images/backend.png'/>
+
+### Frontend Diagram
+<img src='images/frontend.png'/>
 
 
 
