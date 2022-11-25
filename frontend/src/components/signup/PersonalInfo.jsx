@@ -4,7 +4,6 @@ import { useState } from "react";
 const PersonalInfo = ({ formData, setFormData }) => {
   function onChangeValue(event) {
     setFormData({ ...formData, interests: event.target.value });
-    console.log(event.target.value);
   }
 
   return (
@@ -23,21 +22,21 @@ const PersonalInfo = ({ formData, setFormData }) => {
             type="radio"
             value="Heli-skiing"
             name="interest"
-            checked={formData.interest === "Heli-skiing"}
+            checked={formData.interests === "Heli-skiing"}
           />{" "}
           Heli-skiing
           <input
             type="radio"
             value="Quidditch"
             name="interest"
-            checked={formData.interest === "Quidditch"}
+            checked={formData.interests === "Quidditch"}
           />{" "}
           Quidditch
           <input
             type="radio"
             value="Geocaching"
             name="interest"
-            checked={formData.interest === "Geocaching"}
+            checked={formData.interests === "Geocaching"}
           />{" "}
           Geocaching
           <input
@@ -51,7 +50,7 @@ const PersonalInfo = ({ formData, setFormData }) => {
             type="radio"
             value="News-raising"
             name="interest"
-            checked={formData.interest === "News-raising"}
+            checked={formData.interests === "News-raising"}
           />{" "}
           News-raising
         </div>
