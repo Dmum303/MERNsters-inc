@@ -153,4 +153,23 @@ You should now be able to open your browser and go to `http://localhost:3000/` w
    # Show all documents in a collection, formatted
    db.<collection name>.find().pretty()
 ```
+### Testing
 
+
+#### The Backend (API)
+
+**Note the use of an environment variable for the JWT secret**
+
+  Start the server in test mode (so that it connects to the test DB)
+
+  ```
+  ; cd api
+  ; JWT_SECRET=SUPER_SECRET npm run start:test
+  ```
+
+  Then run the tests in a new terminal session
+
+  ```
+  ; cd api
+  ; JWT_SECRET=SUPER_SECRET npm run test
+  ```
