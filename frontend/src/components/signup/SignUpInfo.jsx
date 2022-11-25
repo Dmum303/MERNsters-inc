@@ -1,6 +1,12 @@
-import React from 'react'
+import React, {useState} from 'react'
+
 const SignUpInfo = ({formData, setFormData}) => {
-  
+  const [passwordShown, setPasswordShown] = useState(false);
+
+  const togglePassword = () => {
+    setPasswordShown(!passwordShown);
+      };
+
     return (
     <>
     <div className='sign-up-container'>
@@ -20,14 +26,18 @@ const SignUpInfo = ({formData, setFormData}) => {
         onChange={(event) =>
           setFormData({ ...formData, email: event.target.value })
         }/>
-        <input type={'text'} placeholder={'Password'} value={formData.password}
+        <div>
+        <input type={passwordShown ? "text" : "password"} placeholder={'Password'} value={formData.password}
         onChange={(event) =>
           setFormData({ ...formData, password: event.target.value })
         }/>
-        <input type={'text'} placeholder={'Confirm Password'} value={formData.confirmPassword}
+        </div>
+        <input type={passwordShown ? "text" : "password"} placeholder={'Confirm Password'} value={formData.confirmPassword}
         onChange={(event) =>
           setFormData({ ...formData, confirmPassword: event.target.value })
         }/>
+            <button onClick={togglePassword}>Show Password</button> 
+
     </div>
 
 
