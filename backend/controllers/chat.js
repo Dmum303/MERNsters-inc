@@ -11,7 +11,7 @@ const getChat = asyncHandler(async (req, res) => {
     if (err) {
       res.status(400).json({ message: 'Chat not found' });
     }
-    res.send(chat);
+    res.status(201).send(chat);
   });
 });
 
@@ -67,7 +67,6 @@ const addMessage = asyncHandler(async (req, res) => {
         res.status(400).json({ message: 'Msg not added' });
         throw err;
       } else {
-        // console.log is working but res not showing in postman
         console.log('New msg added : ');
       }
       res.status(201).json({ message: 'ok' });
