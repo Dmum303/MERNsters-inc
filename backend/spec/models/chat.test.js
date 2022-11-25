@@ -98,4 +98,49 @@ describe('Chat model', () => {
       });
     });
   });
+
+  it('Saves and finds chat by object id', (done) => {
+    const user1 = new User({
+      firstName: 'some',
+      lastName: 'one',
+      email: 'someone@example.com',
+      password: 'password',
+      profilePic: 'https://i.imgur.com/1Q9ZQ9u.png',
+      interests: ['Sports'],
+      birthday: new Date('2022-01-01'),
+      gender: 'Male',
+    });
+    const chat = new Chat({
+      users: [
+        { user: { user_id: user1.id, firstName: 'some', lastName: 'one' } },
+      ],
+      messages: [
+        {
+          message: { sender: user1.id, recipient: user1.id, text: 'Hello' },
+        },
+      ],
+    });
+    console.log(user1.id);
+    chat.save((err) => {
+      expect(err).toBeNull();
+      Chat.findById(chat.id, (err, chat) => {
+        expect(chat.messages[0].message.text).toEqual('Hello');
+        expect(chat.users[0].user.firstName).toEqual('some');
+        expect(err).toBeNull();
+
+        done();
+      });
+    });
+  });
 });
+
+// {
+//       users: [
+//         { user: { user_id: "6380b30f83141a9fd30a7662", firstName: 'John', lastName: 'Smith' } },
+//       ],
+//       messages: [
+//         {
+//           message: { sender: "6380b30f83141a9fd30a7662", recipient: "6380b30f83141a9fd30a7662", text: 'Hello World!' },
+//         },
+//       ],
+//     }
