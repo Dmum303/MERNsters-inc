@@ -2,9 +2,22 @@ const mongoose = require('mongoose');
 const Message = require('./message');
 const User = require('./user');
 
+// the chat model has a array for users in the chat
+// and a array for messages in the chat
+
 const chatSchema = new mongoose.Schema({
   users: [
-    { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true },
+    {
+      user: {
+        user_id: {
+          type: mongoose.Schema.Types.ObjectId,
+          ref: 'User',
+          required: true,
+        },
+        firstName: { type: String, required: true },
+        lastName: { type: String, required: true },
+      },
+    },
   ],
   messages: [
     {
@@ -19,7 +32,7 @@ const chatSchema = new mongoose.Schema({
           ref: 'User',
           required: true,
         },
-        message: { type: String, required: true },
+        text: { type: String, required: true },
         createdAt: { type: Date, default: Date.now },
       },
     },
