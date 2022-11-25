@@ -101,8 +101,6 @@
   height: 40px;
   padding-left: -15px;
   font-size: 20px;
-  /* text-align: left; */
-  /* align-self: center; */
 }
 
 /* PROGRESS BAR */
@@ -122,7 +120,7 @@
 
 .other-info-container {
   height: 100%;
-  width: 100%;
+  width: 568.35px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -131,9 +129,9 @@
 
 .other-info-container input {
   margin: 5px;
-  width: 130px;
+  width: 200;
   height: 40px;
-  padding-left: 5px;
+  padding-left: 15px;
   font-size: 20px;
 }
 
