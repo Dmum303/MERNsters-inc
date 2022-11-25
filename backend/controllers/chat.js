@@ -1,10 +1,10 @@
 const jwt = require('jsonwebtoken');
 const asyncHandler = require('express-async-handler');
 const Chat = require('../models/chat');
-const User = require('../models/user');
 const bcrypt = require('bcrypt');
 const dotenv = require('dotenv');
 dotenv.config();
+// No token implementation yet
 
 const getChat = asyncHandler(async (req, res) => {
   Chat.findById(req.body.objectId, (err, chat) => {
@@ -46,7 +46,6 @@ const createChat = asyncHandler(async (req, res) => {
 });
 
 const addMessage = asyncHandler(async (req, res) => {
-  //   res.send('You have reached the add msg chat');
   console.log(req.body.text);
   Chat.findByIdAndUpdate(
     req.body.objectId,
@@ -64,7 +63,7 @@ const addMessage = asyncHandler(async (req, res) => {
     { new: true },
     async function (err, docs) {
       if (err) {
-        res.status(400).json({ message: 'Chat not created' });
+        res.status(400).json({ message: 'Msg not added' });
         throw err;
       } else {
         // console.log is working but res not showing in postman
