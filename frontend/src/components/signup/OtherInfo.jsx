@@ -23,12 +23,13 @@ const OtherInfo = ({ formData, setFormData }) => {
         />
         </label>
         <label>Gender:
-        <div onChange={onChangeValue}>
+        <div>
           <input
             type="radio"
             value="Female"
             name="gender"
             checked={formData.gender === "Female"}
+            onChange={onChangeValue}
           />{" "}
           Female
           <input
@@ -36,6 +37,7 @@ const OtherInfo = ({ formData, setFormData }) => {
             value="Male"
             name="gender"
             checked={formData.gender === "Male"}
+            onChange={onChangeValue}
           />{" "}
           Male
           <input
@@ -43,6 +45,7 @@ const OtherInfo = ({ formData, setFormData }) => {
             value="Other"
             name="gender"
             checked={formData.gender === "Other"}
+            onChange={onChangeValue}
           />{" "}
           Other
         </div>
