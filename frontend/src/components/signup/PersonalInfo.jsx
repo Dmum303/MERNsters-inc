@@ -49,7 +49,7 @@ const PersonalInfo = ({ formData, setFormData }) => {
             type="radio"
             value="Ker-Plucking"
             name="interest"
-            checked={formData.interest === "Ker-Plucking"}
+            checked={formData.interests === "Ker-Plucking"}
           />{" "}
           Ker-Plucking
           <input
