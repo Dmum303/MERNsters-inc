@@ -24,3 +24,9 @@
   margin-bottom: 10px;
 }
 
+.login-button button {
+  background-color: rgb(255, 3, 188);
+  border: none;
+  color: white;
+}
+
