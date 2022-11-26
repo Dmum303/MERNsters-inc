@@ -1,7 +1,7 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import "./homepage.css";
-import NavBar from "./navbar";
+import React from 'react';
+import { Link } from 'react-router-dom';
+import './homepage.css';
+import NavBar from './navbar';
 
 const Homepage = () => {
   return (
@@ -13,9 +13,9 @@ const Homepage = () => {
         </div>
 
         <Link to="/signup">
-        <div className="signup-button">
-          <p>Create account</p>
-        </div>
+          <div className="signup-button">
+            <p>Create account</p>
+          </div>
         </Link>
         <div className="footer"></div>
       </div>
