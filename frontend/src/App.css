@@ -71,7 +71,7 @@
 
 .sign-up-container {
   height: 100%;
-  width: 100%;
+  width: 568.35px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -88,38 +88,39 @@
 
 .personal-info-container {
   height: 100%;
-  width: 100%;
+  width: 568.35px;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
+  align-items: left;
 }
 
 .personal-info-container input {
   margin: 5px;
-  width: 200px;
+  width: 200;
   height: 40px;
-  padding-left: 5px;
+  padding-left: -15px;
   font-size: 20px;
 }
 
 /* PROGRESS BAR */
 .progressbar {
-  width: 400px;
+  width: 600px;
   height: 10px;
   background-color: white;
   margin-bottom: 50px;
 }
 
 .progressbar div {
-  width: 33.3%;
+  width: 600px;
   height: 100%;
-  background-color: rgb(98, 0, 255);
+  background-color: rgb(255, 0, 140);
+  /* background-color: rgb(98, 0, 255); */
 }
 
 .other-info-container {
   height: 100%;
-  width: 100%;
+  width: 568.35px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -128,9 +129,9 @@
 
 .other-info-container input {
   margin: 5px;
-  width: 200px;
+  width: 200;
   height: 40px;
-  padding-left: 5px;
+  padding-left: 15px;
   font-size: 20px;
 }
 
