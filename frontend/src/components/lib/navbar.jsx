@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
+import capitalizeFirstLetter from './capitalise';
 
-export default function NavBar() {
+export default function NavBar({ linkTo }) {
   return (
     <div className="navbar">
       <div className="navbar-logo">
@@ -8,7 +9,7 @@ export default function NavBar() {
         <h1 className='logo'>Logo</h1>
       </div>
       <div className="navbar-links">
-        <Link to="/login" className='link'>Login</Link>
+        <Link to={`/${linkTo}`} className='link'>{capitalizeFirstLetter(linkTo)}</Link>
       </div>
     </div>
   );
