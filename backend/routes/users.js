@@ -1,4 +1,4 @@
-var tokenChecker = require('../tokenChecker')
+var tokenChecker = require('../tokenChecker');
 var express = require('express');
 var router = express.Router();
 var { addUser, loginUser, getMe } = require('../controllers/user');

@@ -3,50 +3,38 @@ import React, { useState } from "react";
 import SignUpInfo from "./SignUpInfo";
 import PersonalInfo from "./PersonalInfo";
 import OtherInfo from "./OtherInfo";
-import { response } from 'express';
 
 const Form = () => {
-    const [page, setPage] = useState(0);
-    const [token, setToken] = useState(window.localStorage.getItem("token"));
-    const [formData, setFormData] = useState({
-      userName: "",
-      firstName: "",
-      lastName: "",
-      email: "",
-      password: "",
-      confirmPassword: "",
-      profilePic: "",
-      interests: "Heli-skiing",
-      birthday: "",
-      gender: ""
-    });
-    
-    // function that sends post signup request to backend
-    const submitForm = () => {
-      fetch('/api/users/', {
-        method: 'POST',
-        headers: {
-          'Authorization': `Bearer ${token}`,
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(formData)
-      })
-      .then(res => res.json())
-      .then(async data => {
-        window.localStorage.setItem("token", data.token);
-        setToken(window.localStorage.getItem("token"));
+  const [page, setPage] = useState(0);
+
+  const [formData, setFormData] = useState({
+    userName: "",
+    firstName: "",
+    lastName: "",
+    email: "",
+    password: "",
+    confirmPassword: "",
+    profilePic: "",
+    interests: "Heli-skiing",
+    birthday: "",
+    gender: "",
+  });
+
+  // function that sends post signup request to backend
+  const submitForm = () => {
+    fetch("/api/users/", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(formData),
+    })
+      .then((res) => res.json())
+      .then((data) => {
         console.log(data);
       })
-      .catch(err => console.log(err));
-      if (response.status===201) {
-        navigate('/interests')
-      }
-      else {
-        console.log('Signup failed')
-        navigate('/signup')
-      }
-    }
-    
+      .catch((err) => console.log(err));
+  };
 
   const FormTitles = ["Sign Up", "Personal Info", "Other"];
 

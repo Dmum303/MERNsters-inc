@@ -1,11 +1,10 @@
-var tokenChecker = require('./tokenChecker')
 var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
 var logger = require('morgan');
 var cors = require('cors');
 
-
+var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var messagesRouter = require('./routes/messages');
 var app = express();
@@ -14,9 +13,9 @@ app.use(cors());
 app.use(logger('dev'));
 app.use(express.json());
 
-
-app.use('/api/users',  usersRouter);
-app.use('/api/messages', tokenChecker, messagesRouter)
+app.use('/', indexRouter);
+app.use('/api/users', usersRouter);
+app.use('/api/messages', messagesRouter)
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
