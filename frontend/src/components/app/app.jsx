@@ -4,7 +4,7 @@ import Form from '../signup/Form'
 import {Route, Routes} from "react-router-dom";
 import Footer from '../footer/footer';
 import '../../App.css';
-import LoginForm from '../login/loginForm';
+import LoginPage from '../login/loginPage';
 
 const App = () => {
     return (
@@ -12,7 +12,7 @@ const App = () => {
       <Routes>
         <Route path='/' element={<Homepage/>}/>
         <Route path='/signup' element={<Form/>}/>
-        <Route path='/login' element={<LoginForm/>}/>
+        <Route path='/login' element={<LoginPage/>}/>
       </Routes>
       <Footer />
       </>
