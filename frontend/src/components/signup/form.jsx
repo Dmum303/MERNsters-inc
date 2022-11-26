@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-
+import NavBar from "../lib/navbar";
 import SignUpInfo from "./SignUpInfo";
 import PersonalInfo from "./PersonalInfo";
 import OtherInfo from "./OtherInfo";
@@ -50,6 +50,7 @@ const Form = () => {
 
   return (
     <>
+    <NavBar linkTo='login' />
       <div className="form"></div>
 
       <div className="progressbar">
