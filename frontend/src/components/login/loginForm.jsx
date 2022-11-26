@@ -1,4 +1,6 @@
 // Login form component that returns posts an email and pass to the backend
+import { useState } from "react";
+import './loginForm.css';
 
 const LoginForm = () => {
   const [email, setEmail] = useState("");
@@ -16,7 +18,7 @@ const LoginForm = () => {
         "Content-Type": "application/json",
       },
       body: JSON.stringify(user),
-    })
+    });
   };
   return (
     <div className="login-form">
@@ -26,7 +28,6 @@ const LoginForm = () => {
       <form onSubmit={handleSubmit}>
         <div className="login-input">
           <input
-
             type="text"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
@@ -35,7 +36,6 @@ const LoginForm = () => {
         </div>
         <div className="login-input">
           <input
-
             type="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
@@ -50,3 +50,5 @@ const LoginForm = () => {
     </div>
   );
 };
+
+export default LoginForm;
