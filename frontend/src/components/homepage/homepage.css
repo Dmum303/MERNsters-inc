@@ -48,7 +48,7 @@ body {
  /* }   */
 
 .signup-title {
-    font-size: 25px;
+    font-size: 20px;
     color: rgb(255, 255, 255);
     /* bottom: 50%; */
 }
@@ -91,13 +91,13 @@ body {
     z-index: 1;
 }
 
-.logo {
+/* .logo {
     color:white;
-}
+} */
 
 .navbar-logo{
     /* width: 170px; */
-    width: 80%;
+    width: 50%;
     margin: 15px;
     text-align: left;
     padding-top: 55px;
