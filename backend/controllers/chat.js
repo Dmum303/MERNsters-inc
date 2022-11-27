@@ -7,6 +7,8 @@ dotenv.config();
 // No token implementation yet
 
 const getChat = asyncHandler(async (req, res) => {
+  // not sure if this is the right way to do this, should it have some
+  //async in the below funtion?
   Chat.findById(req.body.objectId, (err, chat) => {
     if (err) {
       res.status(400).json({ message: 'Chat not found' });
