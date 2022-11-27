@@ -9,7 +9,7 @@ const Homepage = () => {
       <NavBar />
       <div className="homepage-form">
         <div className="signup-title">
-          <h1>Swipe Right®</h1>
+          <h1>Don't be alone. Join friendzone®</h1>
         </div>
 
         <Link to="/signup">
