@@ -48,7 +48,7 @@ body {
  /* }   */
 
 .signup-title {
-    font-size: 30px;
+    font-size: 25px;
     color: rgb(255, 255, 255);
     /* bottom: 50%; */
 }
@@ -56,9 +56,9 @@ body {
 .signup-button {
     color: rgb(255,255,255);
     /* text-transform: lowercase; */
-    font-size: 15px;
+    font-size: 20px;
     background: linear-gradient(45deg, rgb(254, 48, 114), rgb(255, 89, 64));
-    padding: 10px 12px;
+    padding: 1px 90px;
     border-radius: 30px;
     border: none;
     text-align: center;
