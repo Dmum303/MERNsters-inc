@@ -1,6 +1,6 @@
-# MERNsters-inc
+# friendzone
 
-To find and communicate with friends. A scheduling functionality to see and set your schedule. Notifies you of an upcoming event. This application is for over 18s.
+To find and communicate with friends. An interactive application that allows you connect, find new and existing friends to chat with. This application is for over 18s.
 
 ## Specifications
 
@@ -8,61 +8,70 @@ To find and communicate with friends. A scheduling functionality to see and set 
 
 ## User Stories
 
+## Tech stack
+
+* Node (v18.12)
+* NPM (8.19.2)
+* Jest (v29.3.1) for unit testing on the back end
+* Cypress for end-to-end testing and component testing, on the front end
+* Mongoose to model objects in MongoDB.
+* Handlebars for the home template.
+* ESLint for linting.
+* Nodemon (2.0.20) to reload the server automatically.
+* vite (3.2.3)
+* vitest (0.25.2)
 ```
-As a MERNster user
+As a friendzone user
 I can signup with ease 
 I would like to login and logout. 
 ```
 
 ```
-As a MERNster user
+As a friendzone user
 I can find friends.
 I would like to message all my friends.
 ```
 
 ```
-As a MERNster user
+As a friendzone user
 I can swipe thru a list of possible new friends.
 I would like to see a list of my friends.
 ```
 
 ```
-As a MERNster user
-I can organise meet-ups.
-I can find unique people that I have lots in contact with.
-```
-
-```
-As a MERNster user
+As a friendzone user
 I can find and connect with likeminded people.
 I would like to find new friends.
 ```
 
 ```
-As a MERNster user
+As a friendzone user
 I can find and connect with existing friends and peers.
 I would like to find new friends.
 ```
 
 ```
-As a MERNster user
-I can specify my interest, industries, likes and dislikes.
-I would also like to opt out of particular of particular interests etc.
+As a friendzone user
+I can specify my interest.
+I would also like to find like minded friends and widen my circle.
 ```
 
 ```
-As a MERNster user
+As a friendzone user
 I can group friends together by groups - politics, sports etc
-I would like to be matched with likeminded people based on location, interest, networking, faith, sport(form a day)s & education.
+I would like to be matched with likeminded people based on hobbies and activities.
 
 ```
 
 ## Diagram
 
-#### UML Class Diagram
+### Backend Diagram
+<img src='images/backend.png'/>
+
+### Frontend Diagram
+<img src='images/frontend.png'/>
 
 
-## Tech Stack
 
 ## How to run
 
@@ -87,7 +96,7 @@ npm run dev
 2. Clone your fork to your local machine
 3. Install Node.js dependencies for both frontend and backend (API)
    ```
-   ; cd api
+   ; cd backend
    ; npm install
    ; cd ../frontend
    ; npm install
@@ -107,15 +116,16 @@ npm run dev
 
 1. Start the server
    ```
-   ; cd api
-   ; xxxxxx npm run devStart
+   ; cd backend
+   ; JWT_SECRET=SUPER_SECRET npm start
    ```
 2. Start the front end
 
   In a new terminal session...
   ```
   ; cd frontend
-  ; npm start
+  ; npm run dev
+  ```
   ```
 
 You should now be able to open your browser and go to `http://localhost:3000/` which directs you to the hompeage, where you can sign-up or log in.
@@ -147,4 +157,23 @@ You should now be able to open your browser and go to `http://localhost:3000/` w
    # Show all documents in a collection, formatted
    db.<collection name>.find().pretty()
 ```
+### Testing
 
+
+#### The Backend (API)
+
+**Note the use of an environment variable for the JWT secret**
+
+  Start the server in test mode (so that it connects to the test DB)
+
+  ```
+  ; cd api
+  ; JWT_SECRET=SUPER_SECRET npm run start:test
+  ```
+
+  Then run the tests in a new terminal session
+
+  ```
+  ; cd api
+  ; JWT_SECRET=SUPER_SECRET npm run test
+  ```
