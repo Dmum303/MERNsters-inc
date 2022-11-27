@@ -1,26 +1,51 @@
 @import url('https://fonts.googleapis.com/css2?family=Readex+Pro&display=swap');
 
 
+
 * {
     font-family: 'Readex Pro', sans-serif;
 }
 
 
-
 body {
     width: 100vw;
     height: 100vh; 
-    position: relative;
+    position: fixed;
     background-image: linear-gradient(
         to bottom,
         rgba(0,0,0,0.65) 0%,
         rgba(0,0,0,0)100%
-    );
+    ), url('./images/hero.png');
+
+    background-size: cover;
     display: flex;
     justify-content: center;
     align-items: center;
+
 }
 
+ /* h1 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin: 0;
+}  */
+
+/* .signup-title { */
+    /* height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 3rem; */
+
+   /* position: absolute; 
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin: 0;
+    font-size: 3rem; */
+ /* }   */
 
 .signup-title {
     font-size: 30px;
@@ -52,7 +77,7 @@ body {
     justify-content: center;
     align-items: center;
 }
-
+ 
 .navbar {
     display: flex;
     justify-content: space-between;
@@ -67,8 +92,22 @@ body {
 }
 
 .logo {
-    color: white;
+    color:white;
 }
+
+.navbar-logo{
+    /* width: 170px; */
+    width: 80%;
+    margin: 15px;
+    text-align: left;
+    padding-top: 55px;
+   
+
+}
+
+/* .logo{
+    width: 80%;
+} */
 
 .link {
     color: black;
