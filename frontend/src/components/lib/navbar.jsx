@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import capitalizeFirstLetter from './capitalise';
-import longLogo from './images/longLogo.png';
+import longLogo from '../homepage/images/longLogo.png';
 // import thumbTackLogo from './images/thumbTackLogo.png';
 
 export default function NavBar({ linkTo }) {
