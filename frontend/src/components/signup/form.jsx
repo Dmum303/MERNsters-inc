@@ -1,31 +1,31 @@
-import React, { useState } from "react";
-import NavBar from "../lib/navbar";
-import SignUpInfo from "./SignUpInfo";
-import PersonalInfo from "./PersonalInfo";
-import OtherInfo from "./OtherInfo";
+import React, { useState } from 'react';
+import NavBar from '../lib/navbar';
+import SignUpInfo from './SignUpInfo';
+import PersonalInfo from './PersonalInfo';
+import OtherInfo from './OtherInfo';
 
 const Form = () => {
   const [page, setPage] = useState(0);
 
   const [formData, setFormData] = useState({
-    userName: "",
-    firstName: "",
-    lastName: "",
-    email: "",
-    password: "",
-    confirmPassword: "",
-    profilePic: "",
-    interests: "Heli-skiing",
-    birthday: "",
-    gender: "",
+    userName: '',
+    firstName: '',
+    lastName: '',
+    email: '',
+    password: '',
+    confirmPassword: '',
+    profilePic: '',
+    interests: 'Heli-skiing',
+    birthday: '',
+    gender: '',
   });
 
   // function that sends post signup request to backend
   const submitForm = () => {
-    fetch("/api/users/", {
-      method: "POST",
+    fetch('/api/users/', {
+      method: 'POST',
       headers: {
-        "Content-Type": "application/json",
+        'Content-Type': 'application/json',
       },
       body: JSON.stringify(formData),
     })
@@ -36,7 +36,7 @@ const Form = () => {
       .catch((err) => console.log(err));
   };
 
-  const FormTitles = ["Sign Up", "Personal Info", "Other"];
+  const FormTitles = ['Sign Up', 'Personal Info', 'Other'];
 
   const PageDisplay = () => {
     if (page === 0) {
@@ -50,12 +50,12 @@ const Form = () => {
 
   return (
     <>
-    <NavBar linkTo='login' />
+      <NavBar linkTo="login" />
       <div className="form"></div>
 
       <div className="progressbar">
         <div
-          style={{ width: page === 0 ? "33.3%" : page == 1 ? "66.6%" : "100%" }}
+          style={{ width: page === 0 ? '33.3%' : page == 1 ? '66.6%' : '100%' }}
         ></div>
       </div>
 
@@ -87,7 +87,7 @@ const Form = () => {
               }
             }}
           >
-            {page === FormTitles.length - 1 ? "Submit" : "Next"}
+            {page === FormTitles.length - 1 ? 'Submit' : 'Next'}
           </button>
         </div>
       </div>

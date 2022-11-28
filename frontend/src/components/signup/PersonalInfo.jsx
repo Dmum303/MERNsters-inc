@@ -1,11 +1,20 @@
 import React from 'react';
 import { useState } from 'react';
+import { storage } from './firebase';
+import { uploadBytes, ref, getDownloadURL } from 'firebase/storage';
 // import { UploadProfileImage } from '../UploadImage/UploadImage';
 
 const PersonalInfo = ({ formData, setFormData }) => {
   function onChangeValue(event) {
     setFormData({ ...formData, interests: event.target.value });
   }
+
+  const UploadProfileImage = (image) => {
+    const imageRef = ref(storage, `imageprofile/${image.name + Date.now()}`);
+    return uploadBytes(imageRef, image).then((snapshot) => {
+      return getDownloadURL(snapshot.ref);
+    });
+  };
 
   //  if (image !== null) {
   //     UploadProfileImage(image).then((url) => {
@@ -29,8 +38,12 @@ const PersonalInfo = ({ formData, setFormData }) => {
             type={'file'}
             placeholder={'Profile picture'}
             value={formData.profilePic}
-            onChange={(event) =>
-              setFormData({ ...formData, profilePic: event.target.value })
+            onChange={
+              (event) =>
+                UploadProfileImage(event.target.value).then((url) => {
+                  setFormData({ ...formData, profilePic: url });
+                })
+              // setFormData({ ...formData, profilePic: event.target.value })
             }
           />
         </label>
