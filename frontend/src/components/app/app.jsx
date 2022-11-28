@@ -15,6 +15,7 @@ const App = () => {
         <Route path="/signup" element={<Form />} />
         <Route path="/chat" element={<Chat />} />
         <Route path="/login" element={<LoginPage />} />
+        <Route path="/swipe" element={<Swipe />} />
       </Routes>
       <Footer />
     </>
