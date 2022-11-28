@@ -1,15 +1,15 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "./homepage.css";
-import NavBar from "./navbar";
+import NavBar from "../lib/navbar";
 
 const Homepage = () => {
   return (
     <>
-      <NavBar />
+      <NavBar linkTo='login' />
       <div className="homepage-form">
         <div className="signup-title">
-          <h1>Swipe Right®</h1>
+          <h1>Get in the zone. Join friendzone®</h1>
         </div>
 
         <Link to="/signup">
