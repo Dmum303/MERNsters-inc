@@ -1,4 +1,4 @@
-const bcrypt = require("bcrypt");
+const bcrypt = require('bcrypt');
 const mongoose = require('mongoose');
 
 const userSchema = new mongoose.Schema({
@@ -14,11 +14,12 @@ const userSchema = new mongoose.Schema({
   interests: { type: Array, required: true },
   birthday: { type: Date, required: true },
   gender: { type: String, required: true },
+  chats: [],
 });
 
 //hashes and salts a password
 
-userSchema.pre("save", function (next) {
+userSchema.pre('save', function (next) {
   const user = this;
   bcrypt.genSalt(10, (err, salt) => {
     if (err) {
@@ -33,7 +34,6 @@ userSchema.pre("save", function (next) {
     });
   });
 });
-
 
 const User = mongoose.model('User', userSchema);
 

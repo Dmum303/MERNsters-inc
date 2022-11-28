@@ -28,7 +28,7 @@ describe('User model', () => {
       firstName: 'some',
       lastName: 'one',
     });
-    expect(user.password).toEqual('password');
+    expect(user.firstName).toEqual('some');
   });
 
   it('can list all users', (done) => {
@@ -54,23 +54,37 @@ describe('User model', () => {
 
     user.save((err) => {
       expect(err).toBeNull();
-
       User.find((err, users) => {
         expect(err).toBeNull();
-
         expect(users[0]).toMatchObject({
           firstName: 'some',
           lastName: 'one',
           email: 'someone@example.com',
-          password: 'password',
           profilePic: 'https://i.imgur.com/1Q9ZQ9u.png',
           birthday: date,
           interests: ['Sports'],
           gender: 'Male',
+          chats: [],
         });
         done();
       });
     });
+  });
+
+  it('Check chats array exists on user model', (done) => {
+    user = new User({
+      firstName: 'some',
+      lastName: 'one',
+      email: 'nope@example.com',
+      password: 'password',
+      profilePic: 'https://i.imgur.com/1Q9ZQ9u.png',
+      interests: ['Sports'],
+      birthday: date,
+      gender: 'Male',
+      chats: ['6380b408ba3b91e4853f389e'],
+    });
+    expect(user.chats).toEqual(['6380b408ba3b91e4853f389e']);
+    done();
   });
 
   // // TODO: Finish this test. Testing the friendslist.
