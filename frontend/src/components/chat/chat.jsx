@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 // import MessageList from '../messagelist/messagelist';
 
 const Chat = () => {
-  const [chat, setChat] = useState([]);
+  const [chat, setChat] = useState({ messages: [], users: [] });
   const [message, setMessage] = useState('');
   // Need a function to get post req for the current chat
   const reload = () => {
@@ -19,7 +19,8 @@ const Chat = () => {
       .then((response) => response.json())
       .then(async (data) => {
         setChat(data);
-        console.log(chat.users[0].user.firstName);
+        // console.log(chat.users[0].user.firstName);
+        console.log(chat);
         console.log(chat.users);
       });
   };
@@ -75,18 +76,18 @@ const Chat = () => {
           {/* {chat.users[0].user.firstName} {chat.users[0].user.lastName} */}
         </p>
         {/* Can't iterate over users array - not sure why? */}
-        {/* {chat.users.map((user) => {
-          <p>{user.user.firstName}</p>;
-        })} */}
+        {chat.users.map((user) => {
+          <p>{user.firstName}</p>;
+        })}
         <p>Messages</p>
         {/* <MessageList chat={chat} reload={reload} /> */}
-        {/* {chat.messages.map((message) => (
+        {chat.messages.map((message) => (
           <div class="message-container">
             <p>{message.message.text}</p>
           </div>
-        ))} */}
+        ))}
         <form className="create-form-container" onSubmit={handleSubmit}>
-          <label for="message-text-box"></label>
+          <label htmlFor="message-text-box"></label>
           <input
             type="text"
             className="message-text-box"
@@ -95,7 +96,7 @@ const Chat = () => {
             required
           />
           <br></br>
-          <button class="message-btn"> message </button>
+          <button className="message-btn"> message </button>
         </form>
       </div>
     </>
