@@ -9,7 +9,7 @@ const Homepage = () => {
       <NavBar linkTo='login' />
       <div className="homepage-form">
         <div className="signup-title">
-          <h1>Swipe Right®</h1>
+          <h1>Get in the zone. Join friendzone®</h1>
         </div>
 
         <Link to="/signup">
