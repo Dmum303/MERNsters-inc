@@ -1,5 +1,7 @@
 import React from 'react';
 import Homepage from '../homepage/homepage';
+import Card from '../swipe/card';
+import Swipe from '../swipe/swipe';
 import Form from '../signup/Form';
 import { Route, Routes } from 'react-router-dom';
 import Footer from '../footer/footer';
@@ -16,6 +18,7 @@ const App = () => {
         <Route path="/chat" element={<Chat />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/swipe" element={<Swipe />} />
+        <Route path="/card" element={<Card />} />
       </Routes>
       <Footer />
     </>

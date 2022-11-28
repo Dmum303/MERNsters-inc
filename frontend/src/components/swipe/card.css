@@ -1,0 +1,19 @@
+.card {
+    width: 600px;
+    height: 650px;
+    background-color: white;
+}
+
+.card-img {
+    width: 590px;
+    height: 500px;
+}
+
+.card-body {
+
+}
+
+.name-bar {
+    display: flex;
+    gap: 10px;
+}
