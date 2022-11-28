@@ -146,3 +146,30 @@ input {
 input:focus {
   border: 3px solid rgb(98, 0, 255);
 }
+
+.parent-chat-container {
+  display: flex;
+  justify-content: space-around;
+}
+
+.chat-container {
+  height: 100%;
+  width: 568.35px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: left;
+  background-color: white;
+}
+
+.inbox-container {
+  height: 100%;
+  width: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
+  align-items: left;
+  background-color: green;
+  /* border-color: red;
+  border-width: 5px; */
+}
