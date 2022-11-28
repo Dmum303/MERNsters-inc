@@ -1,38 +1,54 @@
 @import url('https://fonts.googleapis.com/css2?family=Readex+Pro&display=swap');
 
 
+
 * {
     font-family: 'Readex Pro', sans-serif;
 }
 
 
-
 body {
     width: 100vw;
     height: 100vh; 
-    position: relative;
+    position: fixed;
     background-image: linear-gradient(
         to bottom,
         rgba(0,0,0,0.65) 0%,
         rgba(0,0,0,0)100%
-    );
+    ), url('./images/hero.png');
+
+    background-size: cover;
     display: flex;
     justify-content: center;
     align-items: center;
+
 }
 
-h1 {
-    /* position: absolute;
+ /* h1 {
+    position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    margin: 0; */
-}
+    margin: 0;
+}  */
 
+/* .signup-title { */
+    /* height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 3rem; */
 
+   /* position: absolute; 
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin: 0;
+    font-size: 3rem; */
+ /* }   */
 
 .signup-title {
-    font-size: 30px;
+    font-size: 20px;
     color: rgb(255, 255, 255);
     /* bottom: 50%; */
 }
@@ -40,9 +56,9 @@ h1 {
 .signup-button {
     color: rgb(255,255,255);
     /* text-transform: lowercase; */
-    font-size: 15px;
+    font-size: 20px;
     background: linear-gradient(45deg, rgb(254, 48, 114), rgb(255, 89, 64));
-    padding: 10px 12px;
+    padding: 1px 90px;
     border-radius: 30px;
     border: none;
     text-align: center;
@@ -61,7 +77,7 @@ h1 {
     justify-content: center;
     align-items: center;
 }
-
+ 
 .navbar {
     display: flex;
     justify-content: space-between;
@@ -75,9 +91,23 @@ h1 {
     z-index: 1;
 }
 
-.logo {
-    color: white;
+/* .logo {
+    color:white;
+} */
+
+.navbar-logo{
+    /* width: 170px; */
+    width: 50%;
+    margin: 15px;
+    text-align: left;
+    padding-top: 55px;
+   
+
 }
+
+/* .logo{
+    width: 80%;
+} */
 
 .link {
     color: black;

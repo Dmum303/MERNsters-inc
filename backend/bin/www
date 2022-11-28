@@ -8,6 +8,8 @@ var app = require('../app');
 var debug = require('debug')('backend:server');
 var http = require('http');
 var mongoose = require("mongoose");
+var dotenv = require('dotenv');
+dotenv.config();
 /**
  * Get port from environment and store in Express.
  */
@@ -20,7 +22,7 @@ app.set('port', port);
  * Connect to MongoDB
  **/
 
- var mongoDbUrl = process.env.MONGODB_URL || "mongodb://0.0.0.0/mernsters";
+ var mongoDbUrl = process.env.MONGODB_URL;
  mongoose.connect(mongoDbUrl, {
    useNewUrlParser: true,
    useUnifiedTopology: true,

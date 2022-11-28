@@ -5,6 +5,7 @@ import { Route, Routes } from 'react-router-dom';
 import Footer from '../footer/footer';
 import Chat from '../chat/chat';
 import '../../App.css';
+import LoginPage from '../login/loginPage';
 
 const App = () => {
   return (
@@ -13,6 +14,7 @@ const App = () => {
         <Route path="/" element={<Homepage />} />
         <Route path="/signup" element={<Form />} />
         <Route path="/chat" element={<Chat />} />
+        <Route path="/login" element={<LoginPage />} />
       </Routes>
       <Footer />
     </>
