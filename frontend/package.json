@@ -10,6 +10,7 @@
     "test": "vitest --coverage"
   },
   "dependencies": {
+    "@use-gesture/react": "^10.2.22",
     "express": "^4.18.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
