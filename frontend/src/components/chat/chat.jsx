@@ -70,7 +70,7 @@ const Chat = () => {
     <>
       <div className="chat-container">
         <h1>Chat</h1>
-        <h2>People in this chat</h2>
+        {/* <h2>People in this chat</h2> */}
         <p>
           {/* {chat.users[0].user.firstName} {chat.users[0].user.lastName} */}
         </p>
@@ -80,11 +80,11 @@ const Chat = () => {
         })} */}
         <p>Messages</p>
         {/* <MessageList chat={chat} reload={reload} /> */}
-        {chat.messages.map((message) => (
+        {/* {chat.messages.map((message) => (
           <div class="message-container">
             <p>{message.message.text}</p>
           </div>
-        ))}
+        ))} */}
         <form className="create-form-container" onSubmit={handleSubmit}>
           <label for="message-text-box"></label>
           <input
