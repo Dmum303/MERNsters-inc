@@ -159,7 +159,7 @@ input:focus {
   flex-direction: column;
   justify-content: center;
   align-items: left;
-  background-color: green;
+  background-color: rgb(55 65 81);
 }
 
 .inbox-container {

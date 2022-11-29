@@ -140,7 +140,9 @@ const Chat = () => {
           <span className="font-light text-xl text-light-200">   
             <p>{message.message.text}</p>
             </span>
+            <span className="font-light text-xl text-light-200">   
             <p>{message.message.createdAt}</p>
+            </span>
             <br/>
           </div>
         ))}
