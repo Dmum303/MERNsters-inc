@@ -6,7 +6,7 @@ import Footer from '../footer/footer';
 import Chat from '../chat/chat';
 import '../../App.css';
 import LoginPage from '../login/loginPage';
-import Deck from '../deck/deck';
+import Swipe from '../swipe/swipe';
 
 const App = () => {
   return (
@@ -16,7 +16,7 @@ const App = () => {
         <Route path="/signup" element={<Form />} />
         <Route path="/chat" element={<Chat />} />
         <Route path="/login" element={<LoginPage />} />
-        <Route path='/deck' element={<Deck />} />
+        <Route path='/swipe' element={<Swipe />} />
       </Routes>
       <Footer />
     </>
