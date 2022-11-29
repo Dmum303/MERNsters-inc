@@ -94,4 +94,10 @@ const generateToken = (id) => {
   return jwt.sign({ id }, process.env.JWT_SECRET);
 };
 
-module.exports = { addUser, getMe, loginUser };
+const getAllUsers = asyncHandler(async (req, res) => {
+  const users = await User.find({});
+  console.log(users);
+  res.json(users);
+});
+
+module.exports = { addUser, getMe, loginUser, getAllUsers };
