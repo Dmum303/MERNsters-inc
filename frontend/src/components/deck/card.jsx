@@ -11,6 +11,10 @@ const Card = ({ card }) => {
     if (mx > 100 && !down) {
       console.log('right')
     }
+
+    if (mx < -100 && !down) {
+      console.log('left')
+    }
   })
 
 
