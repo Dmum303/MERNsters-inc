@@ -1,33 +1,41 @@
-import React, { useState } from "react";
-import NavBar from "../lib/navbar";
-import SignUpInfo from "./SignUpInfo";
-import PersonalInfo from "./PersonalInfo";
-import OtherInfo from "./OtherInfo";
+import React, { useState } from 'react';
+import NavBar from '../lib/navbar';
+import SignUpInfo from './SignUpInfo';
+import PersonalInfo from './PersonalInfo';
+import OtherInfo from './OtherInfo';
+import { storage } from '../uploadimage/firebase';
+import { uploadBytes, ref, getDownloadURL } from 'firebase/storage';
 
 const Form = () => {
   const [page, setPage] = useState(0);
 
   const [formData, setFormData] = useState({
-    userName: "",
-    firstName: "",
-    lastName: "",
-    email: "",
-    password: "",
-    confirmPassword: "",
-    profilePic: "",
-    interests: "Heli-skiing",
-    birthday: "",
-    gender: "",
+    userName: '',
+    firstName: '',
+    lastName: '',
+    email: '',
+    password: '',
+    confirmPassword: '',
+    profilePic: '',
+    interests: 'Heli-skiing',
+    birthday: '',
+    gender: '',
   });
 
-  // function that sends post signup request to backend
-  const submitForm = () => {
-    fetch("/api/users/", {
-      method: "POST",
+  const UploadProfileImage = (image) => {
+    const imageRef = ref(storage, `imageprofile/${image.name + Date.now()}`);
+    return uploadBytes(imageRef, image).then((snapshot) => {
+      return getDownloadURL(snapshot.ref);
+    });
+  };
+
+  const sendFormData = (url) => {
+    fetch('/api/users/', {
+      method: 'POST',
       headers: {
-        "Content-Type": "application/json",
+        'Content-Type': 'application/json',
       },
-      body: JSON.stringify(formData),
+      body: JSON.stringify({ ...formData, profilePic: url }),
     })
       .then((res) => res.json())
       .then((data) => {
@@ -36,7 +44,21 @@ const Form = () => {
       .catch((err) => console.log(err));
   };
 
-  const FormTitles = ["Sign Up", "Personal Info", "Other"];
+  const defaultImage =
+    'https://firebasestorage.googleapis.com/v0/b/mernsters.appspot.com/o/imageprofile%2Fchumpinhat.jpeg1669738606266?alt=media&token=a008d56f-b7d4-4922-976d-a73067e36691';
+
+  // function that sends post signup request to backend
+  const submitForm = () => {
+    if (formData.profilePic === '') {
+      sendFormData(defaultImage);
+    } else {
+      UploadProfileImage(formData.profilePic).then((url) => {
+        sendFormData(url);
+      });
+    }
+  };
+
+  const FormTitles = ['Sign Up', 'Personal Info', 'Other'];
 
   const PageDisplay = () => {
     if (page === 0) {
@@ -50,12 +72,14 @@ const Form = () => {
 
   return (
     <>
-    <NavBar linkTo='login' />
+      <NavBar linkTo="login" />
       <div className="form"></div>
 
       <div className="progressbar">
         <div
-          style={{ width: page === 0 ? "33.3%" : page == 1 ? "66.6%" : "100%" }}
+          style={{
+            width: page === 0 ? '33.3%' : page == 1 ? '66.6%' : '100%',
+          }}
         ></div>
       </div>
 
@@ -87,7 +111,7 @@ const Form = () => {
               }
             }}
           >
-            {page === FormTitles.length - 1 ? "Submit" : "Next"}
+            {page === FormTitles.length - 1 ? 'Submit' : 'Next'}
           </button>
         </div>
       </div>
