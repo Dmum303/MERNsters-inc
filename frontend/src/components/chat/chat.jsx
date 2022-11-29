@@ -140,7 +140,7 @@ const Chat = () => {
           <span className="font-light text-xl text-light-200">   
             <p>{message.message.text}</p>
             </span>
-            <span className="font-light text-xl text-light-200">   
+            <span className="font-light text-xs text-light-200">   
             <p>{message.message.createdAt}</p>
             </span>
             <br/>
@@ -156,14 +156,12 @@ const Chat = () => {
             value={message}
             required
           />
-          
           <button className="message-btn"> message </button>
         </form>
       </div>
       </div>
       </div>
       </div>
-    
     </>
   );
 };
