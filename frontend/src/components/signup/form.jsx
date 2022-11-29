@@ -30,7 +30,6 @@ const Form = () => {
   };
 
   const sendFormData = (url) => {
-    console.log(url);
     fetch('/api/users/', {
       method: 'POST',
       headers: {
@@ -45,11 +44,18 @@ const Form = () => {
       .catch((err) => console.log(err));
   };
 
+  const defaultImage =
+    'https://firebasestorage.googleapis.com/v0/b/mernsters.appspot.com/o/imageprofile%2Fchumpinhat.jpeg1669738606266?alt=media&token=a008d56f-b7d4-4922-976d-a73067e36691';
+
   // function that sends post signup request to backend
   const submitForm = () => {
-    UploadProfileImage(formData.profilePic).then((url) => {
-      sendFormData(url);
-    });
+    if (formData.profilePic === '') {
+      sendFormData(defaultImage);
+    } else {
+      UploadProfileImage(formData.profilePic).then((url) => {
+        sendFormData(url);
+      });
+    }
   };
 
   const FormTitles = ['Sign Up', 'Personal Info', 'Other'];
