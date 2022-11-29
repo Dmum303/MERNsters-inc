@@ -35,15 +35,13 @@ const PersonalInfo = ({ formData, setFormData }) => {
           {' '}
           Profile pic:
           <input
-            type={'file'}
-            placeholder={'Profile picture'}
-            value={formData.profilePic}
+            type="file"
+            id="userImage"
+            name="filename"
+            // placeholder={'Profile picture'}
+            // value={formData.profilePic}
             onChange={(event) =>
-              // UploadProfileImage(event.target.value).then((url) => {
-              //   setFormData({ ...formData, profilePic: url });
-              // })
-              // console.log(event.target.value)
-              setFormData({ ...formData, profilePic: event.target.value })
+              setFormData({ ...formData, profilePic: event.target.files[0] })
             }
           />
         </label>
