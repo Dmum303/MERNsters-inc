@@ -1,13 +1,15 @@
 import React from 'react';
 import { useState } from 'react';
-// import { storage } from '../uploadimage/firebase';
-// import { uploadBytes, ref, getDownloadURL } from 'firebase/storage';
-// import { UploadProfileImage } from '../UploadImage/UploadImage';
 
 const PersonalInfo = ({ formData, setFormData }) => {
   function onChangeValue(event) {
     setFormData({ ...formData, interests: event.target.value });
   }
+
+  const lastNoSetData = (event) => {
+    const lastImage = event.target.files.length - 1;
+    setFormData({ ...formData, profilePic: event.target.files[lastImage] });
+  };
 
   return (
     <>
@@ -21,8 +23,10 @@ const PersonalInfo = ({ formData, setFormData }) => {
             name="filename"
             // placeholder={'Profile picture'}
             // value={formData.profilePic}
-            onChange={(event) =>
-              setFormData({ ...formData, profilePic: event.target.files[0] })
+            onChange={
+              (event) => lastNoSetData(event)
+              // const lastImage = event.target.files.lenght - 1;
+              // setFormData({ ...formData, profilePic: event.target.files[0] });
             }
           />
         </label>

@@ -30,6 +30,7 @@ const Form = () => {
   };
 
   const sendFormData = (url) => {
+    console.log(url);
     fetch('/api/users/', {
       method: 'POST',
       headers: {
@@ -48,7 +49,6 @@ const Form = () => {
   const submitForm = () => {
     UploadProfileImage(formData.profilePic).then((url) => {
       sendFormData(url);
-      // setFormData({ ...formData, profilePic: url })
     });
   };
 
