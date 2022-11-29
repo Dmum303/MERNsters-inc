@@ -65,18 +65,18 @@ const Chat = () => {
     {
       id: 1,
       image: "bg-blue-100",
-      from: "Annie Lynch",
-      subject: "Aliquam erat volutpat",
-      body: `Ut id dignissim purus. Donec suscipit tortor orci, eu accumsan lectus blandit id. Interdum et malesuada fames ac ante ipsum primis in faucibus. Sed vulputate ac urna ut elementum. Nunc eget metus vitae odio porta feugiat quis a mi. Vestibulum interdum maximus odio sed dignissim. Suspendisse ultricies auctor dignissim. Vivamus at lorem eget nisi ultricies scelerisque ut pellentesque erat.`,
+      from: "Sam Smith",
+      subject: "We both love Geocaching",
+      body: `Let's go Geocaching tonight!`,
       hasAttachment: true,
       time: "2:12PM",
     },
     {
       id: 2,
       image: "bg-red-100",
-      from: "Dribbble Team",
+      from: "Demi Lovato",
       subject: "How are you getting on?",
-      body: `Etiam vel tincidunt lorem, vitae consequat sem. Aenean dictum nisi quis sollicitudin pharetra.Ut id dignissim purus. Donec suscipit tortor orci, eu accumsan lectus blandit id. Interdum et malesuada fames ac ante ipsum primis in faucibus. Sed vulputate ac urna ut elementum. Nunc eget metus vitae odio porta feugiat quis a mi. Vestibulum interdum maximus odio sed dignissim. Suspendisse ultricies auctor dignissim. Vivamus at lorem eget nisi ultricies scelerisque ut pellentesque erat.`,
+      body: `So, what do you like the most about News-raising?`,
       hasAttachment: true,
       time: "3:30PM",
       isSelected: true,
@@ -105,7 +105,7 @@ const Chat = () => {
       <div className="flex items-center py-6 px-10">
         <span className="font-light text-xl text-light-200">Inbox</span>
         <div className="ml-2 w-5 h-4 rounded-full bg-gradient-to-br from-blue-200 to-blue-300 flex items-center justify-center text-2xs font-normal text-light-200">
-          3
+          2
         </div>
         <FontAwesomeIcon
           icon={faPlus}
@@ -125,15 +125,6 @@ const Chat = () => {
         ))}
       </div>
     </div>
-     {/* <div className="inbox-container">
-       "User's First Name"  <br/>
-       "Sarita"  <br/>
-       "Pauline"  <br/>
-       "Taqueer"  <br/>
-       "Arshad"  <br/>
-       "David"  <br/>
-       "Blake"
-     </div> */}
       <div className="chat-container">
         <h1>Chat</h1>
         <p>Messages</p>
