@@ -141,7 +141,7 @@ const Chat = () => {
             <p>{message.message.text}</p>
             </span>
             <span className="font-light text-xs text-light-200">   
-            <p>{message.message.createdAt}</p>
+            <p>{message.message.createdAt.slice(0, 24)}</p>
             </span>
             <br/>
           </div>
