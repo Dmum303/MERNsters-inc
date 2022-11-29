@@ -10,10 +10,12 @@ const Card = ({ card }) => {
 
     if (mx > 100 && !down) {
       console.log('right')
+      // sends post request
     }
 
     if (mx < -100 && !down) {
       console.log('left')
+      // deletes the post on the frontend
     }
   })
 
