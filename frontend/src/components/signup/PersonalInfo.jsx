@@ -9,25 +9,6 @@ const PersonalInfo = ({ formData, setFormData }) => {
     setFormData({ ...formData, interests: event.target.value });
   }
 
-  // const UploadProfileImage = (image) => {
-  //   const imageRef = ref(storage, `imageprofile/${image.name + Date.now()}`);
-  //   return uploadBytes(imageRef, image).then((snapshot) => {
-  //     return getDownloadURL(snapshot.ref);
-  //   });
-  // };
-
-  //  if (image !== null) {
-  //     UploadProfileImage(image).then((url) => {
-  //       fetchApi(url);
-  //     });
-  //   } else {
-  //     fetchApi(null);
-  //   }
-  // };
-  // const handleImageChange = (event) => {
-  //   setFormData{}
-  // }
-
   return (
     <>
       <div className="personal-info-container">

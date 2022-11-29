@@ -21,7 +21,6 @@ const Form = () => {
     birthday: '',
     gender: '',
   });
-  //https://firebasestorage.googleapis.com/v0/b/mernsters.appspot.com/o/imageprofile%2Ftrilby_126264323.jpeg1669733172508?alt=media&token=1804e91b-3232-4e01-b07a-cda1dcccefd4
 
   const UploadProfileImage = (image) => {
     const imageRef = ref(storage, `imageprofile/${image.name + Date.now()}`);
