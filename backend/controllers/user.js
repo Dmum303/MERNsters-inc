@@ -95,7 +95,7 @@ const generateToken = (id) => {
 };
 
 const getAllUsers = asyncHandler(async (req, res) => {
-  const users = await User.find({});
+  const users = await User.find({}).select('-password');
   console.log(users);
   res.json(users);
 });
