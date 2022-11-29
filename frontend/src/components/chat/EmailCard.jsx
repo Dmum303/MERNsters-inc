@@ -3,6 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "./EmailCard.css";
 
 export default function EmailCard(props) {
+  // Move chat fields here
   const {
     image,
     from,

@@ -15,7 +15,7 @@ const Chat = () => {
       method: 'post',
       body: JSON.stringify({
         // this is dummy data - needs to be made dynamic
-        objectId: '6380f555e06bef726ddaf485',
+        objectId: '6385e41e4c85d9e45d3bff8e',
       }),
       headers: {
         'Content-Type': 'application/json',
@@ -25,8 +25,8 @@ const Chat = () => {
       .then(async (data) => {
         setChat(data);
         // console.log(chat.users[0].user.firstName);
-        console.log(chat);
-        console.log(chat.users);
+        console.log("Hey guys");
+        // console.log(chat.users);
       });
   };
 
@@ -40,7 +40,7 @@ const Chat = () => {
       method: 'post',
       body: JSON.stringify({
         // this is dummy data - needs to be made dynamic
-        objectId: '6380f555e06bef726ddaf485',
+        objectId: '6385e41e4c85d9e45d3bff8e',
         senderId: '6380b30f83141a9fd30a7662',
         recipientId: '6380b30f83141a9fd30a7662',
         text: message,
@@ -136,19 +136,12 @@ const Chat = () => {
      </div> */}
       <div className="chat-container">
         <h1>Chat</h1>
-        {/* <h2>People in this chat</h2> */}
-        <p>
-          {/* {chat.users[0].user.firstName} {chat.users[0].user.lastName} */}
-        </p>
-        {/* Can't iterate over users array - not sure why? */}
-        {chat.users.map((user) => {
-          <p>{user.firstName}</p>;
-        })}
         <p>Messages</p>
-        {/* <MessageList chat={chat} reload={reload} /> */}
         {chat.messages.map((message) => (
           <div class="message-container">
             <p>{message.message.text}</p>
+            <p>{message.message.recipientName}</p>
+            <p>{message.message.createdAt}</p>
           </div>
         ))}
         <form className="create-form-container" onSubmit={handleSubmit}>
