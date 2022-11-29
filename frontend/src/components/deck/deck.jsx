@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import Card from "./card";
 import './deck.css';
 
+
 const Deck = () => {
   const [deck, setDeck] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -37,7 +38,7 @@ const Deck = () => {
     <div>
       <h1>Deck</h1>
       {deck.map((card) => (
-        <Card key={card._id} card={card} />
+        <Card key={card._id} card={card}/>
       ))}
     </div>
   );
