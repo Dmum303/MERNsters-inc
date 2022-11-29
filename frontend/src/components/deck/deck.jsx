@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import Card from "./card";
-import './deck.css';
-
+import "./deck.css";
 
 const Deck = () => {
   const [deck, setDeck] = useState([]);
@@ -13,12 +12,11 @@ const Deck = () => {
       try {
         // const { data } = await axios.get("/api/users/getAllUsers");
         fetch("/api/users/getAllUsers")
-        
-        .then(response => response.json())
-        .then(data => {setDeck(data);
-          setLoading(false)
-        }
-        )
+          .then((response) => response.json())
+          .then((data) => {
+            setDeck(data);
+            setLoading(false);
+          });
       } catch (err) {
         setError(true);
       }
@@ -35,12 +33,14 @@ const Deck = () => {
   }
 
   return (
-    <div>
-      {deck.map((card) => (
-        <Card key={card._id} card={card}/>
-      ))}
+    <div className="deck">
+      <div>
+        {deck.map((card) => (
+          <Card key={card._id} card={card} />
+        ))}
+      </div>
     </div>
   );
-}
+};
 
 export default Deck;
