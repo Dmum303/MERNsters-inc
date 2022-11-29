@@ -1,4 +1,5 @@
 import Deck from "../deck/deck";
+import './swipe.css';
 
 export default function Swipe() {
   return (
