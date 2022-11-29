@@ -11,7 +11,7 @@ const Card = ({ card }) => {
 
   return (
     <animated.div {...bind()} className="user-card" style={{ x, y }}>
-      <img src={card.profilePic} alt={card.firstName + card.lastName} width="500px" height='300px' />
+      <img src={card.profilePic} alt={card.firstName + card.lastName} width="500px" height='300px' draggable='false' />
       <div className="user-card-body-container">
         <div className="user-card-body">
           <h4>
