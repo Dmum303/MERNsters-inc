@@ -46,8 +46,8 @@ const chatSchema = new mongoose.Schema({
           required: true 
         },
         text: { type: String, required: true },
-        createdAt: { type: Date, default: Date.now },
-        // createdAt: { type: Date, default: Date().toLocaleString() },
+        // createdAt: { type: Date, default: Date.now },
+         createdAt: { type: String, default: Date().toLocaleString() },
       },
     },
   ],
