@@ -2,8 +2,8 @@ import React, { useEffect, useState } from 'react';
 import NavBar from "../lib/navbar";
 import { faCaretDown, faPlus } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import EmailCard from "./ChatCard";
-import "./EmailList.css";
+import ChatCard from "./ChatCard";
+import "./ChatList.css";
 // import MessageList from '../messagelist/messagelist';
 
 const Chat = () => {
@@ -61,7 +61,7 @@ const Chat = () => {
     }
   };
 
-  const [emails, setEmails] = useState([
+  const [chats, setChats] = useState([
     {
       id: 1,
       image: "bg-blue-100",
@@ -120,8 +120,8 @@ const Chat = () => {
         />
       </div>
       <div className="flex flex-col px-10 pb-10 overflow-y-auto">
-        {emails.map((email, index) => (
-          <EmailCard key={email.id} {...email} />
+        {chats.map((chat, index) => (
+          <ChatCard key={chat.id} {...chat} />
         ))}
       </div>
     </div>
