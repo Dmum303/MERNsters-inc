@@ -1,7 +1,7 @@
 import { faPaperclip } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "./ChatCard.css";
-// import "../../../../../backend/models/chat.js";
+// import '/Users/saritaradia/Desktop/Projects/MERNsters-inc/backend/models/chat.js'
 
 export default function ChatCard(props) {
   // Move chat fields here
@@ -24,8 +24,7 @@ export default function ChatCard(props) {
     image,
     firstName,
     time,
-    subject,
-    body,
+    summary,
     isSelected,
     onClick,
   }= props;
@@ -49,11 +48,11 @@ export default function ChatCard(props) {
           </span>
         </div>
         <span className="text-sm text-light-200 font-medium mt-2">
-          {subject}
+          {summary}
         </span>
-        <span className="clamp text-xs font-normal text-light-500 mt-4 w-full">
+        {/* <span className="clamp text-xs font-normal text-light-500 mt-4 w-full">
           {body}
-        </span>
+        </span> */}
       </div>
     </div>
   );

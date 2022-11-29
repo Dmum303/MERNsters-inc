@@ -66,18 +66,14 @@ const Chat = () => {
       id: 1,
       image: "bg-blue-100", // change to profile pic
       firstName: "Sam Smith",
-      subject: "We both love Geocaching",
-      body: `Let's go Geocaching tonight!`,
-      hasAttachment: true,
+      summary: "We both love Geocaching!",
       time: "2:12PM",
     },
     {
       id: 2,
       image: "bg-red-100",
       firstName: "Demi Lovato",
-      subject: "How are you getting on?",
-      body: `So, what do you like the most about News-raising?`,
-      hasAttachment: true,
+      summary: "How are you getting on?",
       time: "3:30PM",
       isSelected: true,
     }
