@@ -101,7 +101,7 @@ const Chat = () => {
      <NavBar linkTo='login' />
      <div className='parent-chat-container'>
 
-     <div className="flex flex-col bg-dark-500 w-6/12 mr-1 px-0 h-full">
+     <div className="flex flex-col bg-dark-400 w-6/12 mr-1 px-0 h-full">
       <div className="flex items-center py-6 px-10">
         <span className="font-light text-xl text-light-200">Inbox</span>
         <div className="ml-2 w-5 h-4 rounded-full bg-gradient-to-br from-blue-200 to-blue-300 flex items-center justify-center text-2xs font-normal text-light-200">
@@ -125,9 +125,11 @@ const Chat = () => {
         ))}
       </div>
     </div>
-      <div className="chat-container">
-        <h1>Chat</h1>
-        <p>Messages</p>
+
+    <div className="flex flex-col bg-dark-400 w-6/12 mr-1 px-0 h-full">
+      <div className="flex items-center py-6 px-10">
+      {/* <div className="chat-container"> */}
+      <span className="font-light text-3xl text-light-200">Chat</span>        <p>Messages</p>
         {chat.messages.map((message) => (
           <div class="message-container">
             <p>{message.message.text}</p>
@@ -148,6 +150,8 @@ const Chat = () => {
           <button className="message-btn"> message </button>
         </form>
       </div>
+      </div>
+      {/* </div> */}
       </div>
     
     </>
