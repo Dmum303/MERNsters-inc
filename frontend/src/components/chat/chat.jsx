@@ -5,6 +5,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import ChatCard from "./ChatCard";
 import "./ChatList.css";
 
+
 // import MessageList from '../messagelist/messagelist';
 
 const Chat = () => {
@@ -66,19 +67,19 @@ const Chat = () => {
     {
       id: 1,
       image: "bg-blue-100", // change to profile pic
-      // firstName: message.message.recipientName,
-      // summary: message.message.text,
-      // time: message.message.createdAt.slice(0, 24),
-    }
+      firstName: "Sam Smith",
+      summary: "Let's try Geocaching!",
+      time: "2:15PM"
+    },
 
-    // {
-    //   id: 2,
-    //   image: "bg-red-100",
-    //   firstName: "Demi Lovato",
-    //   summary: "How are you getting on?",
-    //   time: "3:30PM",
-    //   isSelected: true,
-    // }
+    {
+      id: 2,
+      image: "bg-red-100",
+      firstName: "Demi Lovato",
+      summary: "When did you start Heli-skiing?",
+      time: "3:30PM",
+      isSelected: true,
+    }
 
     
   ]);
@@ -136,8 +137,8 @@ const Chat = () => {
          {chat.messages.map((message) => (
           <div class="message-container">
           <span className="font-light text-lg text-light-200">   
-{/* {const testrecipientName = message.message.recipientName}           */}
-    <p>{message.message.recipientName}</p>
+           {/* testName: message.message.recipientName} */}
+         <p>{message.message.recipientName}</p>
             </span>
           <span className="font-light text-xl text-light-200">   
             <p>{message.message.text}</p>
@@ -147,9 +148,11 @@ const Chat = () => {
             </span>
             <br/>
           </div>
+    
         ))}
+
         
- 
+        
         <form className="create-form-container" onSubmit={handleSubmit}>
           <label htmlFor="message-text-box"></label>
           <input
@@ -168,7 +171,6 @@ const Chat = () => {
     </>
   );
 };
-
 
 
 export default Chat;
