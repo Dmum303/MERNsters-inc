@@ -1,7 +1,7 @@
 import React from 'react';
 import { useState } from 'react';
-import { storage } from './firebase';
-import { uploadBytes, ref, getDownloadURL } from 'firebase/storage';
+// import { storage } from '../uploadimage/firebase';
+// import { uploadBytes, ref, getDownloadURL } from 'firebase/storage';
 // import { UploadProfileImage } from '../UploadImage/UploadImage';
 
 const PersonalInfo = ({ formData, setFormData }) => {
@@ -9,12 +9,12 @@ const PersonalInfo = ({ formData, setFormData }) => {
     setFormData({ ...formData, interests: event.target.value });
   }
 
-  const UploadProfileImage = (image) => {
-    const imageRef = ref(storage, `imageprofile/${image.name + Date.now()}`);
-    return uploadBytes(imageRef, image).then((snapshot) => {
-      return getDownloadURL(snapshot.ref);
-    });
-  };
+  // const UploadProfileImage = (image) => {
+  //   const imageRef = ref(storage, `imageprofile/${image.name + Date.now()}`);
+  //   return uploadBytes(imageRef, image).then((snapshot) => {
+  //     return getDownloadURL(snapshot.ref);
+  //   });
+  // };
 
   //  if (image !== null) {
   //     UploadProfileImage(image).then((url) => {
@@ -38,12 +38,12 @@ const PersonalInfo = ({ formData, setFormData }) => {
             type={'file'}
             placeholder={'Profile picture'}
             value={formData.profilePic}
-            onChange={
-              (event) =>
-                UploadProfileImage(event.target.value).then((url) => {
-                  setFormData({ ...formData, profilePic: url });
-                })
-              // setFormData({ ...formData, profilePic: event.target.value })
+            onChange={(event) =>
+              // UploadProfileImage(event.target.value).then((url) => {
+              //   setFormData({ ...formData, profilePic: url });
+              // })
+              // console.log(event.target.value)
+              setFormData({ ...formData, profilePic: event.target.value })
             }
           />
         </label>

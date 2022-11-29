@@ -3,6 +3,8 @@ import NavBar from '../lib/navbar';
 import SignUpInfo from './SignUpInfo';
 import PersonalInfo from './PersonalInfo';
 import OtherInfo from './OtherInfo';
+import { storage } from '../uploadimage/firebase';
+import { uploadBytes, ref, getDownloadURL } from 'firebase/storage';
 
 const Form = () => {
   const [page, setPage] = useState(0);
@@ -20,20 +22,34 @@ const Form = () => {
     gender: '',
   });
 
-  // function that sends post signup request to backend
-  const submitForm = () => {
+  const UploadProfileImage = (image) => {
+    const imageRef = ref(storage, `imageprofile/${image.name + Date.now()}`);
+    return uploadBytes(imageRef, image).then((snapshot) => {
+      return getDownloadURL(snapshot.ref);
+    });
+  };
+
+  const sendFormData = (url) => {
     fetch('/api/users/', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify(formData),
+      body: JSON.stringify({ ...formData, profilePic: url }),
     })
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
       })
       .catch((err) => console.log(err));
+  };
+
+  // function that sends post signup request to backend
+  const submitForm = () => {
+    UploadProfileImage(formData.profilePic).then((url) => {
+      sendFormData(url);
+      // setFormData({ ...formData, profilePic: url })
+    });
   };
 
   const FormTitles = ['Sign Up', 'Personal Info', 'Other'];
