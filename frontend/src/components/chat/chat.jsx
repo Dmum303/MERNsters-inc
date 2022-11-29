@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import NavBar from "../lib/navbar";
 import { faCaretDown, faPlus } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import EmailCard from "./EmailCard";
+import EmailCard from "./ChatCard";
 import "./EmailList.css";
 // import MessageList from '../messagelist/messagelist';
 

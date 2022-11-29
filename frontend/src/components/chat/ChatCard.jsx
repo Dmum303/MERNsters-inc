@@ -1,18 +1,23 @@
 import { faPaperclip } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import "./EmailCard.css";
+import "./ChatCard.css";
+import './backend/models/chat.js'
 
-export default function EmailCard(props) {
+export default function ChatCard(props) {
   // Move chat fields here
+  // profile pic
+  // first name and last name?
+  // message
+  // timestamp  
   const {
-    image,
-    from,
-    time,
-    subject,
-    body,
-    hasAttachment,
-    isSelected,
-    onClick,
+    user_id,
+    firstName,
+    lastName,
+    message,
+    // body,
+    hasAttachment
+    // isSelected,
+    // onClick,
   } = props;
   return (
     <div
