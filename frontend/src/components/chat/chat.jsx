@@ -130,14 +130,21 @@ const Chat = () => {
       <div className="flex items-center py-6 px-10">
       <div className="chat-container">
       <span className="font-light text-3xl text-light-200">Chat</span>        
-      <span className="font-light text-2xl text-light-200">Messages</span>        
+      <span className="font-light text-2xl text-light-200">Messages</span>    
+     <br/>
          {chat.messages.map((message) => (
           <div class="message-container">
-            <p>{message.message.text}</p>
+          <span className="font-light text-lg text-light-200">   
             <p>{message.message.recipientName}</p>
+            </span>
+          <span className="font-light text-xl text-light-200">   
+            <p>{message.message.text}</p>
+            </span>
             <p>{message.message.createdAt}</p>
+            <br/>
           </div>
         ))}
+ 
         <form className="create-form-container" onSubmit={handleSubmit}>
           <label htmlFor="message-text-box"></label>
           <input
