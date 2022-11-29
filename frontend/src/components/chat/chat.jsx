@@ -128,9 +128,10 @@ const Chat = () => {
 
     <div className="flex flex-col bg-dark-400 w-6/12 mr-1 px-0 h-full">
       <div className="flex items-center py-6 px-10">
-      {/* <div className="chat-container"> */}
-      <span className="font-light text-3xl text-light-200">Chat</span>        <p>Messages</p>
-        {chat.messages.map((message) => (
+      <div className="chat-container">
+      <span className="font-light text-3xl text-light-200">Chat</span>        
+      <span className="font-light text-2xl text-light-200">Messages</span>        
+         {chat.messages.map((message) => (
           <div class="message-container">
             <p>{message.message.text}</p>
             <p>{message.message.recipientName}</p>
@@ -151,7 +152,7 @@ const Chat = () => {
         </form>
       </div>
       </div>
-      {/* </div> */}
+      </div>
       </div>
     
     </>
