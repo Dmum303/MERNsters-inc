@@ -1,23 +1,34 @@
 import { faPaperclip } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "./ChatCard.css";
+// import "../../../../../backend/models/chat.js";
 
-export default function EmailCard(props) {
+export default function ChatCard(props) {
   // Move chat fields here
   // profile pic
   // first name and last name?
   // message
   // timestamp  
+  // const {
+  //   image,
+  //   from,
+  //   time,
+  //   subject,
+  //   body,
+  //   hasAttachment,
+  //   isSelected,
+  //   onClick,
+  // }
+  
   const {
     image,
-    from,
+    firstName,
     time,
     subject,
     body,
-    hasAttachment,
     isSelected,
     onClick,
-  } = props;
+  }= props;
   return (
     <div
       className={`${
@@ -30,14 +41,9 @@ export default function EmailCard(props) {
       <div className="flex flex-col w-full ml-3">
         <div className="flex items-center mt-2">
           <span className="text-xs text-light-500 font-medium mr-auto">
-            {from}
+            {firstName} 
           </span>
-          {hasAttachment ? (
-            <FontAwesomeIcon
-              icon={faPaperclip}
-              className="text-light-500 mr-2"
-            />
-          ) : null}
+
           <span className="text-light-500 bg-dark-400 text-xs font-medium px-3 py-1 rounded-xl">
             {time}
           </span>

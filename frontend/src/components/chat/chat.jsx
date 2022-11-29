@@ -64,8 +64,8 @@ const Chat = () => {
   const [chats, setChats] = useState([
     {
       id: 1,
-      image: "bg-blue-100",
-      from: "Sam Smith",
+      image: "bg-blue-100", // change to profile pic
+      firstName: "Sam Smith",
       subject: "We both love Geocaching",
       body: `Let's go Geocaching tonight!`,
       hasAttachment: true,
@@ -74,7 +74,7 @@ const Chat = () => {
     {
       id: 2,
       image: "bg-red-100",
-      from: "Demi Lovato",
+      firstName: "Demi Lovato",
       subject: "How are you getting on?",
       body: `So, what do you like the most about News-raising?`,
       hasAttachment: true,
