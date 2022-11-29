@@ -1,28 +1,33 @@
 import { useSpring, animated } from '@react-spring/web'
 import { useDrag } from '@use-gesture/react'
+import  { useState }  from 'react';
 
 const Card = ({ card }) => {
-  const [{ x}, api] = useSpring(() => ({ x: 0, y: 0 }))
+  const [{ x }, api] = useSpring(() => ({ x: 0, y: 0 }))
+  const [isVisible, setIsVisible] = useState(true)
+  const visible = isVisible ? '' : ' invisible';
 
   // Set the drag hook and define component movement based on gesture data
   const bind = useDrag(({ down, movement: [mx, my] }) => {
     api.start({ x: down ? mx : 0, y: down ? my : 0, immediate: down })
 
-    if (mx > 100 && !down) {
+    const swipeOffDistance = 300;
+    if (mx > swipeOffDistance && !down) {
       console.log('right')
       // sends post request
     }
 
-    if (mx < -100 && !down) {
+    if (mx < -swipeOffDistance && !down) {
       console.log('left')
-      // deletes the post on the frontend
+      setIsVisible(false);
+
     }
   })
 
-
+  
   return (
-    <animated.div {...bind()} className="user-card" style={{ x }} >
-      <img src={card.profilePic} alt={card.firstName + card.lastName} width="500px" height='300px' draggable='false' />
+    <animated.div {...bind()} className={'user-card' + visible} style={{ x }} >
+      <img src={card.profilePic} alt={card.firstName + card.lastName} draggable='false' className='card-img' />
       <div className="user-card-body-container">
         <div className="user-card-body">
           <h4>

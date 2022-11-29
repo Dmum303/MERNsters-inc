@@ -27,3 +27,15 @@
 .user-container {
   padding: 2px 16px;
 }
+
+.invisible {
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0s, opacity 0.5s linear;
+}
+
+.card-img {
+  height: 400px;
+  width: 400px;
+  object-fit: cover;
+}

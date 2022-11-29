@@ -36,7 +36,6 @@ const Deck = () => {
 
   return (
     <div>
-      <h1>Deck</h1>
       {deck.map((card) => (
         <Card key={card._id} card={card}/>
       ))}
