@@ -171,3 +171,8 @@ input:focus {
   justify-content: center;
   align-items: center; */
 }
+
+.message-text-box {
+  width: 1600px;
+  height: auto;
+}

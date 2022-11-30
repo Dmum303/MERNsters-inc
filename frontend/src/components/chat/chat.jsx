@@ -101,17 +101,6 @@ const Chat = () => {
       image: "bg-blue-100",
       firstName: "Ariana Grande",
     }, 
-
-    // {
-    //   id: 7,
-    //   image: "bg-gray-200",
-    //   firstName: "Beyonce Knowles",
-    //   // summary: "When did you start Heli-skiing?",
-    //   // time: "3:30PM",
-    //   // isSelected: true,
-    // }, 
-
-    
   ]);
 
 
@@ -167,7 +156,6 @@ const Chat = () => {
             </span>
             <br/>
           </div>
-    
         ))}
 
         
