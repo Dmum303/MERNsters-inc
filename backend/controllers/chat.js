@@ -20,19 +20,18 @@ const getChat = asyncHandler(async (req, res) => {
 const createChat = asyncHandler(async (req, res) => {
   const chat = new Chat({
     users: {
-      
-        user1: {
-          user_id: req.body.userId1,
-          firstName: req.body.firstName1,
-          lastName: req.body.lastName1,
-        },
-        user2: {
-          user_id: req.body.userId2,
-          firstName: req.body.firstName2,
-          lastName: req.body.lastName2,
-        },
+      user1: {
+        user_id: req.body.userId1,
+        firstName: req.body.firstName1,
+        lastName: req.body.lastName1,
       },
-  
+      user2: {
+        user_id: req.body.userId2,
+        firstName: req.body.firstName2,
+        lastName: req.body.lastName2,
+      },
+    },
+
     messages: [
       {
         message: {
