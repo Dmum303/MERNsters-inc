@@ -26,8 +26,7 @@ const Chat = () => {
       .then((response) => response.json())
       .then(async (data) => {
         setChat(data);
-        // console.log(chat.users[0].user.firstName);
-        console.log('Hey guys');
+        // console.log('Hey guys');
         // console.log(chat.users);
       });
     fetch('/api/chatlist/get', {
@@ -43,15 +42,13 @@ const Chat = () => {
       .then((response) => response.json())
       .then(async (data) => {
         setUser(data);
-        console.log('Hey guys');
-        console.log(user.chats);
+        // console.log('Hey guys');
+        // console.log(user.chats);
         // console.log(user);
       });
   };
 
-  useEffect(() => {
-    reload();
-  }, []);
+  const setUserIdandGetChaList = () => {};
 
   const handleSubmit = async (error) => {
     error.preventDefault();
@@ -79,6 +76,9 @@ const Chat = () => {
       reload();
     }
   };
+  useEffect(() => {
+    reload();
+  }, []);
 
   const [chats, setChats] = useState([
     {
@@ -102,7 +102,6 @@ const Chat = () => {
   const handleChange = (event) => {
     setMessage(event.target.value);
   };
-  // Need a post func for sending a message
 
   // When the page is reloaded from the browser it crashes because
   // it can't read the map function, but when I refresh the page
@@ -135,7 +134,10 @@ const Chat = () => {
           </div>
           <div className="flex flex-col px-10 pb-10 overflow-y-auto">
             {user.chats.map((chat) => (
-              <ChatCard {...chat} />
+              <ChatCard
+                setUserIdandGetChaList={setUserIdandGetChaList}
+                {...chat}
+              />
             ))}
           </div>
         </div>
