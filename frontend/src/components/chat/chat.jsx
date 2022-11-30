@@ -11,6 +11,7 @@ const Chat = () => {
   const [chat, setChat] = useState({ messages: [], users: [] });
   const [message, setMessage] = useState('');
   const [user, setUser] = useState({ user: [] });
+  const [chats, setChats] = useState('');
   // Need a function to get post req for the current chat
   const reload = () => {
     fetch('/api/chats/findchat', {
@@ -48,7 +49,9 @@ const Chat = () => {
       });
   };
 
-  const setUserIdandGetChaList = () => {};
+  const setUserIdandGetChaList = () => {
+    console.log('Is this working');
+  };
 
   const handleSubmit = async (error) => {
     error.preventDefault();
@@ -79,25 +82,6 @@ const Chat = () => {
   useEffect(() => {
     reload();
   }, []);
-
-  const [chats, setChats] = useState([
-    {
-      id: 1,
-      image: 'bg-blue-100', // change to profile pic
-      firstName: 'Sam Smith',
-      summary: "Let's try Geocaching!",
-      time: '2:15PM',
-    },
-
-    {
-      id: 2,
-      image: 'bg-red-100',
-      firstName: 'Demi Lovato',
-      summary: 'When did you start Heli-skiing?',
-      time: '3:30PM',
-      isSelected: true,
-    },
-  ]);
 
   const handleChange = (event) => {
     setMessage(event.target.value);
