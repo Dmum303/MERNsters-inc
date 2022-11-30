@@ -104,9 +104,9 @@ const Chat = () => {
      <NavBar linkTo='login' />
      <div className='parent-chat-container'>
 
-     <div className="flex flex-col bg-dark-400 w-6/12 mr-1 px-0 h-full">
+     <div className="flex flex-col bg-dark-400 max-w-xs mr-1 px-0 h-full">
       <div className="flex items-center py-6 px-10">
-        <span className="font-light text-xl text-light-200">Inbox</span>
+        <span className="font-light text-xl text-light-200">Friends</span>
         <div className="ml-2 w-5 h-4 rounded-full bg-gradient-to-br from-blue-200 to-blue-300 flex items-center justify-center text-2xs font-normal text-light-200">
           2
         </div>
@@ -129,7 +129,7 @@ const Chat = () => {
       </div>
     </div>
 
-    <div className="flex flex-col bg-dark-400 w-6/12 mr-1 px-0 h-full">
+    <div className="flex flex-col bg-dark-400 max-w-fit mr-1 px-0 h-full">
       <div className="flex items-center py-6 px-10">
       <div className="chat-container">
       <span className="font-light text-3xl text-light-200">Chat</span>        
