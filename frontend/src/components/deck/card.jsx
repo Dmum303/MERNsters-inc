@@ -1,19 +1,35 @@
 import { useSpring, animated } from "react-spring";
 import { useDrag } from "@use-gesture/react";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const Card = ({ card }) => {
   const [{ x }, api] = useSpring(() => ({ x: 0, y: 0 }));
   const [isVisible, setIsVisible] = useState(true);
   const visible = isVisible ? "" : " invisible";
+  const navigate = useNavigate()
 
   // Set the drag hook and define component movement based on gesture data
   const bind = useDrag(({ down, movement: [mx, my] }) => {
     api.start({ x: down ? mx : 0, y: down ? my : 0, immediate: down });
 
+
+
     const swipeOffDistance = 300;
     if (mx > swipeOffDistance && !down) {
-      console.log("right");
+      console.log('swiped right')
+      navigate('/chat');
+      
+      // const createChat = () => {
+      //   fetch('//api/chats/createchat', {
+      //     method: 'post',
+      //     body: JSON.stringify({
+      //       userId: window.localStorage.getItem('userId'),
+      //       firstName: window.localStorage.getItem('firstName'),
+      //       lastName: window.localStorage.getItem('lastName')
+      //     })
+      //   })
+      // }
       // sends post request
     }
 
