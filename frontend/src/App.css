@@ -150,11 +150,12 @@ input:focus {
 .parent-chat-container {
   display: flex;
   justify-content: space-around;
+  width: 1000px;
 }
 
 .chat-container {
-  height: 100%;
-  width: 568.35px;
+  height: auto;
+  width: 1600px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -162,14 +163,11 @@ input:focus {
   background-color: rgb(55 65 81);
 }
 
-.inbox-container {
+.create-form-container {
   height: 100%;
-  width: 400px;
+  width: 568.35px;
   display: flex;
-  flex-direction: column;
-  justify-content: left;
-  align-items: left;
-  background-color: green;
-  /* border-color: red;
-  border-width: 5px; */
+  /* flex-direction: column;
+  justify-content: center;
+  align-items: center; */
 }

@@ -69,18 +69,47 @@ const Chat = () => {
       id: 1,
       image: "bg-blue-100", // change to profile pic
       firstName: "Sam Smith",
-      summary: "Let's try Geocaching!",
-      time: "2:15PM"
     },
 
     {
       id: 2,
       image: "bg-red-100",
       firstName: "Demi Lovato",
-      summary: "When did you start Heli-skiing?",
-      time: "3:30PM",
       isSelected: true,
-    }
+    }, 
+
+    {
+      id: 3,
+      image: "bg-green-100",
+      firstName: "Henry Cavill",
+    }, 
+
+    {
+      id: 4,
+      image: "bg-yellow-100",
+      firstName: "Daniel Craig",
+    }, 
+
+    {
+      id: 5,
+      image: "bg-blue-100",
+      firstName: "Taylor Swift",
+    }, 
+
+    {
+      id: 6,
+      image: "bg-blue-100",
+      firstName: "Ariana Grande",
+    }, 
+
+    // {
+    //   id: 7,
+    //   image: "bg-gray-200",
+    //   firstName: "Beyonce Knowles",
+    //   // summary: "When did you start Heli-skiing?",
+    //   // time: "3:30PM",
+    //   // isSelected: true,
+    // }, 
 
     
   ]);
@@ -106,20 +135,10 @@ const Chat = () => {
 
      <div className="flex flex-col bg-dark-400 max-w-xs mr-1 px-0 h-full">
       <div className="flex items-center py-6 px-10">
-        <span className="font-light text-xl text-light-200">Friends</span>
-        <div className="ml-2 w-5 h-4 rounded-full bg-gradient-to-br from-blue-200 to-blue-300 flex items-center justify-center text-2xs font-normal text-light-200">
-          2
-        </div>
+        <span className="font-light text-3xl text-light-200">Friends</span>
         <FontAwesomeIcon
           icon={faPlus}
           className="px-3 py-3 rounded-xl bg-gradient-to-br from-blue-200 to-blue-300 text-light-200 drop-shadow-3xl ml-auto"
-        />
-      </div>
-      <div className="px-10 pb-5">
-        <span className="text-xs text-light-200">Recent</span>
-        <FontAwesomeIcon
-          icon={faCaretDown}
-          className="text-light-200 text-xs ml-2"
         />
       </div>
       <div className="flex flex-col px-10 pb-10 overflow-y-auto">
@@ -129,11 +148,10 @@ const Chat = () => {
       </div>
     </div>
 
-    <div className="flex flex-col bg-dark-400 max-w-fit mr-1 px-0 h-full">
+    <div className="flex flex-col bg-dark-400 max-w-screen-7xl  h-full">
       <div className="flex items-center py-6 px-10">
       <div className="chat-container">
-      <span className="font-light text-3xl text-light-200">Chat</span>        
-      <span className="font-light text-2xl text-light-200">Messages</span>    
+      <span className="font-light text-3xl text-light-200">Direct Messages</span>        
      <br/>
          {chat.messages.map((message) => (
           <div class="message-container">
