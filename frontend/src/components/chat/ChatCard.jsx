@@ -43,9 +43,6 @@ export default function ChatCard(props) {
             {firstName} 
           </span>
 
-          <span className="text-light-500 bg-dark-400 text-xs font-medium px-3 py-1 rounded-xl">
-            {time}
-          </span>
         </div>
         <span className="text-sm text-light-200 font-medium mt-2">
           {summary}
