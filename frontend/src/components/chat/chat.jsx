@@ -118,9 +118,9 @@ const Chat = () => {
             />
           </div>
           <div className="flex flex-col px-10 pb-10 overflow-y-auto">
-            {user.chats.map((chat) => (
+            {/* {user.chats.map((chat) => (
               <ChatCard sayHello={sayHello} {...chat} />
-            ))}
+            ))} */}
           </div>
         </div>
 
