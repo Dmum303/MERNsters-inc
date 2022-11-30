@@ -29,7 +29,7 @@ const addChat = asyncHandler(async (req, res) => {
       } else {
         console.log('Chat added : ');
       }
-      res.status(201).send('Is this working?');
+      res.status(201).send('ok');
     }
   );
 });
@@ -40,9 +40,6 @@ const getChats = asyncHandler(async (req, res) => {
     if (err) {
       res.status(400).json({ message: 'Chat not found' });
     }
-    // res.status(201).send(chatList);
-    // console.log(req);
-    // console.log(doc);
     res.status(201).send(doc);
   });
 });
