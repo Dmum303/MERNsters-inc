@@ -2,8 +2,11 @@ import React, { useEffect, useState } from 'react';
 import NavBar from "../lib/navbar";
 import { faCaretDown, faPlus } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import EmailCard from "./EmailCard";
-import "./EmailList.css";
+import ChatCard from "./ChatCard";
+import "./ChatList.css";
+
+
+
 // import MessageList from '../messagelist/messagelist';
 
 const Chat = () => {
@@ -15,7 +18,7 @@ const Chat = () => {
       method: 'post',
       body: JSON.stringify({
         // this is dummy data - needs to be made dynamic
-        objectId: '6380f555e06bef726ddaf485',
+        objectId: '6385e41e4c85d9e45d3bff8e',
       }),
       headers: {
         'Content-Type': 'application/json',
@@ -25,8 +28,8 @@ const Chat = () => {
       .then(async (data) => {
         setChat(data);
         // console.log(chat.users[0].user.firstName);
-        console.log(chat);
-        console.log(chat.users);
+        console.log("Hey guys");
+        // console.log(chat.users);
       });
   };
 
@@ -40,7 +43,7 @@ const Chat = () => {
       method: 'post',
       body: JSON.stringify({
         // this is dummy data - needs to be made dynamic
-        objectId: '6380f555e06bef726ddaf485',
+        objectId: '6385e41e4c85d9e45d3bff8e',
         senderId: '6380b30f83141a9fd30a7662',
         recipientId: '6380b30f83141a9fd30a7662',
         text: message,
@@ -61,27 +64,27 @@ const Chat = () => {
     }
   };
 
-  const [emails, setEmails] = useState([
+  const [chats, setChats] = useState([
     {
       id: 1,
-      image: "bg-blue-100",
-      from: "Annie Lynch",
-      subject: "Aliquam erat volutpat",
-      body: `Ut id dignissim purus. Donec suscipit tortor orci, eu accumsan lectus blandit id. Interdum et malesuada fames ac ante ipsum primis in faucibus. Sed vulputate ac urna ut elementum. Nunc eget metus vitae odio porta feugiat quis a mi. Vestibulum interdum maximus odio sed dignissim. Suspendisse ultricies auctor dignissim. Vivamus at lorem eget nisi ultricies scelerisque ut pellentesque erat.`,
-      hasAttachment: true,
-      time: "2:12PM",
+      image: "bg-blue-100", // change to profile pic
+      firstName: "Sam Smith",
+      summary: "Let's try Geocaching!",
+      time: "2:15PM"
     },
+
     {
       id: 2,
       image: "bg-red-100",
-      from: "Dribbble Team",
-      subject: "How are you getting on?",
-      body: `Etiam vel tincidunt lorem, vitae consequat sem. Aenean dictum nisi quis sollicitudin pharetra.Ut id dignissim purus. Donec suscipit tortor orci, eu accumsan lectus blandit id. Interdum et malesuada fames ac ante ipsum primis in faucibus. Sed vulputate ac urna ut elementum. Nunc eget metus vitae odio porta feugiat quis a mi. Vestibulum interdum maximus odio sed dignissim. Suspendisse ultricies auctor dignissim. Vivamus at lorem eget nisi ultricies scelerisque ut pellentesque erat.`,
-      hasAttachment: true,
+      firstName: "Demi Lovato",
+      summary: "When did you start Heli-skiing?",
       time: "3:30PM",
       isSelected: true,
     }
+
+    
   ]);
+
 
   const handleChange = (event) => {
     setMessage(event.target.value);
@@ -101,11 +104,11 @@ const Chat = () => {
      <NavBar linkTo='login' />
      <div className='parent-chat-container'>
 
-     <div className="flex flex-col bg-dark-500 w-6/12 mr-1 px-0 h-full">
+     <div className="flex flex-col bg-dark-400 w-6/12 mr-1 px-0 h-full">
       <div className="flex items-center py-6 px-10">
         <span className="font-light text-xl text-light-200">Inbox</span>
         <div className="ml-2 w-5 h-4 rounded-full bg-gradient-to-br from-blue-200 to-blue-300 flex items-center justify-center text-2xs font-normal text-light-200">
-          3
+          2
         </div>
         <FontAwesomeIcon
           icon={faPlus}
@@ -120,37 +123,37 @@ const Chat = () => {
         />
       </div>
       <div className="flex flex-col px-10 pb-10 overflow-y-auto">
-        {emails.map((email, index) => (
-          <EmailCard key={email.id} {...email} />
+        {chats.map((chat, index) => (
+          <ChatCard key={chat.id} {...chat} />
         ))}
       </div>
     </div>
-     {/* <div className="inbox-container">
-       "User's First Name"  <br/>
-       "Sarita"  <br/>
-       "Pauline"  <br/>
-       "Taqueer"  <br/>
-       "Arshad"  <br/>
-       "David"  <br/>
-       "Blake"
-     </div> */}
+
+    <div className="flex flex-col bg-dark-400 w-6/12 mr-1 px-0 h-full">
+      <div className="flex items-center py-6 px-10">
       <div className="chat-container">
-        <h1>Chat</h1>
-        {/* <h2>People in this chat</h2> */}
-        <p>
-          {/* {chat.users[0].user.firstName} {chat.users[0].user.lastName} */}
-        </p>
-        {/* Can't iterate over users array - not sure why? */}
-        {chat.users.map((user) => {
-          <p>{user.firstName}</p>;
-        })}
-        <p>Messages</p>
-        {/* <MessageList chat={chat} reload={reload} /> */}
-        {chat.messages.map((message) => (
+      <span className="font-light text-3xl text-light-200">Chat</span>        
+      <span className="font-light text-2xl text-light-200">Messages</span>    
+     <br/>
+         {chat.messages.map((message) => (
           <div class="message-container">
+          <span className="font-light text-lg text-light-200">   
+           {/* testName: message.message.recipientName} */}
+         <p>{message.message.recipientName}</p>
+            </span>
+          <span className="font-light text-xl text-light-200">   
             <p>{message.message.text}</p>
+            </span>
+            <span className="font-light text-xs text-light-200">   
+            <p>{message.message.createdAt.slice(0, 24)}</p>
+            </span>
+            <br/>
           </div>
+    
         ))}
+
+        
+        
         <form className="create-form-container" onSubmit={handleSubmit}>
           <label htmlFor="message-text-box"></label>
           <input
@@ -160,14 +163,15 @@ const Chat = () => {
             value={message}
             required
           />
-          
           <button className="message-btn"> message </button>
         </form>
       </div>
       </div>
-    
+      </div>
+      </div>
     </>
   );
 };
+
 
 export default Chat;
