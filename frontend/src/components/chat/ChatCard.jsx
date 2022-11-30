@@ -4,12 +4,9 @@ import './ChatCard.css';
 // import '/Users/saritaradia/Desktop/Projects/MERNsters-inc/backend/models/chat.js'
 
 export default function ChatCard(props) {
-  const { setUserIdandGetChaList, chat, isSelected, onClick } = props;
+  const { sayHello, chat, isSelected, onClick } = props;
   // console.log(chat.user2FirstName);
 
-  const sayHello = () => {
-    console.log('Hello');
-  };
   return (
     <div
       className={`${
@@ -24,7 +21,7 @@ export default function ChatCard(props) {
           <span className="text-xs text-light-500 font-medium mr-auto">
             {chat.user2FirstName}
 
-            <button onClick={sayHello()}>Show chat</button>
+            <button onclick={sayHello()}>Show chat</button>
           </span>
 
           <span className="text-light-500 bg-dark-400 text-xs font-medium px-3 py-1 rounded-xl">

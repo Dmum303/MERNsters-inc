@@ -49,8 +49,9 @@ const Chat = () => {
       });
   };
 
-  const setUserIdandGetChaList = () => {
-    console.log('Is this working');
+  const sayHello = () => {
+    console.log('Hello me');
+    // alert('Hello');
   };
 
   const handleSubmit = async (error) => {
@@ -118,10 +119,7 @@ const Chat = () => {
           </div>
           <div className="flex flex-col px-10 pb-10 overflow-y-auto">
             {user.chats.map((chat) => (
-              <ChatCard
-                setUserIdandGetChaList={setUserIdandGetChaList}
-                {...chat}
-              />
+              <ChatCard sayHello={sayHello} {...chat} />
             ))}
           </div>
         </div>
