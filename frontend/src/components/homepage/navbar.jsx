@@ -20,6 +20,8 @@ export default function NavBar() {
       <a className='navbar-home' href="/posts" >friendzone;</a>
       <a onClick={ handleLogout } className='navbar-signout' href="/" >Log Out { elementSignOut }</a>
       <Link to="/login" className='link'>Login</Link>
+      <Link to="/logout" className='link'>Logout</Link>
+
       </div>
     </div>
   );
