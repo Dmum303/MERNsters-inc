@@ -21,8 +21,10 @@ const LoginForm = () => {
     })
     .then(response => response.json())
     .then(
-      data => {window.localStorage.setItem("token", data.token)
-      console.log(window.localStorage.getItem('token'), 'This is the token')}
+      data => {window.localStorage.setItem("token", data.token),
+      window.localStorage.setItem("userId", data._id),
+      window.localStorage.setItem("firstName", data.firstName),
+      window.localStorage.setItem("lastName", data.lastName)}
     )
   };
   
