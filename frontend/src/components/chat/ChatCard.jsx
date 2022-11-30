@@ -19,6 +19,7 @@ export default function ChatCard(props) {
         <div className="flex items-center mt-2">
           <span className="text-xs text-light-500 font-medium mr-auto">
             {chat.user2FirstName}
+            <button onclick="myFunction()">Click me</button>
           </span>
 
           <span className="text-light-500 bg-dark-400 text-xs font-medium px-3 py-1 rounded-xl">
