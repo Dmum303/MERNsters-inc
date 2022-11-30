@@ -18,8 +18,14 @@ const LoginForm = () => {
         "Content-Type": "application/json",
       },
       body: JSON.stringify(user),
-    });
+    })
+    .then(response => response.json())
+    .then(
+      data => {window.localStorage.setItem("token", data.token)
+      console.log(window.localStorage.getItem('token'), 'This is the token')}
+    )
   };
+  
   return (
     <div className="login-form">
       <div className="login-title">
