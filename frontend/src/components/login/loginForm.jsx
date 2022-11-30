@@ -1,31 +1,37 @@
 // Login form component that returns posts an email and pass to the backend
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import './loginForm.css';
 
 const LoginForm = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const navigate = useNavigate()
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     const user = {
       email,
       password,
     };
-    fetch("/api/users/login", {
+    let response = await fetch("/api/users/login", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify(user),
     })
-    .then(response => response.json())
-    .then(
-      data => {window.localStorage.setItem("token", data.token),
+    if (response.status === 200) {
+      let data = response.json()
+      window.localStorage.setItem("token", data.token),
       window.localStorage.setItem("userId", data._id),
       window.localStorage.setItem("firstName", data.firstName),
-      window.localStorage.setItem("lastName", data.lastName)}
-    )
+      window.localStorage.setItem("lastName", data.lastName)
+      navigate('/swipe')
+    }
+    else {
+      console.log('Login failed')
+    }
   };
   
   return (
