@@ -32,46 +32,56 @@ const PersonalInfo = ({ formData, setFormData }) => {
         <label>
           Interest:
           <div className="interests-container">
-            <input
-              onChange={onChangeValue}
-              type="radio"
-              value="Heli-skiing"
-              name="interest"
-              checked={formData.interests === "Heli-skiing"}
-            />
-            Heli-skiing
-            <input
-              onChange={onChangeValue}
-              type="radio"
-              value="Quidditch"
-              name="interest"
-              checked={formData.interests === "Quidditch"}
-            />
-            Quidditch
-            <input
-              onChange={onChangeValue}
-              type="radio"
-              value="Geocaching"
-              name="interest"
-              checked={formData.interests === "Geocaching"}
-            />
-            Geocaching
-            <input
-              onChange={onChangeValue}
-              type="radio"
-              value="Ker-Plucking"
-              name="interest"
-              checked={formData.interests === "Ker-Plucking"}
-            />
-            Ker-Plucking
-            <input
-              onChange={onChangeValue}
-              type="radio"
-              value="News-raising"
-              name="interest"
-              checked={formData.interests === "News-raising"}
-            />
-            News-raising
+            <label>
+              Heli-skiing
+              <input
+                onChange={onChangeValue}
+                type="radio"
+                value="Heli-skiing"
+                name="interest"
+                checked={formData.interests === "Heli-skiing"}
+              />
+            </label>
+            <label>
+              Quidditch
+              <input
+                onChange={onChangeValue}
+                type="radio"
+                value="Quidditch"
+                name="interest"
+                checked={formData.interests === "Quidditch"}
+              />
+            </label>
+            <label>
+              Geocaching
+              <input
+                onChange={onChangeValue}
+                type="radio"
+                value="Geocaching"
+                name="interest"
+                checked={formData.interests === "Geocaching"}
+              />
+            </label>
+            <label>
+              Ker-Plucking
+              <input
+                onChange={onChangeValue}
+                type="radio"
+                value="Ker-Plucking"
+                name="interest"
+                checked={formData.interests === "Ker-Plucking"}
+              />
+            </label>
+            <label>
+              News-raising
+              <input
+                onChange={onChangeValue}
+                type="radio"
+                value="News-raising"
+                name="interest"
+                checked={formData.interests === "News-raising"}
+              />
+            </label>
           </div>
         </label>
       </div>
