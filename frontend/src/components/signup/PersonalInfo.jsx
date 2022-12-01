@@ -40,7 +40,6 @@ const PersonalInfo = ({ formData, setFormData }) => {
               checked={formData.interests === "Heli-skiing"}
             />
             Heli-skiing
-            <br />
             <input
               onChange={onChangeValue}
               type="radio"
@@ -49,7 +48,6 @@ const PersonalInfo = ({ formData, setFormData }) => {
               checked={formData.interests === "Quidditch"}
             />
             Quidditch
-            <br />
             <input
               onChange={onChangeValue}
               type="radio"
@@ -58,7 +56,6 @@ const PersonalInfo = ({ formData, setFormData }) => {
               checked={formData.interests === "Geocaching"}
             />
             Geocaching
-            <br />
             <input
               onChange={onChangeValue}
               type="radio"
@@ -67,7 +64,6 @@ const PersonalInfo = ({ formData, setFormData }) => {
               checked={formData.interests === "Ker-Plucking"}
             />
             Ker-Plucking
-            <br />
             <input
               onChange={onChangeValue}
               type="radio"
