@@ -1,10 +1,10 @@
-import LoginForm from "./loginForm";
-import NavBar from "../lib/navbar";
+import LoginForm from './loginForm';
+import NavBar from '../lib/navbar';
 
 const LoginPage = () => {
   return (
     <>
-      <NavBar linkTo='signup' />
+      <NavBar linkTo="signup" />
       <div className="login-page">
         <LoginForm />
       </div>

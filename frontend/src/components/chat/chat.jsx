@@ -10,16 +10,19 @@ import './ChatList.css';
 const Chat = () => {
   const [chat, setChat] = useState({ messages: [], users: [] });
   const [message, setMessage] = useState('');
-  const [user, setUser] = useState({ user: [] });
+  const [user, setUser] = useState({
+    chats: [],
+  });
   const [chatMessage, setChatsMessage] = useState('');
-
   const reload = () => {
+    // returns a user object with chat list
     fetch('/api/chatlist/get', {
       method: 'post',
       body: JSON.stringify({
         // This named wrong on the backend should be userid as is getting user object
         // this should be the user id of the user logged in and will bring up a list of their chats
         chatId: '6386650289833b115e8b8f67',
+        // chatId: window.localStorage.getItem('userId'),
       }),
       headers: {
         'Content-Type': 'application/json',
@@ -31,6 +34,7 @@ const Chat = () => {
       });
   };
 
+  // select chat and display msgs
   const changeChatDynamic = (chat_id) => {
     setChatsMessage(chat_id);
     fetch('/api/chats/findchat', {
@@ -48,6 +52,7 @@ const Chat = () => {
       });
   };
 
+  // add msg to chat
   const handleSubmit = async (error) => {
     error.preventDefault();
     const response = await fetch('/api/chats/addmessage', {
