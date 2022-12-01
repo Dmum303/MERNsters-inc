@@ -22,7 +22,7 @@ const LoginForm = () => {
       body: JSON.stringify(user),
     })
     if (response.status === 200) {
-      let data = response.json()
+      let data = await response.json()
       window.localStorage.setItem("token", data.token),
       window.localStorage.setItem("userId", data._id),
       window.localStorage.setItem("firstName", data.firstName),

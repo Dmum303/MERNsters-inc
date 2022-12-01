@@ -18,19 +18,26 @@ const Card = ({ card }) => {
     const swipeOffDistance = 300;
     if (mx > swipeOffDistance && !down) {
       console.log('swiped right')
+      fetch('/api/chats/createchat', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          userId1: window.localStorage.getItem('userId'),
+          firstName1: window.localStorage.getItem('firstName'),
+          lastName1: window.localStorage.getItem('lastName'),
+          userId2: card._id,
+          firstName2: card.firstName,
+          lastName2: card.lastName,
+          senderId: window.localStorage.getItem('userId'),
+          senderName: `${window.localStorage.getItem('firstName')} ${window.localStorage.getItem('lastName')}`,
+          recipientId: card._id,
+          recipientName: `${card.firstName} ${card.lastName}`,
+          text: 'Hi, I swiped right on you!'
+        }),
+      })
       navigate('/chat');
-      
-      // const createChat = () => {
-      //   fetch('//api/chats/createchat', {
-      //     method: 'post',
-      //     body: JSON.stringify({
-      //       userId: window.localStorage.getItem('userId'),
-      //       firstName: window.localStorage.getItem('firstName'),
-      //       lastName: window.localStorage.getItem('lastName')
-      //     })
-      //   })
-      // }
-      // sends post request
     }
 
     if (mx < -swipeOffDistance && !down) {

@@ -15,6 +15,7 @@
   padding: 4px;
   border-radius: 5px;
   position: absolute;
+  touch-action: none;
 }
 
 .user-card-body p {

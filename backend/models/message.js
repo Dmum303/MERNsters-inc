@@ -1,3 +1,4 @@
+// this is not in use, msgs are added to the chat model
 const mongoose = require('mongoose');
 
 const messageSchema = new mongoose.Schema(
