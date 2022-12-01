@@ -172,3 +172,13 @@ input:focus {
   /* border-color: red;
   border-width: 5px; */
 }
+
+.prev-btn, .next-btn {
+  border-radius: 10px !important;
+}
+
+.form-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
