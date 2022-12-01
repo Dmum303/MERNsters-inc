@@ -11,7 +11,7 @@ const Chat = () => {
   const [chat, setChat] = useState({ messages: [], users: [] });
   const [message, setMessage] = useState('');
   const [user, setUser] = useState({ user: [] });
-  const [chats, setChats] = useState('');
+  const [chatMessage, setChatsMessage] = useState('');
   // Need a function to get post req for the current chat
   const reload = () => {
     fetch('/api/chatlist/get', {
@@ -32,7 +32,7 @@ const Chat = () => {
   };
 
   const changeChatDynamic = (chat_id) => {
-    console.log(chat_id);
+    setChatsMessage(chat_id);
     // alert('Hello');
     fetch('/api/chats/findchat', {
       method: 'post',
@@ -56,14 +56,13 @@ const Chat = () => {
       method: 'post',
       body: JSON.stringify({
         // this is dummy data - needs to be made dynamic
-        objectId: '6386684621fb07c368b17f51',
+        objectId: chatMessage,
         senderId: '6380b30f83141a9fd30a7662',
         recipientId: '6380b30f83141a9fd30a7662',
         text: message,
       }),
       headers: {
         'Content-Type': 'application/json',
-        // Authorization: 'Bearer ' + token,
       },
     });
     const json = await response.json();
@@ -71,7 +70,6 @@ const Chat = () => {
       console.log('Message couldnt send', json);
     }
     if (response.ok) {
-      // If form sent successfully then it resets the input field.
       setMessage('');
       reload();
     }
@@ -83,13 +81,6 @@ const Chat = () => {
   const handleChange = (event) => {
     setMessage(event.target.value);
   };
-
-  // When the page is reloaded from the browser it crashes because
-  // it can't read the map function, but when I refresh the page
-  // and then the chat var is popluated it works fine
-  // maybe some sort of if statement checking if the chat var is populated
-  // before returning HTML
-  // Might just need to make these into compenents and then use reload on them
 
   return (
     <>
