@@ -204,3 +204,8 @@ input:focus {
   flex-direction: row;
   align-items: center;
 }
+
+.interests-container label input {
+  height: 35px;
+  width: 35px;
+}
