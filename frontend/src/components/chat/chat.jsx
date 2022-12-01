@@ -19,10 +19,7 @@ const Chat = () => {
     fetch('/api/chatlist/get', {
       method: 'post',
       body: JSON.stringify({
-        // This named wrong on the backend should be userid as is getting user object
-        // this should be the user id of the user logged in and will bring up a list of their chats
         chatId: window.localStorage.getItem('userId'),
-        // chatId: window.localStorage.getItem('userId'),
       }),
       headers: {
         'Content-Type': 'application/json',
@@ -54,6 +51,7 @@ const Chat = () => {
 
   // add msg to chat
   const handleSubmit = async (error) => {
+    console.log('What is in chatmessage: ', chatMessage);
     error.preventDefault();
     const response = await fetch('/api/chats/addmessage', {
       method: 'post',
@@ -77,6 +75,7 @@ const Chat = () => {
       reload();
     }
   };
+
   useEffect(() => {
     reload();
   }, []);

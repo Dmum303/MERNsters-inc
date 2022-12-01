@@ -132,7 +132,7 @@ const addMessage = asyncHandler(async (req, res) => {
       } else {
         console.log('New msg added : ');
       }
-      res.status(201).json({ message: 'ok', chat_id: chat._id });
+      res.status(201).json({ message: 'ok' });
     }
   );
 });
