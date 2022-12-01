@@ -20,12 +20,8 @@ const PersonalInfo = ({ formData, setFormData }) => {
             type="file"
             id="userImage"
             name="filename"
-            // placeholder={'Profile picture'}
-            // value={formData.profilePic}
             onChange={
               (event) => lastNoSetData(event)
-              // const lastImage = event.target.files.lenght - 1;
-              // setFormData({ ...formData, profilePic: event.target.files[0] });
             }
           />
         </label>
