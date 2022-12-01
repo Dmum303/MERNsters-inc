@@ -192,3 +192,10 @@ input:focus {
 .interests-label {
   margin: 5px auto;
 }
+
+.interests-container label {
+  display: flex;
+  width: 400px;
+  justify-content: space-between;
+  align-items: center;
+}
