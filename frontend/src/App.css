@@ -188,3 +188,7 @@ input:focus {
   flex-direction: column;
   align-items: center;
 }
+
+.interests-label {
+  margin: 5px auto;
+}

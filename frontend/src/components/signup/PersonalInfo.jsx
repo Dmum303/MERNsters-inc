@@ -23,7 +23,7 @@ const PersonalInfo = ({ formData, setFormData }) => {
             onChange={(event) => lastNoSetData(event)}
           />
         </label>
-        <p className='interests-label'>Interest:</p>
+        <p className='interests-label'>Choose an interest:</p>
         <div className="interests-container">
           <label>
             Heli-skiing
