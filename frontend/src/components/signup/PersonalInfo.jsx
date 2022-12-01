@@ -1,5 +1,5 @@
-import React from 'react';
-import { useState } from 'react';
+import React from "react";
+import { useState } from "react";
 
 const PersonalInfo = ({ formData, setFormData }) => {
   function onChangeValue(event) {
@@ -15,7 +15,6 @@ const PersonalInfo = ({ formData, setFormData }) => {
     <>
       <div className="personal-info-container">
         <label>
-          {' '}
           Profile pic:
           <input
             type="file"
@@ -31,16 +30,15 @@ const PersonalInfo = ({ formData, setFormData }) => {
           />
         </label>
         <label>
-          {' '}
           Interest:
-          <div>
+          <div className="interests-container">
             <input
               onChange={onChangeValue}
               type="radio"
               value="Heli-skiing"
               name="interest"
-              checked={formData.interests === 'Heli-skiing'}
-            />{' '}
+              checked={formData.interests === "Heli-skiing"}
+            />
             Heli-skiing
             <br />
             <input
@@ -48,8 +46,8 @@ const PersonalInfo = ({ formData, setFormData }) => {
               type="radio"
               value="Quidditch"
               name="interest"
-              checked={formData.interests === 'Quidditch'}
-            />{' '}
+              checked={formData.interests === "Quidditch"}
+            />
             Quidditch
             <br />
             <input
@@ -57,8 +55,8 @@ const PersonalInfo = ({ formData, setFormData }) => {
               type="radio"
               value="Geocaching"
               name="interest"
-              checked={formData.interests === 'Geocaching'}
-            />{' '}
+              checked={formData.interests === "Geocaching"}
+            />
             Geocaching
             <br />
             <input
@@ -66,8 +64,8 @@ const PersonalInfo = ({ formData, setFormData }) => {
               type="radio"
               value="Ker-Plucking"
               name="interest"
-              checked={formData.interests === 'Ker-Plucking'}
-            />{' '}
+              checked={formData.interests === "Ker-Plucking"}
+            />
             Ker-Plucking
             <br />
             <input
@@ -75,8 +73,8 @@ const PersonalInfo = ({ formData, setFormData }) => {
               type="radio"
               value="News-raising"
               name="interest"
-              checked={formData.interests === 'News-raising'}
-            />{' '}
+              checked={formData.interests === "News-raising"}
+            />
             News-raising
           </div>
         </label>
