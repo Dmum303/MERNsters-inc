@@ -14,7 +14,7 @@ const PersonalInfo = ({ formData, setFormData }) => {
   return (
     <>
       <div className="personal-info-container">
-        <label>
+        <label className='profile-pic-input-container'>
           Profile pic:
           <input
             type="file"

@@ -90,7 +90,6 @@
 
 .personal-info-container {
   height: 100%;
-  width: 568.35px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -197,5 +196,11 @@ input:focus {
   display: flex;
   width: 400px;
   justify-content: space-between;
+  align-items: center;
+}
+
+.profile-pic-input-container {
+  display: flex;
+  flex-direction: row;
   align-items: center;
 }
