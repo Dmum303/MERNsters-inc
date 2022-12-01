@@ -122,7 +122,6 @@ const Chat = () => {
               {chat.messages.map((message) => (
                 <div class="message-container">
                   <span className="font-light text-lg text-light-200">
-                    {/* testName: message.message.recipientName} */}
                     <p>{message.message.recipientName}</p>
                   </span>
                   <span className="font-light text-xl text-light-200">
