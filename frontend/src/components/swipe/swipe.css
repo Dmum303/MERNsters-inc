@@ -7,8 +7,8 @@
 
 .user-card {
   /* Add shadows to create the "card" effect */
-  height: 50%;
-  width: 30%;
+  /* height: 50%;
+  width: 30%; */
   left: 600px;
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
   transition: 0.3s;
@@ -46,9 +46,9 @@
   transition: visibility 0s, opacity 0.5s linear;
 }
 
-.card-img {
-  height: 550px;
-  width: 550px;
+card-img {
+  height: 400px;
+  width: 400px;
   object-fit: cover;
 }
 
@@ -57,19 +57,17 @@
 }
 
 .swipe-left {
-  
-  height: 470px;
+  height: 200px;
   left: 60px;
-  bottom: 400px;
+  bottom: 300px;
   position:fixed;
-  width:30%;
+  width:20%;
 }
 
 .swipe-right {
-  
-  height: 470px;
+  height: 200px;
   right: 60px;
-  bottom: 400px;
+  bottom: 300px;
   position:fixed;
-  width:30%;
+  width:20%;
 }
