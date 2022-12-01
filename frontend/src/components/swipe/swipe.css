@@ -52,3 +52,21 @@
 .deck {
   height: 490px;
 }
+
+.swipe-left {
+  
+  height: 470px;
+  left: 60px;
+  bottom: 400px;
+  position:fixed;
+  width:30%;
+}
+
+.swipe-right {
+  
+  height: 470px;
+  right: 60px;
+  bottom: 400px;
+  position:fixed;
+  width:30%;
+}
