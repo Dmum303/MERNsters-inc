@@ -46,6 +46,7 @@ const Chat = () => {
       .then((response) => response.json())
       .then(async (data) => {
         setChat(data);
+        reload();
       });
   };
 
@@ -73,12 +74,13 @@ const Chat = () => {
     if (response.ok) {
       setMessage('');
       reload();
+      changeChatDynamic();
     }
   };
 
   useEffect(() => {
     reload();
-  }, []);
+  }, [chat]);
 
   const handleChange = (event) => {
     setMessage(event.target.value);
