@@ -13,7 +13,7 @@
 }
 
 ::selection {
-  background: rgb(255, 7, 123);
+  background: rgb(255, 0, 228);
 }
 
 .form-body {
@@ -74,7 +74,6 @@
 
 .sign-up-container {
   height: 100%;
-  width: 568.35px;
   display: flex;
   flex-direction: column;
   justify-content: center;
