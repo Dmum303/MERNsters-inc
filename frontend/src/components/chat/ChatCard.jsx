@@ -1,7 +1,6 @@
 import { faPaperclip } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import './ChatCard.css';
-// import '/Users/saritaradia/Desktop/Projects/MERNsters-inc/backend/models/chat.js'
 
 export default function ChatCard(props) {
   const { changeChatDynamic, chat, isSelected, onClick } = props;

@@ -12,13 +12,13 @@ const Chat = () => {
   const [message, setMessage] = useState('');
   const [user, setUser] = useState({ user: [] });
   const [chatMessage, setChatsMessage] = useState('');
-  // Need a function to get post req for the current chat
+
   const reload = () => {
     fetch('/api/chatlist/get', {
       method: 'post',
       body: JSON.stringify({
         // This named wrong on the backend should be userid as is getting user object
-        // and then setting user object to user and we will use the user chat list array in it
+        // this should be the user id of the user logged in and will bring up a list of their chats
         chatId: '6386650289833b115e8b8f67',
       }),
       headers: {
@@ -33,11 +33,9 @@ const Chat = () => {
 
   const changeChatDynamic = (chat_id) => {
     setChatsMessage(chat_id);
-    // alert('Hello');
     fetch('/api/chats/findchat', {
       method: 'post',
       body: JSON.stringify({
-        // this is dummy data - needs to be made dynamic
         objectId: chat_id,
       }),
       headers: {
@@ -55,7 +53,7 @@ const Chat = () => {
     const response = await fetch('/api/chats/addmessage', {
       method: 'post',
       body: JSON.stringify({
-        // this is dummy data - needs to be made dynamic
+        // this is dummy data - sender id and recip if are not used
         objectId: chatMessage,
         senderId: '6380b30f83141a9fd30a7662',
         recipientId: '6380b30f83141a9fd30a7662',
@@ -88,7 +86,9 @@ const Chat = () => {
       <div className="parent-chat-container">
         <div className="flex flex-col bg-dark-400 w-6/12 mr-1 px-0 h-full">
           <div className="flex items-center py-6 px-10">
-            <span className="font-light text-xl text-light-200">Inbox</span>
+            <span className="font-light text-xl text-light-200">
+              Current Chats
+            </span>
             <div className="ml-2 w-5 h-4 rounded-full bg-gradient-to-br from-blue-200 to-blue-300 flex items-center justify-center text-2xs font-normal text-light-200">
               2
             </div>
