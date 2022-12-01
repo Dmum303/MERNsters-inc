@@ -61,7 +61,15 @@ const createChat = asyncHandler(async (req, res) => {
         },
       },
     },
-    { new: true }
+    { new: true },
+    async function (err) {
+      if (err) {
+        console.log('Chat not added');
+        throw err;
+      } else {
+        console.log('Chat added to user 2 array: ');
+      }
+    }
   );
   User.findByIdAndUpdate(
     req.body.userId1,
@@ -78,7 +86,15 @@ const createChat = asyncHandler(async (req, res) => {
         },
       },
     },
-    { new: true }
+    { new: true },
+    async function (err) {
+      if (err) {
+        console.log('Chat not added');
+        throw err;
+      } else {
+        console.log('Chat added to user 1 array:: ');
+      }
+    }
   );
   chat.save(async (err) => {
     if (err) {
@@ -86,6 +102,7 @@ const createChat = asyncHandler(async (req, res) => {
       throw err;
     }
     res.status(201).json({ message: 'ok' });
+    console.log('Chat created : ');
   });
 });
 
