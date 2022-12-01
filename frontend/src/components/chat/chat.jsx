@@ -21,7 +21,7 @@ const Chat = () => {
       body: JSON.stringify({
         // This named wrong on the backend should be userid as is getting user object
         // this should be the user id of the user logged in and will bring up a list of their chats
-        chatId: '6386650289833b115e8b8f67',
+        chatId: window.localStorage.getItem('userId'),
         // chatId: window.localStorage.getItem('userId'),
       }),
       headers: {

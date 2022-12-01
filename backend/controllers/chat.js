@@ -3,6 +3,8 @@ const asyncHandler = require('express-async-handler');
 const Chat = require('../models/chat');
 const bcrypt = require('bcrypt');
 const dotenv = require('dotenv');
+const User = require('../models/user');
+
 dotenv.config();
 // No token implementation yet
 
@@ -18,6 +20,7 @@ const getChat = asyncHandler(async (req, res) => {
 });
 
 const createChat = asyncHandler(async (req, res) => {
+  console.log(req);
   const chat = new Chat({
     users: {
       user1: {
@@ -31,7 +34,6 @@ const createChat = asyncHandler(async (req, res) => {
         lastName: req.body.lastName2,
       },
     },
-
     messages: [
       {
         message: {
@@ -44,12 +46,63 @@ const createChat = asyncHandler(async (req, res) => {
       },
     ],
   });
+  User.findByIdAndUpdate(
+    req.body.userId2,
+    {
+      $push: {
+        chats: {
+          chat: {
+            chat_id: chat._id,
+            user1FirstName: req.body.firstName2,
+            user1LastName: req.body.lastName2,
+            user2FirstName: req.body.firstName1,
+            user2LastName: req.body.lastName1,
+          },
+        },
+      },
+    },
+    { new: true },
+    async function (err) {
+      if (err) {
+        console.log('Chat not added');
+        throw err;
+      } else {
+        console.log('Chat added to user 2 array: ');
+      }
+    }
+  );
+  User.findByIdAndUpdate(
+    req.body.userId1,
+    {
+      $push: {
+        chats: {
+          chat: {
+            chat_id: chat._id,
+            user1FirstName: req.body.firstName1,
+            user1LastName: req.body.lastName1,
+            user2FirstName: req.body.firstName2,
+            user2LastName: req.body.lastName2,
+          },
+        },
+      },
+    },
+    { new: true },
+    async function (err) {
+      if (err) {
+        console.log('Chat not added');
+        throw err;
+      } else {
+        console.log('Chat added to user 1 array:: ');
+      }
+    }
+  );
   chat.save(async (err) => {
     if (err) {
       res.status(400).json({ message: 'Chat not created' });
       throw err;
     }
     res.status(201).json({ message: 'ok' });
+    console.log('Chat created : ');
   });
 });
 
@@ -79,7 +132,7 @@ const addMessage = asyncHandler(async (req, res) => {
       } else {
         console.log('New msg added : ');
       }
-      res.status(201).json({ message: 'ok' });
+      res.status(201).json({ message: 'ok', chat_id: chat._id });
     }
   );
 });
