@@ -7,6 +7,7 @@ import Chat from '../chat/chat';
 import '../../App.css';
 import LoginPage from '../login/loginPage';
 import Swipe from '../swipe/swipe';
+import Test from '../chat/test';
 
 const App = () => {
   return (
@@ -17,7 +18,8 @@ const App = () => {
         <Route path="/signup" element={<Form />} />
         <Route path="/chat" element={<Chat />} />
         <Route path="/login" element={<LoginPage />} />
-        <Route path='/swipe' element={<Swipe />} />
+        <Route path="/swipe" element={<Swipe />} />
+        <Route path="/test" element={<Test />} />
       </Routes>
       <Footer />
     </>

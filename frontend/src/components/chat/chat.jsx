@@ -3,6 +3,7 @@ import NavBar from '../lib/navbar';
 import { faCaretDown, faPlus } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import ChatCard from './ChatCard';
+import MessageCard from './MessageCard';
 import './ChatList.css';
 
 // import MessageList from '../messagelist/messagelist';
@@ -116,7 +117,7 @@ const Chat = () => {
             ))}
           </div>
         </div>
-
+        <div className></div>
         <div className="flex flex-col bg-dark-400 w-6/12 mr-1 px-0 h-full">
           <div className="flex items-center py-6 px-10">
             <div className="chat-container">
