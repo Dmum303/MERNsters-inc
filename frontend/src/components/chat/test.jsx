@@ -26,7 +26,8 @@ const Test = () => {
       .then((response) => response.json())
       .then(async (data) => {
         setUser(data);
-        console.log(user);
+        console.log('this is here');
+        console.log(user.chats);
       });
   };
 
@@ -99,7 +100,7 @@ const Test = () => {
             />
           </div>
           <div class="h-12 w-12 p-2 bg-yellow-500 rounded-full text-white font-semibold flex items-center justify-center">
-            RA
+            FZ
           </div>
         </div>
 
@@ -125,12 +126,10 @@ const Test = () => {
 
                 <div class="w-full">
                   <div class="text-lg font-semibold">New</div>
-                  <span class="text-gray-500">Text</span>
+                  <span class="text-gray-500">{chat.chat.user2FirstName}</span>
                   <span className="text-xs text-light-500 font-medium mr-auto">
-                    {chat.user2FirstName}
-
                     <button onClick={() => changeChatDynamic(chat.chat_id)}>
-                      Show chat
+                      Select chat
                     </button>
                   </span>
                 </div>
@@ -146,7 +145,9 @@ const Test = () => {
               </div>
               <div class="w-full">
                 <div class="text-lg font-semibold">Everest Trip 2021</div>
-                <span class="text-gray-500">Hi Sam, Welcome</span>
+                <span class="text-gray-500">
+                  {user.chats[0].chat.user2FirstName}
+                </span>
               </div>
             </div> */}
             {/* <div class="flex flex-row py-4 px-2 items-center border-b-2 border-l-4 border-blue-400">
@@ -204,20 +205,26 @@ const Test = () => {
             {/* end of chat list */}
           </div>
           {/* end of border */}
-
+          {/* start of message container */}
           <div class="w-full px-5 flex flex-col justify-between">
             <div class="flex flex-col mt-5">
-              <div class="flex justify-end mb-4">
-                <div class="mr-2 py-3 px-4 bg-blue-400 rounded-bl-3xl rounded-tl-3xl rounded-tr-xl text-white">
-                  Welcome to group everyone !
+              {/* first msg container */}
+              {/* could transplant this out into funtion and then render it if is user one or two */}
+              {chat.messages.map((message) => (
+                <div class="flex justify-end mb-4">
+                  <div class="mr-2 py-3 px-4 bg-blue-400 rounded-bl-3xl rounded-tl-3xl rounded-tr-xl text-white">
+                    <p>{message.message.text}</p>
+                    <p>{message.message.createdAt.slice(0, 24)}</p>
+                  </div>
+                  <img
+                    src="https://source.unsplash.com/vpOeXr5wmR4/600x600"
+                    class="object-cover h-8 w-8 rounded-full"
+                    alt=""
+                  />
                 </div>
-                <img
-                  src="https://source.unsplash.com/vpOeXr5wmR4/600x600"
-                  class="object-cover h-8 w-8 rounded-full"
-                  alt=""
-                />
-              </div>
-              <div class="flex justify-start mb-4">
+              ))}
+              {/* second msg container */}
+              {/* <div class="flex justify-start mb-4">
                 <img
                   src="https://source.unsplash.com/vpOeXr5wmR4/600x600"
                   class="object-cover h-8 w-8 rounded-full"
@@ -229,8 +236,8 @@ const Test = () => {
                   Architecto nulla doloribus laborum illo rem enim dolor odio
                   saepe, consequatur quas?
                 </div>
-              </div>
-              <div class="flex justify-end mb-4">
+              </div> */}
+              {/* <div class="flex justify-end mb-4">
                 <div>
                   <div class="mr-2 py-3 px-4 bg-blue-400 rounded-bl-3xl rounded-tl-3xl rounded-tr-xl text-white">
                     Lorem ipsum dolor, sit amet consectetur adipisicing elit.
@@ -247,8 +254,8 @@ const Test = () => {
                   class="object-cover h-8 w-8 rounded-full"
                   alt=""
                 />
-              </div>
-              <div class="flex justify-start mb-4">
+              </div> */}
+              {/* <div class="flex justify-start mb-4">
                 <img
                   src="https://source.unsplash.com/vpOeXr5wmR4/600x600"
                   class="object-cover h-8 w-8 rounded-full"
@@ -257,16 +264,28 @@ const Test = () => {
                 <div class="ml-2 py-3 px-4 bg-gray-400 rounded-br-3xl rounded-tr-3xl rounded-tl-xl text-white">
                   happy holiday guys!
                 </div>
-              </div>
+              </div> */}
+              {/* last msg */}
             </div>
             <div class="py-5">
               <input
                 class="w-full bg-gray-300 py-5 px-3 rounded-xl"
                 type="text"
+                // className="message-text-box"
+                onChange={handleChange}
+                value={message}
+                required
                 placeholder="type your message here..."
               />
+              <button className="message-btn"> message </button>
+              {/* <input
+                class="w-full bg-gray-300 py-5 px-3 rounded-xl"
+                type="text"
+                placeholder="type your message here..."
+              /> */}
             </div>
           </div>
+          {/* end of message container */}
 
           <div class="w-2/5 border-l-2 px-5">
             <div class="flex flex-col">
