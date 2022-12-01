@@ -14,27 +14,12 @@ const Chat = () => {
   const [chats, setChats] = useState('');
   // Need a function to get post req for the current chat
   const reload = () => {
-    fetch('/api/chats/findchat', {
-      method: 'post',
-      body: JSON.stringify({
-        // this is dummy data - needs to be made dynamic
-        objectId: '6386684621fb07c368b17f51',
-      }),
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    })
-      .then((response) => response.json())
-      .then(async (data) => {
-        setChat(data);
-        // console.log('Hey guys');
-        // console.log(chat.users);
-      });
     fetch('/api/chatlist/get', {
       method: 'post',
       body: JSON.stringify({
-        // THis named wrong on the backend should be userid as is getting user object
-        chatId: '63862b0052d734f2d5412861',
+        // This named wrong on the backend should be userid as is getting user object
+        // and then setting user object to user and we will use the user chat list array in it
+        chatId: '6386650289833b115e8b8f67',
       }),
       headers: {
         'Content-Type': 'application/json',
@@ -43,15 +28,26 @@ const Chat = () => {
       .then((response) => response.json())
       .then(async (data) => {
         setUser(data);
-        // console.log('Hey guys');
-        // console.log(user.chats);
-        // console.log(user);
       });
   };
 
-  const sayHello = (chat_id) => {
+  const changeChatDynamic = (chat_id) => {
     console.log(chat_id);
     // alert('Hello');
+    fetch('/api/chats/findchat', {
+      method: 'post',
+      body: JSON.stringify({
+        // this is dummy data - needs to be made dynamic
+        objectId: chat_id,
+      }),
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    })
+      .then((response) => response.json())
+      .then(async (data) => {
+        setChat(data);
+      });
   };
 
   const handleSubmit = async (error) => {
@@ -119,7 +115,7 @@ const Chat = () => {
           </div>
           <div className="flex flex-col px-10 pb-10 overflow-y-auto">
             {user.chats.map((chat) => (
-              <ChatCard sayHello={sayHello} {...chat} />
+              <ChatCard changeChatDynamic={changeChatDynamic} {...chat} />
             ))}
           </div>
         </div>
