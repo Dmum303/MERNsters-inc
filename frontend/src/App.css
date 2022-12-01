@@ -182,3 +182,8 @@ input:focus {
   justify-content: space-between;
   align-items: center;
 }
+
+.interests-container {
+  display: flex;
+  flex-direction: column;
+}
