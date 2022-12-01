@@ -51,8 +51,6 @@ const Chat = () => {
         setChat(data);
       });
   };
-  console.log('Is this user id');
-  console.log(window.localStorage.getItem('userId'));
 
   // add msg to chat
   const handleSubmit = async (error) => {
