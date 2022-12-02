@@ -26,8 +26,10 @@ const Test = () => {
       .then((response) => response.json())
       .then(async (data) => {
         setUser(data);
-        console.log('this is here');
-        console.log(user.chats);
+        // console.log('This is the logged in users name');
+        // console.log(user.firstName);
+        // console.log('this is the first chat in users chat list');
+        // console.log(user.chats[0]);
       });
   };
 
@@ -83,6 +85,8 @@ const Test = () => {
   }, [chat]);
 
   const handleChange = (event) => {
+    console.log("I'm the button");
+    console.log(event.target.value);
     setMessage(event.target.value);
   };
   return (
@@ -113,7 +117,7 @@ const Test = () => {
                 class="py-2 px-2 border-2 border-gray-200 rounded-2xl w-full"
               />
             </div>
-            {/* first chat */}
+            {/* first chat in chat lists */}
             {user.chats.map((chat) => (
               <div class="flex flex-row py-4 px-2 justify-center items-center border-b-2">
                 <div class="w-1/4">
@@ -127,8 +131,11 @@ const Test = () => {
                 <div class="w-full">
                   <div class="text-lg font-semibold">New</div>
                   <span class="text-gray-500">{chat.chat.user2FirstName}</span>
+                  <br />
                   <span className="text-xs text-light-500 font-medium mr-auto">
-                    <button onClick={() => changeChatDynamic(chat.chat_id)}>
+                    <button
+                      onClick={() => changeChatDynamic(chat.chat.chat_id)}
+                    >
                       Select chat
                     </button>
                   </span>
@@ -214,6 +221,7 @@ const Test = () => {
                 <div class="flex justify-end mb-4">
                   <div class="mr-2 py-3 px-4 bg-blue-400 rounded-bl-3xl rounded-tl-3xl rounded-tr-xl text-white">
                     <p>{message.message.text}</p>
+                    <p>{message.message.text}</p>
                     <p>{message.message.createdAt.slice(0, 24)}</p>
                   </div>
                   <img
@@ -224,7 +232,7 @@ const Test = () => {
                 </div>
               ))}
               {/* second msg container */}
-              {/* <div class="flex justify-start mb-4">
+              <div class="flex justify-start mb-4">
                 <img
                   src="https://source.unsplash.com/vpOeXr5wmR4/600x600"
                   class="object-cover h-8 w-8 rounded-full"
@@ -232,11 +240,8 @@ const Test = () => {
                 />
                 <div class="ml-2 py-3 px-4 bg-gray-400 rounded-br-3xl rounded-tr-3xl rounded-tl-xl text-white">
                   Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Quaerat at praesentium, aut ullam delectus odio error sit rem.
-                  Architecto nulla doloribus laborum illo rem enim dolor odio
-                  saepe, consequatur quas?
                 </div>
-              </div> */}
+              </div>
               {/* <div class="flex justify-end mb-4">
                 <div>
                   <div class="mr-2 py-3 px-4 bg-blue-400 rounded-bl-3xl rounded-tl-3xl rounded-tr-xl text-white">
@@ -268,16 +273,19 @@ const Test = () => {
               {/* last msg */}
             </div>
             <div class="py-5">
-              <input
-                class="w-full bg-gray-300 py-5 px-3 rounded-xl"
-                type="text"
-                // className="message-text-box"
-                onChange={handleChange}
-                value={message}
-                required
-                placeholder="type your message here..."
-              />
-              <button className="message-btn"> message </button>
+              <form className="create-form-container" onSubmit={handleSubmit}>
+                <label htmlFor="message-text-box"></label>
+                <input
+                  class="w-full bg-gray-300 py-5 px-3 rounded-xl"
+                  type="text"
+                  // className="message-text-box"
+                  onChange={handleChange}
+                  value={message}
+                  required
+                  placeholder="type your message here..."
+                />
+                <button className="message-btn"> message </button>
+              </form>
               {/* <input
                 class="w-full bg-gray-300 py-5 px-3 rounded-xl"
                 type="text"
@@ -289,7 +297,7 @@ const Test = () => {
 
           <div class="w-2/5 border-l-2 px-5">
             <div class="flex flex-col">
-              <div class="font-semibold text-xl py-4">Mern Stack Group</div>
+              <div class="font-semibold text-xl py-4">Mernsters Inc</div>
               <img
                 src="https://source.unsplash.com/L2cxSuKWbpo/600x600"
                 class="object-cover rounded-xl h-64"
