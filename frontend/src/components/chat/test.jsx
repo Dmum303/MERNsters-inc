@@ -29,15 +29,15 @@ const Test = () => {
         // console.log('This is the logged in users name');
         // console.log(user.firstName);
         // console.log('this is the first chat in users chat list');
-        // console.log(user.chats[0]);
+        console.log(user);
       });
   };
 
   // select chat and display msgs
   const changeChatDynamic = (chat_id) => {
     setChatsMessage(chat_id);
-    console.log('line 41');
-    console.log(chatMessage);
+    // console.log('line 41');
+    // console.log(chatMessage);
     fetch('/api/chats/findchat', {
       method: 'post',
       body: JSON.stringify({
@@ -50,6 +50,7 @@ const Test = () => {
       .then((response) => response.json())
       .then(async (data) => {
         setChat(data);
+
         reload();
       });
   };
@@ -63,7 +64,7 @@ const Test = () => {
       body: JSON.stringify({
         // this is dummy data - sender id and recip if are not used
         objectId: chatMessage,
-        senderId: '6380b30f83141a9fd30a7662',
+        senderId: user._id,
         recipientId: '6380b30f83141a9fd30a7662',
         text: message,
       }),
@@ -77,6 +78,7 @@ const Test = () => {
     }
     if (response.ok) {
       setMessage('');
+      // console.log(message);
       reload();
       changeChatDynamic();
     }
@@ -93,6 +95,7 @@ const Test = () => {
   };
   return (
     <>
+      <NavBar linkTo="login" />
       <div class="container mx-auto shadow-lg rounded-lg">
         <div class="px-5 py-5 flex justify-between items-center bg-white border-b-2">
           <div class="font-semibold text-2xl">FZ_Chat</div>
@@ -124,7 +127,7 @@ const Test = () => {
               <div class="flex flex-row py-4 px-2 justify-center items-center border-b-2">
                 <div class="w-1/4">
                   <img
-                    src="https://source.unsplash.com/_7LbC5J-jw4/600x600"
+                    src="https://firebasestorage.googleapis.com/v0/b/mernsters.appspot.com/o/imageprofile%2Favataricon.jpeg1669966968713?alt=media&token=07c795bf-d993-44a5-96c4-69351fc2b0b5"
                     class="object-cover h-12 w-12 rounded-full"
                     alt=""
                   />
@@ -223,6 +226,7 @@ const Test = () => {
                 <div class="flex justify-end mb-4">
                   <div class="mr-2 py-3 px-4 bg-blue-400 rounded-bl-3xl rounded-tl-3xl rounded-tr-xl text-white">
                     <p>{message.message.text}</p>
+                    <p>{message.message.sender}</p>
                     {/* <p>{message.message.text}</p> */}
                     <p>{message.message.createdAt.slice(0, 24)}</p>
                   </div>
@@ -299,9 +303,12 @@ const Test = () => {
 
           <div class="w-2/5 border-l-2 px-5">
             <div class="flex flex-col">
-              <div class="font-semibold text-xl py-4">Mernsters Inc</div>
+              <div class="font-semibold text-xl py-4">
+                {user.firstName}
+                <p>{user._id}</p>
+              </div>
               <img
-                src="https://source.unsplash.com/L2cxSuKWbpo/600x600"
+                src={user.profilePic}
                 class="object-cover rounded-xl h-64"
                 alt=""
               />
