@@ -93,6 +93,7 @@ const Test = () => {
     // console.log(event.target.value);
     setMessage(event.target.value);
   };
+
   return (
     <>
       <NavBar linkTo="login" />
@@ -104,7 +105,7 @@ const Test = () => {
               type="text"
               name=""
               id=""
-              placeholder="search IRL"
+              placeholder="search FriendZone"
               class="rounded-2xl bg-gray-100 py-3 px-5 w-full"
             />
           </div>
@@ -224,21 +225,20 @@ const Test = () => {
               {/* could transplant this out into funtion and then render it if is user one or two */}
               {chat.messages.map((message) => (
                 <div class="flex justify-end mb-4">
-                  <div class="mr-2 py-3 px-4 bg-blue-400 rounded-bl-3xl rounded-tl-3xl rounded-tr-xl text-white">
+                  <div class="mr-2 py-3 px-4 bg-gray-400 rounded-bl-3xl rounded-tl-3xl rounded-tr-xl text-white">
                     <p>{message.message.text}</p>
-                    <p>{message.message.sender}</p>
-                    {/* <p>{message.message.text}</p> */}
+                    {/* <p>{message.message.sender}</p> */}
                     <p>{message.message.createdAt.slice(0, 24)}</p>
                   </div>
                   <img
-                    src="https://source.unsplash.com/vpOeXr5wmR4/600x600"
+                    src="https://firebasestorage.googleapis.com/v0/b/mernsters.appspot.com/o/imageprofile%2Fmsg%20icon.jpeg1669970432634?alt=media&token=c1e3a23e-8298-43b2-8775-03478706e3f5"
                     class="object-cover h-8 w-8 rounded-full"
                     alt=""
                   />
                 </div>
               ))}
               {/* second msg container */}
-              <div class="flex justify-start mb-4">
+              {/* <div class="flex justify-start mb-4">
                 <img
                   src="https://source.unsplash.com/vpOeXr5wmR4/600x600"
                   class="object-cover h-8 w-8 rounded-full"
@@ -247,7 +247,7 @@ const Test = () => {
                 <div class="ml-2 py-3 px-4 bg-gray-400 rounded-br-3xl rounded-tr-3xl rounded-tl-xl text-white">
                   Lorem ipsum dolor sit amet consectetur adipisicing elit.
                 </div>
-              </div>
+              </div> */}
               {/* <div class="flex justify-end mb-4">
                 <div>
                   <div class="mr-2 py-3 px-4 bg-blue-400 rounded-bl-3xl rounded-tl-3xl rounded-tr-xl text-white">
@@ -305,7 +305,7 @@ const Test = () => {
             <div class="flex flex-col">
               <div class="font-semibold text-xl py-4">
                 {user.firstName}
-                <p>{user._id}</p>
+                {/* <p>{user._id}</p> */}
               </div>
               <img
                 src={user.profilePic}
