@@ -36,6 +36,8 @@ const Test = () => {
   // select chat and display msgs
   const changeChatDynamic = (chat_id) => {
     setChatsMessage(chat_id);
+    console.log('line 41');
+    console.log(chatMessage);
     fetch('/api/chats/findchat', {
       method: 'post',
       body: JSON.stringify({
@@ -54,7 +56,7 @@ const Test = () => {
 
   // add msg to chat
   const handleSubmit = async (error) => {
-    console.log('What is in chatmessage: ', chatMessage);
+    // console.log('What is in chatmessage: ', chatMessage);
     error.preventDefault();
     const response = await fetch('/api/chats/addmessage', {
       method: 'post',
@@ -85,15 +87,15 @@ const Test = () => {
   }, [chat]);
 
   const handleChange = (event) => {
-    console.log("I'm the button");
-    console.log(event.target.value);
+    // console.log("I'm the button");
+    // console.log(event.target.value);
     setMessage(event.target.value);
   };
   return (
     <>
       <div class="container mx-auto shadow-lg rounded-lg">
         <div class="px-5 py-5 flex justify-between items-center bg-white border-b-2">
-          <div class="font-semibold text-2xl">GoingChat</div>
+          <div class="font-semibold text-2xl">FZ_Chat</div>
           <div class="w-1/2">
             <input
               type="text"
@@ -221,7 +223,7 @@ const Test = () => {
                 <div class="flex justify-end mb-4">
                   <div class="mr-2 py-3 px-4 bg-blue-400 rounded-bl-3xl rounded-tl-3xl rounded-tr-xl text-white">
                     <p>{message.message.text}</p>
-                    <p>{message.message.text}</p>
+                    {/* <p>{message.message.text}</p> */}
                     <p>{message.message.createdAt.slice(0, 24)}</p>
                   </div>
                   <img
@@ -303,11 +305,8 @@ const Test = () => {
                 class="object-cover rounded-xl h-64"
                 alt=""
               />
-              <div class="font-semibold py-4">Created 22 Sep 2021</div>
-              <div class="font-light">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Deserunt, perspiciatis!
-              </div>
+              <div class="font-semibold py-4"></div>
+              <div class="font-light"></div>
             </div>
           </div>
         </div>
